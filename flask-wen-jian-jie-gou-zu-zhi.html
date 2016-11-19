@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title> flask 文件结构组织</title>
+
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="description" content="Linux. Python. Coder. Gopher.">
+    <meta name="author" content="kosmgco">
+
+    <link href="/theme/css/fonts.css" rel="stylesheet" />
+
+    <link href="/theme/css/normalize.css" rel="stylesheet"/>
+    <link href="/theme/css/skeleton.css" rel="stylesheet"/>
+    <link href="/theme/css/github-prettify-theme.css" rel="stylesheet"/>
+    <link href="/theme/css/custom.css" rel="stylesheet"/>
+    <link href="/theme/css/pygement.css" rel="stylesheet"/>
+
+    <script src="/theme/js/jquery.min.js"></script>
+    <script src="/theme/js/run_prettify.js"></script>
+    <script src="/theme/js/site.js"></script>
+</head>
+<body class="code-snippets-visible">
+
+<div class="navbar-spacer"></div>
+<nav class="navbar">
+    <div class="container">
+        <ul class="navbar-list">
+            <li class="navbar-item">
+                <a class="navbar-link" href="/">
+                    HOME
+                </a>
+            </li>
+                <li class="navbar-item">
+                    <a class="navbar-link" href="/pages/wiki.html">
+                        wiki
+                    </a>
+                </li>
+                <li class="navbar-item">
+                    <a class="navbar-link" href="/pages/theme.html">
+                        theme
+                    </a>
+                </li>
+                <li class="navbar-item">
+                    <a class="navbar-link" href="/pages/about.html">
+                        about
+                    </a>
+                </li>
+                <li class="navbar-item">
+                    <a class="navbar-link" href="/pages/books.html">
+                        books
+                    </a>
+                </li>
+                <li class="navbar-item">
+                    <a class="navbar-link" href="/pages/blog.html">
+                        blog
+                    </a>
+                </li>
+        </ul>
+        <div class="navbar-link">
+            <a href="/"><img src="/theme/images/avatar.jpg" class="site-icon"/></a>
+        </div>
+    </div>
+</nav>
+<div class="container">
+    <section id="content">
+        <article>
+            <p class="article-date">
+                2015-12-24 20:20:36+08:00
+            </p>
+            <header class="header">
+                <a href="/flask-wen-jian-jie-gou-zu-zhi.html" rel="bookmark" title="Permalink to flask 文件结构组织">
+                    <h2 class="blogpost-title">
+                        flask 文件结构组织
+                    </h2>
+                </a>
+            </header>
+            <div>
+                <hr />
+<p>在前几篇文章中，我聊了一下<code>flask</code>的环境配置，但是在我了解这些之后，想到了一个问题，如果在做的不是一个测试项目，是一个中等规模的项目，那么我们不可能把所有的函数都写在<code>test.py</code>里面吧。于是在<code>github</code>，<code>oschina</code>上面翻了挺多的<code>flask</code>项目，但是这些项目要么比较大，要么又比较小。比较大的项目呢，代码太多，太繁杂，于是就不想看了。比较小的项目呢，是把所有的函数都写在启动脚本里面的。</p>
+<p>我无奈了，最后找了好多，现在我也忘了是在哪里找到一个同为初学者，跟我有同样疑问的同学问了这个问题，下面的回答中，有人回答到了<code>BluePrints</code>。</p>
+<!-- more -->
+
+<p>从<code>flask</code>的<a href="http://dormousehole.readthedocs.org/en/latest/">官方文档</a>中找到了这个<a href="http://dormousehole.readthedocs.org/en/latest/blueprints.html">使用蓝图的模块化应用</a>。</p>
+<p>在官方文档中有如下介绍:</p>
+<blockquote>
+<p>为了在一个或多个应用中，使应用模块化并且支持常用方案， Flask 引入了 蓝图 概念。蓝图可以极大地简化大型应用并为扩展提供集中的注册入口。 Blueprint 对象与 Flask 应用对象的工作方式类似，但不是一个真正 的应用。它更像一个用于构建和扩展应用的 蓝图 。</p>
+</blockquote>
+<p>那么现在就可以根据功能模块来对函数进行抽离了，这也符合软件开发八大原则之单一职责原则。</p>
+<p>今天的测试代码结构如下：</p>
+<div class="highlight"><pre><span></span>flask-test/
+├── app
+│   ├── templates
+│   │   └── test1.html
+│   │   └── test2.html
+│   ├── test1.py
+│   ├── test2.py
+├── conf
+│   └── glob.conf
+├── log
+│   ├── __init__.py
+│   ├── __init__.pyc
+│   ├── logger.py
+│   ├── logging_conf.py
+├── model
+│   ├── test1.py
+│   ├── test2.py
+│   ├── __init__.py
+├── service
+│   ├── test1_service.py
+│   ├── test2_service.py
+│   ├── __init__.py
+├── start.py
+└── utils
+    ├── __init__.py
+    └── util.py
+</pre></div>
+
+
+<ul>
+<li><code>/app</code>：业务逻辑代码</li>
+<li><code>/log</code>：日志处理代码</li>
+<li><code>/service</code>：处理数据库读写</li>
+<li><code>/utils</code>：工具类</li>
+</ul>
+<p>代码间相互关系：
+<code>app</code>下面放的是业务逻辑代码，处理请求，使用<code>service</code>来处理数据库读写，<code>model</code>为数据表结构，使用<code>utils</code>工具类对一些常用方法进行封装。相对于<code>MVC</code>中的文件结构来说：M层相当于这里的<code>model</code>，V层相当于这里的<code>template</code>，C层相当于<code>app</code>下面的<code>*.py</code>文件。</p>
+<p>还是上代码吧：</p>
+<h5>1. test1.py</h5>
+<div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">flask</span> <span class="kn">import</span> <span class="n">Blueprint</span>
+<span class="kn">from</span> <span class="nn">flask</span> <span class="kn">import</span> <span class="n">request</span>
+<span class="kn">from</span> <span class="nn">flask</span> <span class="kn">import</span> <span class="n">render_template</span>
+
+<span class="n">test1</span> <span class="o">=</span> <span class="n">Blueprint</span><span class="p">(</span><span class="s1">&#39;test1&#39;</span><span class="p">,</span><span class="n">__name__</span><span class="p">)</span>
+
+<span class="nd">@test1.route</span><span class="p">(</span><span class="s1">&#39;/test1&#39;</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">index</span><span class="p">():</span>
+    <span class="k">return</span> <span class="n">render_template</span><span class="p">(</span><span class="s1">&#39;test1.html&#39;</span><span class="p">,</span><span class="n">name</span><span class="o">=</span><span class="n">name</span><span class="p">)</span>
+</pre></div>
+
+
+<h5>2. test2.py</h5>
+<div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">flask</span> <span class="kn">import</span> <span class="n">Blueprint</span>
+<span class="kn">from</span> <span class="nn">flask</span> <span class="kn">import</span> <span class="n">request</span>
+<span class="kn">from</span> <span class="nn">flask</span> <span class="kn">import</span> <span class="n">render_template</span>
+
+<span class="n">test2</span> <span class="o">=</span> <span class="n">Blueprint</span><span class="p">(</span><span class="s1">&#39;test2&#39;</span><span class="p">,</span><span class="n">__name__</span><span class="p">)</span>
+
+<span class="nd">@test2.route</span><span class="p">(</span><span class="s1">&#39;/test2&#39;</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">index</span><span class="p">():</span>
+    <span class="k">return</span> <span class="n">render_template</span><span class="p">(</span><span class="s1">&#39;test2.html&#39;</span><span class="p">,</span><span class="n">name</span><span class="o">=</span><span class="n">name</span><span class="p">)</span>
+</pre></div>
+
+
+<h5>3. app/<strong>init</strong>.py</h5>
+<div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">flask</span> <span class="kn">import</span> <span class="n">Flask</span>
+<span class="kn">from</span> <span class="nn">app.test1</span> <span class="kn">import</span> <span class="n">test1</span>
+<span class="kn">from</span> <span class="nn">app.test2</span> <span class="kn">import</span> <span class="n">test2</span>
+
+<span class="n">app</span> <span class="o">=</span> <span class="n">Flask</span><span class="p">(</span><span class="n">__name__</span><span class="p">)</span>
+
+<span class="n">app</span><span class="o">.</span><span class="n">register_blueprint</span><span class="p">(</span><span class="n">test1</span><span class="p">)</span>
+<span class="n">app</span><span class="o">.</span><span class="n">register_blueprint</span><span class="p">(</span><span class="n">test2</span><span class="p">)</span>
+</pre></div>
+
+
+<h5>4.start.py</h5>
+<div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">app</span> <span class="kn">import</span> <span class="n">app</span>
+
+<span class="k">if</span> <span class="n">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
+    <span class="n">app</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">host</span><span class="o">=</span><span class="s1">&#39;0.0.0.0&#39;</span><span class="p">,</span><span class="n">port</span><span class="o">=</span><span class="mi">8081</span><span class="p">)</span>
+</pre></div>
+
+
+<p>运行之</p>
+<p>浏览器中输入网址:
+<code>http://127.0.0.1:8081/test1</code>，<code>http://127.0.0.1:8081/test2</code>就可以看到结果了。</p>
+            </div>
+            <div class="article-info">
+                <hr/>
+                <div class="article-info">
+                    <span><b>Category: </b><a href="/category/python.html">python</a></span>
+                    <br/>
+                    <span><b>Publication Date: </b> Thu 24 December 2015 </span>
+                    <br/>
+                        <a class="label-default" href="/tag/python.html">python</a>
+                        <a class="label-default" href="/tag/flask.html">flask</a>
+                        <a class="label-default" href="/tag/webkuang-jia.html">web框架</a>
+                        <a class="label-default" href="/tag/blueprints.html">Blueprints</a>
+                    <br/>
+                </div>
+            </div>
+        </article>
+    </section>
+        <br/><br/><br/><br/>
+</div>
+
+<footer class="footer">
+    &copy <a href="/" >kosmgco</a>. 2016
+    <br/>
+    Powered by <a href="http://getpelican.com/">pelican</a>.
+    Theme by <a href="http://github.com/liyuan-t/ops">ops</a>
+    <br/>
+</footer>
+<script>
+    var _hmt = _hmt || [];
+    (function() {
+        var hm = document.createElement("script");
+        hm.src = "https://hm.baidu.com/hm.js?67d2b3355046511d3ad9eef9c65d2a41";
+        var s = document.getElementsByTagName("script")[0]; 
+        s.parentNode.insertBefore(hm, s);
+    })();
+<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+var duoshuoQuery = {short_name:"liyuan-t"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+<!-- 多说公共JS代码 end -->
+</script>
+</body>
+</html>

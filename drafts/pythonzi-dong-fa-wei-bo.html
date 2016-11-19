@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title> python自动发微博</title>
+
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="description" content="Linux. Python. Coder. Gopher.">
+    <meta name="author" content="kosmgco">
+
+    <link href="/theme/css/fonts.css" rel="stylesheet" />
+
+    <link href="/theme/css/normalize.css" rel="stylesheet"/>
+    <link href="/theme/css/skeleton.css" rel="stylesheet"/>
+    <link href="/theme/css/github-prettify-theme.css" rel="stylesheet"/>
+    <link href="/theme/css/custom.css" rel="stylesheet"/>
+    <link href="/theme/css/pygement.css" rel="stylesheet"/>
+
+    <script src="/theme/js/jquery.min.js"></script>
+    <script src="/theme/js/run_prettify.js"></script>
+    <script src="/theme/js/site.js"></script>
+</head>
+<body class="code-snippets-visible">
+
+<div class="navbar-spacer"></div>
+<nav class="navbar">
+    <div class="container">
+        <ul class="navbar-list">
+            <li class="navbar-item">
+                <a class="navbar-link" href="/">
+                    HOME
+                </a>
+            </li>
+                <li class="navbar-item">
+                    <a class="navbar-link" href="/pages/wiki.html">
+                        wiki
+                    </a>
+                </li>
+                <li class="navbar-item">
+                    <a class="navbar-link" href="/pages/theme.html">
+                        theme
+                    </a>
+                </li>
+                <li class="navbar-item">
+                    <a class="navbar-link" href="/pages/about.html">
+                        about
+                    </a>
+                </li>
+                <li class="navbar-item">
+                    <a class="navbar-link" href="/pages/books.html">
+                        books
+                    </a>
+                </li>
+                <li class="navbar-item">
+                    <a class="navbar-link" href="/pages/blog.html">
+                        blog
+                    </a>
+                </li>
+        </ul>
+        <div class="navbar-link">
+            <a href="/"><img src="/theme/images/avatar.jpg" class="site-icon"/></a>
+        </div>
+    </div>
+</nav>
+<div class="container">
+    <section id="content">
+        <article>
+            <p class="article-date">
+                2016-07-10 00:00:00+08:00
+            </p>
+            <header class="header">
+                <a href="/drafts/pythonzi-dong-fa-wei-bo.html" rel="bookmark" title="Permalink to python自动发微博">
+                    <h2 class="blogpost-title">
+                        python自动发微博
+                    </h2>
+                </a>
+            </header>
+            <div>
+                <pre class="literal-block">
+#!/usr/bin/env python
+#-*-coding=utf-8-*-
+
+import base64
+import re
+import requests
+import urllib
+import binascii
+import random
+from bs4 import BeautifulSoup
+import rsa
+import time
+import traceback
+import json
+import md5
+import datetime
+import sys
+reload(sys)
+sys.setdefaultencoding('utf-8')
+
+req = requests.Session()
+headers = {
+    'Accept':'*/*',
+    'Accept-Encoding':'gzip, deflate, sdch',
+    'Accept-Language':'en-US,en;q=0.8',
+    'Cache-Control':'max-age=0',
+    'Connection':'keep-alive',
+    'Host':'weibo.com',
+    'Upgrade-Insecure-Requests':1,
+    'User-Agent':'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/46.0.2490.86 Safari/537.36'
+}
+req.headers['Referer'] = 'http://weibo.com'
+req.headers['User-Agent'] = 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/46.0.2490.86 Safari/537.36'
+
+def login_weibo(username,password):
+    try:
+        prelogin_url = 'http://login.sina.com.cn/sso/prelogin.php?entry=weibo&amp;callback=sinaSSOController.preloginCal' \
+                       'lBack&amp;su=%s&amp;rsakt=mod&amp;checkpin=1&amp;client=ssologin.js(v1.4.18)&amp;_=1447731207967' % username
+        pre_login_data = req.get(prelogin_url,allow_redirects=False).content
+        servertime = re.findall('&quot;servertime&quot;:(.*?),', pre_login_data)[0]
+        pubkey = re.findall('&quot;pubkey&quot;:&quot;(.*?)&quot;,', pre_login_data)[0]
+        rsakv = re.findall('&quot;rsakv&quot;:&quot;(.*?)&quot;,', pre_login_data)[0]
+        nonce = re.findall('&quot;nonce&quot;:&quot;(.*?)&quot;,', pre_login_data)[0]
+        su = base64.b64encode(bytes(urllib.quote(username)))
+        rsa_publickey = int(pubkey, 16)
+        key = rsa.PublicKey(rsa_publickey, 65537)
+        message = bytes(str(servertime) + '\t' + str(nonce) + '\n' + str(password))
+        sp = binascii.b2a_hex(rsa.encrypt(message, key))
+        param = {
+            'entry': 'weibo',
+            'gateway': 1,
+            'from': '',
+            'savestate': 7,
+            'useticket': 1,
+            'pagerefer': 'http://login.sina.com.cn/sso/logout.php?entry=miniblog&amp;r=http%3A%2F%2Fweibo.com%2Flogout.php%3Fbackurl%3D',
+            'vsnf': 1,
+            'su': su,
+            'service': 'miniblog',
+            'servertime': servertime,
+            'nonce': nonce,
+            'pwencode': 'rsa2',
+            'rsakv': rsakv,
+            'sp': sp,
+            'sr': '1680*1050',
+            'encoding': 'UTF-8',
+            'prelt': 441,
+            'url': 'http://weibo.com/ajaxlogin.php?framelogin=1&amp;callback=parent.sinaSSOController.feedBackUrlCallBack',
+            'returntype':'META'
+        }
+        data = urllib.urlencode(param).encode('utf-8')
+        req.headers['Content-Type'] = 'application/x-www-form-urlencoded'
+        res = req.post('http://login.sina.com.cn/sso/login.php?client=ssologin.js(v1.4.18)',data)
+        urll = re.findall(&quot;location.replace\([\'\&quot;](.*?)[\'\&quot;]\);&quot;, res.content)[0]
+        print urll
+        res = req.get(urll)
+        req.headers.update({'Referer':'http://login.sina.com.cn/sso/login.php?client=ssologin.js(v1.4.18)'})
+        req.get('http://weibo.com/ajaxlogin.php?framelogin=1&amp;callback=parent.sinaSSOController.feedBackUrlCallBack&amp;sudaref=weibo.com')
+        return True
+    except Exception,e:
+        traceback.print_exc()
+        return False
+
+
+def send_text(text):
+    url = 'http://weibo.com/aj/mblog/add?ajwvr=6&amp;__rnd=%s'%int(time.time()*1000)
+    print url
+    data = {
+        'location':'v6_content_home',
+        'appkey':'',
+        'style_type':'1',
+        'pic_id':'',
+        'text':text,
+        'pdetail':'',
+        'rank':'0',
+        'rankid':'',
+        'module':'stissue',
+        'pub_source':'main_',
+        'pub_type':'dialog',
+        '_t':'0'
+    }
+    data = urllib.urlencode(data).encode('utf-8')
+    req.headers['Content-Type'] = 'application/x-www-form-urlencoded'
+    req.headers['Referer'] = 'http://weibo.com/liyuantgg/home?wvr=5&amp;lf=reg'
+    res = req.post(url,data)
+#    print res.content
+    return
+
+def web_service():
+    rand = int(random.uniform(0,20))
+    url = 'http://lengxiaohua.com/random'
+    res = req.get(url)
+    soup = BeautifulSoup(res.content,'html5lib')
+    div = soup.find_all('div',{'class':'para_can'})
+    if div:
+        if div[rand].find('div',{'class':'joke_img_box clearfix'}) == None:
+
+            return_info = div[rand].find('pre',{'js':'joke_summary'}).get_text().encode('utf-8')
+            return return_info
+        else:
+            web_service()
+    else:
+            web_service()
+
+ if __name__ == '__main__':
+     if login_weibo('phone','password'):
+         text =web_service()
+         send_text(text)
+     else:
+         print 'login failed'
+</pre>
+
+            </div>
+            <div class="article-info">
+                <hr/>
+                <div class="article-info">
+                    <span><b>Category: </b><a href="/category/wiki.html">wiki</a></span>
+                    <br/>
+                    <span><b>Publication Date: </b> Sun 10 July 2016 </span>
+                    <br/>
+                        <a class="label-default" href="/tag/python.html">python</a>
+                        <a class="label-default" href="/tag/wei-bo.html">微博</a>
+                    <br/>
+                </div>
+            </div>
+        </article>
+    </section>
+        <br/><br/><br/><br/>
+</div>
+
+<footer class="footer">
+    &copy <a href="/" >kosmgco</a>. 2016
+    <br/>
+    Powered by <a href="http://getpelican.com/">pelican</a>.
+    Theme by <a href="http://github.com/liyuan-t/ops">ops</a>
+    <br/>
+</footer>
+<script>
+    var _hmt = _hmt || [];
+    (function() {
+        var hm = document.createElement("script");
+        hm.src = "https://hm.baidu.com/hm.js?67d2b3355046511d3ad9eef9c65d2a41";
+        var s = document.getElementsByTagName("script")[0]; 
+        s.parentNode.insertBefore(hm, s);
+    })();
+<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+var duoshuoQuery = {short_name:"liyuan-t"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+<!-- 多说公共JS代码 end -->
+</script>
+</body>
+</html>

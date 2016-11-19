@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title> 正方教务系统数据获取</title>
+
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="description" content="Linux. Python. Coder. Gopher.">
+    <meta name="author" content="kosmgco">
+
+    <link href="/theme/css/fonts.css" rel="stylesheet" />
+
+    <link href="/theme/css/normalize.css" rel="stylesheet"/>
+    <link href="/theme/css/skeleton.css" rel="stylesheet"/>
+    <link href="/theme/css/github-prettify-theme.css" rel="stylesheet"/>
+    <link href="/theme/css/custom.css" rel="stylesheet"/>
+    <link href="/theme/css/pygement.css" rel="stylesheet"/>
+
+    <script src="/theme/js/jquery.min.js"></script>
+    <script src="/theme/js/run_prettify.js"></script>
+    <script src="/theme/js/site.js"></script>
+</head>
+<body class="code-snippets-visible">
+
+<div class="navbar-spacer"></div>
+<nav class="navbar">
+    <div class="container">
+        <ul class="navbar-list">
+            <li class="navbar-item">
+                <a class="navbar-link" href="/">
+                    HOME
+                </a>
+            </li>
+                <li class="navbar-item">
+                    <a class="navbar-link" href="/pages/wiki.html">
+                        wiki
+                    </a>
+                </li>
+                <li class="navbar-item">
+                    <a class="navbar-link" href="/pages/theme.html">
+                        theme
+                    </a>
+                </li>
+                <li class="navbar-item">
+                    <a class="navbar-link" href="/pages/about.html">
+                        about
+                    </a>
+                </li>
+                <li class="navbar-item">
+                    <a class="navbar-link" href="/pages/books.html">
+                        books
+                    </a>
+                </li>
+                <li class="navbar-item">
+                    <a class="navbar-link" href="/pages/blog.html">
+                        blog
+                    </a>
+                </li>
+        </ul>
+        <div class="navbar-link">
+            <a href="/"><img src="/theme/images/avatar.jpg" class="site-icon"/></a>
+        </div>
+    </div>
+</nav>
+<div class="container">
+    <section id="content">
+        <article>
+            <p class="article-date">
+                2016-01-10 21:49:47+08:00
+            </p>
+            <header class="header">
+                <a href="/zheng-fang-jiao-wu-xi-tong-shu-ju-huo-qu.html" rel="bookmark" title="Permalink to 正方教务系统数据获取">
+                    <h2 class="blogpost-title">
+                        正方教务系统数据获取
+                    </h2>
+                </a>
+            </header>
+            <div>
+                <hr />
+<p>首先声明: <strong>我不能更改教务系统里面的成绩！！！也请别做一些有违道德的事情 </strong></p>
+<hr />
+<p>想了好久的事情，终于做出来了的感觉，真是无法言语。之前尝试过用<code>C#</code>做，但是做到一半被那个随机字符串拦住了，于是只能放弃。</p>
+<p>讲一下思路：
+通过数字化校园登陆后进入教务系统不需要再次登陆，而数字化校园登陆是不需要验证码的，所以本文不涉及验证码破解的问题。进入到教务系统之后，直接进入到<em>历年成绩</em>界面，遍历表格，获取数据。</p>
+<!-- more -->
+
+<p>那么其中唯一的难点就是地址后面的那串随机字符串:</p>
+<blockquote>
+<p>http://jwxt.edu.cn/(54pqhi45mhzulp45cwbugu55)/xs_main.aspx?xh=1234567890&amp;type=1</p>
+</blockquote>
+<p>就是<strong>(54pqhi45mhzulp45cwbugu55)</strong>了。那么怎么获取到这个字符串呢？cookie里面是没有的。而且我估计正方教务系统通过这个来判断登陆状态，可能是session之类的东西。</p>
+<p>在python中经常使用的网页抓取的第三方库<code>requests</code>支持自动302跳转，所以我们不管中间跳转了几次，我们只需要知道最后一次返回<code>response</code>的http头信息就行了。</p>
+<div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">requests</span>
+<span class="n">req</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">Session</span><span class="p">()</span>
+<span class="c1"># 登陆成功之后</span>
+<span class="n">res</span> <span class="o">=</span> <span class="n">req</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;http://i.xxxx.edu.cn/zfca?yhlx=student&amp;login=0122579031373493728&amp;url=xs_main.aspx&#39;</span><span class="p">)</span>
+<span class="k">print</span> <span class="n">res</span><span class="o">.</span><span class="n">url</span> <span class="c1"># 这里面就包含的就有那个随机字符串了</span>
+</pre></div>
+
+
+<p>对地址进行拆分获得随机字符串，然后在之后的每次请求的时候都带上这个随机字符串就行了。</p>
+            </div>
+            <div class="article-info">
+                <hr/>
+                <div class="article-info">
+                    <span><b>Category: </b><a href="/category/python.html">python</a></span>
+                    <br/>
+                    <span><b>Publication Date: </b> Sun 10 January 2016 </span>
+                    <br/>
+                        <a class="label-default" href="/tag/python.html">python</a>
+                        <a class="label-default" href="/tag/zheng-fang-jiao-wu-xi-tong.html">正方教务系统</a>
+                    <br/>
+                </div>
+            </div>
+        </article>
+    </section>
+        <br/><br/><br/><br/>
+</div>
+
+<footer class="footer">
+    &copy <a href="/" >kosmgco</a>. 2016
+    <br/>
+    Powered by <a href="http://getpelican.com/">pelican</a>.
+    Theme by <a href="http://github.com/liyuan-t/ops">ops</a>
+    <br/>
+</footer>
+<script>
+    var _hmt = _hmt || [];
+    (function() {
+        var hm = document.createElement("script");
+        hm.src = "https://hm.baidu.com/hm.js?67d2b3355046511d3ad9eef9c65d2a41";
+        var s = document.getElementsByTagName("script")[0]; 
+        s.parentNode.insertBefore(hm, s);
+    })();
+<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+var duoshuoQuery = {short_name:"liyuan-t"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+<!-- 多说公共JS代码 end -->
+</script>
+</body>
+</html>

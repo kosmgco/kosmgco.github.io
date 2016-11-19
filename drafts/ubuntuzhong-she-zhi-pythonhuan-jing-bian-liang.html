@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title> Ubuntu中设置python环境变量</title>
+
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="description" content="Linux. Python. Coder. Gopher.">
+    <meta name="author" content="kosmgco">
+
+    <link href="/theme/css/fonts.css" rel="stylesheet" />
+
+    <link href="/theme/css/normalize.css" rel="stylesheet"/>
+    <link href="/theme/css/skeleton.css" rel="stylesheet"/>
+    <link href="/theme/css/github-prettify-theme.css" rel="stylesheet"/>
+    <link href="/theme/css/custom.css" rel="stylesheet"/>
+    <link href="/theme/css/pygement.css" rel="stylesheet"/>
+
+    <script src="/theme/js/jquery.min.js"></script>
+    <script src="/theme/js/run_prettify.js"></script>
+    <script src="/theme/js/site.js"></script>
+</head>
+<body class="code-snippets-visible">
+
+<div class="navbar-spacer"></div>
+<nav class="navbar">
+    <div class="container">
+        <ul class="navbar-list">
+            <li class="navbar-item">
+                <a class="navbar-link" href="/">
+                    HOME
+                </a>
+            </li>
+                <li class="navbar-item">
+                    <a class="navbar-link" href="/pages/wiki.html">
+                        wiki
+                    </a>
+                </li>
+                <li class="navbar-item">
+                    <a class="navbar-link" href="/pages/theme.html">
+                        theme
+                    </a>
+                </li>
+                <li class="navbar-item">
+                    <a class="navbar-link" href="/pages/about.html">
+                        about
+                    </a>
+                </li>
+                <li class="navbar-item">
+                    <a class="navbar-link" href="/pages/books.html">
+                        books
+                    </a>
+                </li>
+                <li class="navbar-item">
+                    <a class="navbar-link" href="/pages/blog.html">
+                        blog
+                    </a>
+                </li>
+        </ul>
+        <div class="navbar-link">
+            <a href="/"><img src="/theme/images/avatar.jpg" class="site-icon"/></a>
+        </div>
+    </div>
+</nav>
+<div class="container">
+    <section id="content">
+        <article>
+            <p class="article-date">
+                2016-07-10 00:00:00+08:00
+            </p>
+            <header class="header">
+                <a href="/drafts/ubuntuzhong-she-zhi-pythonhuan-jing-bian-liang.html" rel="bookmark" title="Permalink to Ubuntu中设置python环境变量">
+                    <h2 class="blogpost-title">
+                        Ubuntu中设置python环境变量
+                    </h2>
+                </a>
+            </header>
+            <div>
+                <p>有时候在服务器中运行会出现找不到 <cite>module</cite> 的错误，最简单直接的方法就是在文件中添加以下两行代码就可以</p>
+<pre class="literal-block">
+import sys
+sys.path.append(path)
+</pre>
+<p>但是当文件太多，而且每个都需要添加的时候就有点麻烦了，直接添加系统环境变量是一个方法</p>
+<pre class="literal-block">
+sudo echo -e &quot;export PYTHONPATH=$PYTHONPATH:/usr/app/python/path/&quot; &gt;&gt; .bashrc
+source .bashrc
+</pre>
+<p>这样就能愉快的使用 <cite>/usr/app/python/path/</cite> 下面的模块了。</p>
+<p>如果只是单个用户使用这台服务器当然没什么问题了，但是当多人使用的时候，就可能把别人的环境搞坏。所以还是推荐使用 <cite>virtualenv</cite></p>
+<pre class="literal-block">
+virtualenv venv
+cd venv
+source bin/active
+</pre>
+
+            </div>
+            <div class="article-info">
+                <hr/>
+                <div class="article-info">
+                    <span><b>Category: </b><a href="/category/wiki.html">wiki</a></span>
+                    <br/>
+                    <span><b>Publication Date: </b> Sun 10 July 2016 </span>
+                    <br/>
+                        <a class="label-default" href="/tag/python.html">python</a>
+                        <a class="label-default" href="/tag/python-path.html">python-path</a>
+                    <br/>
+                </div>
+            </div>
+        </article>
+    </section>
+        <br/><br/><br/><br/>
+</div>
+
+<footer class="footer">
+    &copy <a href="/" >kosmgco</a>. 2016
+    <br/>
+    Powered by <a href="http://getpelican.com/">pelican</a>.
+    Theme by <a href="http://github.com/liyuan-t/ops">ops</a>
+    <br/>
+</footer>
+<script>
+    var _hmt = _hmt || [];
+    (function() {
+        var hm = document.createElement("script");
+        hm.src = "https://hm.baidu.com/hm.js?67d2b3355046511d3ad9eef9c65d2a41";
+        var s = document.getElementsByTagName("script")[0]; 
+        s.parentNode.insertBefore(hm, s);
+    })();
+<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+var duoshuoQuery = {short_name:"liyuan-t"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+<!-- 多说公共JS代码 end -->
+</script>
+</body>
+</html>

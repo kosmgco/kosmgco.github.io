@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title> 关于刷票</title>
+
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="description" content="Linux. Python. Coder. Gopher.">
+    <meta name="author" content="kosmgco">
+
+    <link href="/theme/css/fonts.css" rel="stylesheet" />
+
+    <link href="/theme/css/normalize.css" rel="stylesheet"/>
+    <link href="/theme/css/skeleton.css" rel="stylesheet"/>
+    <link href="/theme/css/github-prettify-theme.css" rel="stylesheet"/>
+    <link href="/theme/css/custom.css" rel="stylesheet"/>
+    <link href="/theme/css/pygement.css" rel="stylesheet"/>
+
+    <script src="/theme/js/jquery.min.js"></script>
+    <script src="/theme/js/run_prettify.js"></script>
+    <script src="/theme/js/site.js"></script>
+</head>
+<body class="code-snippets-visible">
+
+<div class="navbar-spacer"></div>
+<nav class="navbar">
+    <div class="container">
+        <ul class="navbar-list">
+            <li class="navbar-item">
+                <a class="navbar-link" href="/">
+                    HOME
+                </a>
+            </li>
+                <li class="navbar-item">
+                    <a class="navbar-link" href="/pages/wiki.html">
+                        wiki
+                    </a>
+                </li>
+                <li class="navbar-item">
+                    <a class="navbar-link" href="/pages/theme.html">
+                        theme
+                    </a>
+                </li>
+                <li class="navbar-item">
+                    <a class="navbar-link" href="/pages/about.html">
+                        about
+                    </a>
+                </li>
+                <li class="navbar-item">
+                    <a class="navbar-link" href="/pages/books.html">
+                        books
+                    </a>
+                </li>
+                <li class="navbar-item">
+                    <a class="navbar-link" href="/pages/blog.html">
+                        blog
+                    </a>
+                </li>
+        </ul>
+        <div class="navbar-link">
+            <a href="/"><img src="/theme/images/avatar.jpg" class="site-icon"/></a>
+        </div>
+    </div>
+</nav>
+<div class="container">
+    <section id="content">
+        <article>
+            <p class="article-date">
+                2015-12-20 23:03:38+08:00
+            </p>
+            <header class="header">
+                <a href="/guan-yu-shua-piao.html" rel="bookmark" title="Permalink to 关于刷票">
+                    <h2 class="blogpost-title">
+                        关于刷票
+                    </h2>
+                </a>
+            </header>
+            <div>
+                <hr />
+<h4>1.写在开头</h4>
+<p>其实很早就想做一个刷票的东西了，因为之前还不会写网络爬虫而且微信投票还没兴起的时候，有很多人找我投票（学校的活动比较多→_→）。没办法，只能通过浏览器清除cookie之后再投票，这是一件非常重复的事情，lowb只能做这么low的事情了。。。</p>
+<!-- more -->
+
+<h4>2.浏览器抓包</h4>
+<p>那么今天的网站呢是一个营销活动的网站：<strong>中国西部十大金融创新人物十佳金融创新企业</strong>http://www.zjxwcm.com/</p>
+<p>在主页面就能看到很多的投票的选择，随便选择一个吧，到写这篇文章时的最后一个：田爽</p>
+<p>投票是根据留言的多少来判断的，也就是说有多少留言就有多少票数，进入留言页面：<strong>候选人田爽</strong>http://www.zjxwcm.com/index.php?m=person&amp;o=main&amp;cid=1&amp;did=42。。。现在才3票，真可怜。。。
+<img alt="Alt text" src="http://liyuan-t.xyz/images/Screenshot.png" /></p>
+<p>在浏览器中，按下F12进入开发者模式，切换到<code>Network</code>的<code>tab</code>页：
+<img alt="Alt text" src="http://liyuan-t.xyz/images/Screenshot%20from%202015-12-20%2023:15:53.png" />
+现在什么都没有，那么我们现在来留一条言好了，留言完成会有一个<code>js</code>的<code>alert</code>出来，表示留言成功。那么点击留言按钮之后，浏览器究竟做了些什么呢？在网络页就能看到有两个请求：
+<img alt="Alt text" src="http://liyuan-t.xyz/images/Screenshot%20from%202015-12-20%2023:19:00.png" /></p>
+<p>点击第一个请求，查看<code>headers</code>和<code>response</code>：
+<img alt="Alt text" src="http://liyuan-t.xyz/images/Screenshot%20from%202015-12-20%2023:20:28.png" />
+发现在<code>Form Data</code>里面有我的留言信息，<code>response</code>是<code>o=o</code>，说明这个请求正是我们所需要的。而第二个请求是刷新验证码的，所以不用管。</p>
+<p>那么我们构建表单<code>dict</code>如下：</p>
+<div class="highlight"><pre><span></span><span class="n">data</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s1">&#39;m&#39;</span><span class="p">:</span><span class="s1">&#39;extend&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;o&#39;</span><span class="p">:</span><span class="s1">&#39;i&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;d&#39;</span><span class="p">:</span><span class="s1">&#39;message&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;typeid&#39;</span><span class="p">:</span><span class="s1">&#39;3&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;dataid&#39;</span><span class="p">:</span><span class="s1">&#39;42&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;name&#39;</span><span class="p">:</span><span class="s1">&#39;dddd&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;email&#39;</span><span class="p">:</span><span class="s1">&#39;aaaa@bb.com&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;content&#39;</span><span class="p">:</span><span class="s1">&#39;加油加油，支持支持&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;codes&#39;</span><span class="p">:</span><span class="s1">&#39;zstz&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;_&#39;</span><span class="p">:</span><span class="s1">&#39;&#39;</span>
+<span class="p">}</span>
+</pre></div>
+
+
+<p>好了，这就是要通过post方式传过去的参数了。</p>
+<h4>3.模拟人类</h4>
+<p>但是这个<code>data</code>里面有<code>name</code>，<code>content</code>，<code>email</code>不能固定，不然太容易让人知道是刷票了，而在首页上写了：</p>
+<blockquote>
+<p>杜绝刷票等行为。</p>
+</blockquote>
+<p>所以我们还是要伪装的像一点。233333333333......</p>
+<p>所以<code>name</code>字段我找了一个名字大全的网站，抓取了一些名字，做成一个<code>list</code>在这里就不详细写了，获取了<code>name</code>之后呢，还差<code>content</code>，傻傻的把之前的留言拷贝过来，做成一个<code>list</code>，将留言内容与名字随机组合：</p>
+<div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">random</span>
+<span class="n">name_list</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="n">content_list</span> <span class="o">=</span> <span class="p">[]</span>
+
+<span class="n">name</span> <span class="o">=</span> <span class="n">random</span><span class="o">.</span><span class="n">choice</span><span class="p">(</span><span class="n">name_list</span><span class="p">)</span>
+<span class="n">content</span> <span class="o">=</span> <span class="n">random</span><span class="o">.</span><span class="n">choice</span><span class="p">(</span><span class="n">content_list</span><span class="p">)</span>
+</pre></div>
+
+
+<p>好了，名字和内容都有了，还有个<code>email</code>，这个当然更方便了，从26个英文字母随机抽几个加上<code>@qq.com</code>就变成QQ邮箱了。</p>
+<p>恩。。快要完成了，还有一个参数：<code>codes</code>，这个就是验证码了。</p>
+<p>先让<code>codes=''</code>试试：</p>
+<p>带上参数，运行一次程序。返回<code>o=o</code>，这是什么意思。。。  当然是留言成功了！！</p>
+<p>哈哈哈，这个网站很傻瓜，没有验证验证码是否正确，只要传了验证码这个参数就能通过验证。这是一个幸运的事。如果不能绕过只能使用<code>ocr</code>对验证码进行简单识别，当然还有更高级的开源库了。好吧，既然没有，那我也省事了。</p>
+<p>优化一下代码结构，放到服务器上（自己电脑不可能一直开着让它跑吧），设置定时任务，每5分钟运行一次</p>
+<h4>4.进阶</h4>
+<p>由于服务器是固定ip地址，所以显示的全都是<code>来自某某地的网友XX对田爽说：。。。。</code></p>
+<p>这也是能轻易分辨出来是在刷票了，那么有什么好的办法让它显示来自不同地方的呢？</p>
+<p>最好的答案莫非是使用代理了。</p>
+<p><code>python</code>的<code>requests</code>包可以很方便的使用代理：</p>
+<div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">requests</span>
+<span class="n">requests</span><span class="o">.</span><span class="n">proxies</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;type&#39;</span><span class="p">:</span><span class="s1">&#39;address&#39;</span><span class="p">}</span>
+</pre></div>
+
+
+<p>可以自己建立一个代理库，方便自己调用，每次运行程序的时候，自动调用代理，就不会一直显示同一个地址了。</p>
+<p>至于代理的获取，可以从网上一些提供免费代理的网站上面爬下来，这里不再赘述。</p>
+<p>翻滚吧，名次君！</p>
+            </div>
+            <div class="article-info">
+                <hr/>
+                <div class="article-info">
+                    <span><b>Category: </b><a href="/category/python.html">python</a></span>
+                    <br/>
+                    <span><b>Publication Date: </b> Sun 20 December 2015 </span>
+                    <br/>
+                        <a class="label-default" href="/tag/python.html">python</a>
+                        <a class="label-default" href="/tag/tou-piao.html">投票</a>
+                    <br/>
+                </div>
+            </div>
+        </article>
+    </section>
+        <br/><br/><br/><br/>
+</div>
+
+<footer class="footer">
+    &copy <a href="/" >kosmgco</a>. 2016
+    <br/>
+    Powered by <a href="http://getpelican.com/">pelican</a>.
+    Theme by <a href="http://github.com/liyuan-t/ops">ops</a>
+    <br/>
+</footer>
+<script>
+    var _hmt = _hmt || [];
+    (function() {
+        var hm = document.createElement("script");
+        hm.src = "https://hm.baidu.com/hm.js?67d2b3355046511d3ad9eef9c65d2a41";
+        var s = document.getElementsByTagName("script")[0]; 
+        s.parentNode.insertBefore(hm, s);
+    })();
+<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+var duoshuoQuery = {short_name:"liyuan-t"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+<!-- 多说公共JS代码 end -->
+</script>
+</body>
+</html>
