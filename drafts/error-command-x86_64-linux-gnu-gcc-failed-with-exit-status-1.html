@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title> Ubnntu配置shadowsocks科学上网</title>
+    <title> error: command 'x86_64-linux-gnu-gcc' failed with exit status 1</title>
 
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta charset="utf-8">
@@ -69,82 +69,39 @@
     <section id="content">
         <article>
             <p class="article-date">
-                2016-07-10 00:00:00+08:00
+                2016-12-04 00:00:00+08:00
             </p>
             <header class="header">
-                <a href="/drafts/ubnntupei-zhi-shadowsockske-xue-shang-wang.html" rel="bookmark" title="Permalink to Ubnntu配置shadowsocks科学上网">
+                <a href="/drafts/error-command-x86_64-linux-gnu-gcc-failed-with-exit-status-1.html" rel="bookmark" title="Permalink to error: command 'x86_64-linux-gnu-gcc' failed with exit status 1">
                     <h2 class="blogpost-title">
-                        Ubnntu配置shadowsocks科学上网
+                        error: command 'x86_64-linux-gnu-gcc' failed with exit status 1
                     </h2>
                 </a>
             </header>
             <div>
-                <p><cite>server</cite></p>
-<pre class="literal-block">
-sudo apt-get install python-pip
-sudo pip install shadowsocks
-</pre>
-<p><cite>server:/etc/shadowsocks.json</cite></p>
-<pre class="literal-block">
-{
-    &quot;server&quot;:&quot;104.236.175.93&quot;,
-    &quot;local_address&quot;:&quot;127.0.0.1&quot;,
-    &quot;local_port&quot;:1080,
-    &quot;port_password&quot;:{
-                &quot;8388&quot;:&quot;password&quot;,
-                &quot;8389&quot;:&quot;password&quot;,
-                &quot;8390&quot;:&quot;password&quot;
-        },
-    &quot;timeout&quot;:300,
-    &quot;method&quot;:&quot;aes-256-cfb&quot;,
-    &quot;workers&quot;:1
-}
-</pre>
-<p><cite>run service</cite></p>
-<pre class="literal-block">
-ssserver -c /etc/shadowsocks.json -d start
-</pre>
-<p><cite>local</cite></p>
-<pre class="literal-block">
-sudo pip install shadowsocks
-</pre>
-<p><cite>local:/etc/shadowsocks.json</cite></p>
-<pre class="literal-block">
-{
-    &quot;server&quot;:&quot;104.236.175.93&quot;,
-    &quot;local_address&quot;:&quot;127.0.0.1&quot;,
-    &quot;local_port&quot;:1080,
-    &quot;port&quot;:8388,
-    &quot;password&quot;:&quot;password&quot;,
-    &quot;timeout&quot;:300,
-    &quot;method&quot;:&quot;aes-256-cfb&quot;,
-    &quot;workers&quot;:1
-}
-</pre>
-<p><cite>usage</cite></p>
-<pre class="literal-block">
-sslocal -c /etc/shadowsocks.json
-</pre>
-<div class="section" id="ssh">
-<h2>ssh 长连接</h2>
-<p><cite>localhost:/etc/ssh/sshd_config</cite></p>
-<pre class="literal-block">
-TCPKeepAlive yes
-ClientAliveCountMax 360
-ServerAliveInterval 300
-</pre>
-</div>
+                <p>起因:</p>
+<div class="highlight"><pre><span></span>sudo pip install psycopg2
+</pre></div>
 
+
+<p>err info:</p>
+<div class="highlight"><pre><span></span><span class="n">error</span><span class="o">:</span> <span class="n">command</span> <span class="s1">&#39;x86_64-linux-gnu-gcc&#39;</span> <span class="n">failed</span> <span class="k">with</span> <span class="n">exit</span> <span class="n">status</span> <span class="mi">1</span>
+</pre></div>
+
+
+<p>solution:</p>
+<div class="highlight"><pre><span></span>sudo apt-get install python-dev
+</pre></div>
             </div>
             <div class="article-info">
                 <hr/>
                 <div class="article-info">
                     <span><b>Category: </b><a href="/category/wiki.html">wiki</a></span>
                     <br/>
-                    <span><b>Publication Date: </b> Sun 10 July 2016 </span>
+                    <span><b>Publication Date: </b> Sun 04 December 2016 </span>
                     <br/>
-                        <a class="label-default" href="/tag/ubuntu.html">Ubuntu</a>
-                        <a class="label-default" href="/tag/shadowsocks.html">Shadowsocks</a>
+                        <a class="label-default" href="/tag/ubuntu.html">ubuntu</a>
+                        <a class="label-default" href="/tag/gcc.html">gcc</a>
                     <br/>
                 </div>
             </div>
