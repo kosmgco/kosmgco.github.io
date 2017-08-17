@@ -1,0 +1,479 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>使用Python-Flask搭建轻博客 | Kosmgco</title>
+
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta charset="utf-8">
+    <meta name="category" value="python">
+    <meta name="reader" value="markdown">
+    <meta name="date" value="2016-07-19 00:00:00">
+    <meta name="title" value="使用Python-Flask搭建轻博客">
+    <meta name="tags" value="flask,博客">
+    <meta name="summary" value="使用Python的Flask框架构建一个轻博客，尽量使用restful风格的路由，结合七牛云，上传图片">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta property="wb:webmaster" content="ba29596b8c7c7ae7" /> 
+
+    <meta name="description" content="Linux. Python. Coder. Gopher.">
+    <meta name="author" content="kosmgco">
+
+    <link href="/theme/css/fonts.css" rel="stylesheet" />
+
+    <link href="/theme/css/normalize.css" rel="stylesheet"/>
+    <link href="/theme/css/skeleton.css" rel="stylesheet"/>
+    <link href="/theme/css/github-prettify-theme.css" rel="stylesheet"/>
+    <link href="/theme/css/custom.css" rel="stylesheet"/>
+    <link href="/theme/css/pygments.css" rel="stylesheet"/>
+
+    <script src="/theme/js/jquery.min.js"></script>
+    <script src="/theme/js/run_prettify.js"></script>
+    <script src="/theme/js/site.js"></script>
+</head>
+<body class="code-snippets-visible">
+
+<div class="navbar-spacer"></div>
+<nav class="navbar">
+    <div class="container">
+        <ul class="navbar-list">
+            <li class="navbar-item">
+                <a class="navbar-link" href="/">
+                    HOME
+                </a>
+            </li>
+                <li class="navbar-item">
+                    <a class="navbar-link" href="/pages/theme.html">
+                        theme
+                    </a>
+                </li>
+                <li class="navbar-item">
+                    <a class="navbar-link" href="/pages/about.html">
+                        about
+                    </a>
+                </li>
+                <li class="navbar-item">
+                    <a class="navbar-link" href="/pages/blog.html">
+                        blog
+                    </a>
+                </li>
+                <li class="navbar-item">
+                    <a class="navbar-link" href="/pages/books.html">
+                        books
+                    </a>
+                </li>
+                <li class="navbar-item">
+                    <a class="navbar-link" href="/pages/wiki.html">
+                        wiki
+                    </a>
+                </li>
+        </ul>
+        <div class="navbar-link">
+            <a href="/"><img src="/theme/images/header.jpg" class="site-icon"/></a>
+        </div>
+    </div>
+</nav>
+<div class="container">
+    <section id="content">
+        <article>
+            <p class="article-date">
+                全文总字数: 4371
+            </p>
+            <header class="article-header">
+                <a href="/shi-yong-python-flaskda-jian-qing-bo-ke.html" rel="bookmark" title="Permalink to 使用Python-Flask搭建轻博客">
+                    <h3 class="blogpost-title">
+                        使用Python-Flask搭建轻博客
+                    </h3>
+                </a>
+            </header>
+            <div>
+                <h4>目标</h4>
+<p>使用Python的Flask框架构建一个轻博客，功能包括:
+- 登录，写博客，查看博文详情。
+- 支持富文本编辑器，图片上传到七牛云
+- 已发表的博文可以再次编辑
+- 尽量使用restful风格的路由
+- 尽量精简代码</p>
+<h4>环境</h4>
+<p>开发环境:
+- 操作系统: Ubuntu 14.04 LTS
+- 开发工具: Pycharm 2016.1</p>
+<p>部署环境:
+- 操作系统: Ubuntu 14.04
+- 服务器: nginx 1.9.2</p>
+<p>数据库: MongoDB 3.2.6</p>
+<h4>1.文件结构</h4>
+<div class="highlight"><pre><span></span># tree
+
+blog
+├── avatar.jpg
+├── blog.py
+├── static
+│   ├── bootstrap.min.css
+│   ├── bootstrap.min.js
+│   ├── font
+│   │   ├── glyphicons-halflings-regular.eot
+│   │   ├── glyphicons-halflings-regular.svg
+│   │   ├── glyphicons-halflings-regular.ttf
+│   │   ├── glyphicons-halflings-regular.woff
+│   │   ├── glyphicons-halflings-regular.woff2
+│   │   ├── summernote.eot
+│   │   ├── summernote.ttf
+│   │   └── summernote.woff
+│   ├── jquery.min.js
+│   ├── summernote.css
+│   └── summernote.min.js
+└── templates
+    ├── detail.html
+    ├── layout.html
+    ├── list.html
+    └── write.html
+
+3 directories, 19 files
+</pre></div>
+
+
+<p><code>avatar.jpg</code>: 网站图标
+<code>blog.py</code>: flask运行文件
+<code>static/</code>: 静态资源文件
+<code>templates/</code>: html文件</p>
+<h4>2.定义字段</h4>
+<div class="highlight"><pre><span></span><span class="kr">class</span> <span class="nx">Article</span><span class="p">(</span><span class="nx">object</span><span class="p">)</span><span class="o">:</span>
+    <span class="nx">def</span> <span class="nx">__init__</span><span class="p">(</span><span class="nx">self</span><span class="p">)</span><span class="o">:</span>
+        <span class="nx">self</span><span class="p">.</span><span class="nx">id</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span>
+        <span class="nx">self</span><span class="p">.</span><span class="nx">source</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span>
+        <span class="nx">self</span><span class="p">.</span><span class="nx">title</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span>
+        <span class="nx">self</span><span class="p">.</span><span class="nx">createTime</span> <span class="o">=</span> <span class="nx">datetime</span><span class="p">.</span><span class="nx">datetime</span><span class="p">.</span><span class="nx">now</span><span class="p">()</span>
+
+    <span class="nx">def</span> <span class="nx">todict</span><span class="p">(</span><span class="nx">self</span><span class="p">)</span><span class="o">:</span>
+        <span class="k">return</span> <span class="nx">self</span><span class="p">.</span><span class="nx">__dict__</span>
+</pre></div>
+
+
+<p><code>id</code>: 博文编号
+<code>source</code>: 博文源代码
+<code>title</code>: 博文标题
+<code>createTime</code>: 博文创建时间</p>
+<h4>3.首页</h4>
+<p>首页默认显示所有文章</p>
+<div class="highlight"><pre><span></span>@app.route(&#39;/&#39;)
+def index():
+    arr = []
+    for item in col.find():
+        upitem = {}
+        for key, value in item.items():
+            if key == &#39;_id&#39;:
+                continue
+            upitem.update({key: value})
+        arr.append(upitem)
+    return render_template(&#39;list.html&#39;, data=arr)
+</pre></div>
+
+
+<p>定义一个模板页，所有页面均继承自这个页面:
+<code>layout.html</code></p>
+<div class="highlight"><pre><span></span><span class="cp">&lt;!DOCTYPE html&gt;</span>
+<span class="p">&lt;</span><span class="nt">html</span> <span class="na">lang</span><span class="o">=</span><span class="s">&quot;en&quot;</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">head</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">meta</span> <span class="na">charset</span><span class="o">=</span><span class="s">&quot;UTF-8&quot;</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">title</span><span class="p">&gt;</span>初生的码农<span class="p">&lt;/</span><span class="nt">title</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">link</span> <span class="na">rel</span><span class="o">=</span><span class="s">&quot;stylesheet&quot;</span> <span class="na">href</span><span class="o">=</span><span class="s">&quot;</span><span class="cp">{{</span> <span class="nv">url_for</span><span class="o">(</span><span class="s1">&#39;static&#39;</span><span class="o">,</span><span class="nv">filename</span><span class="o">=</span><span class="s1">&#39;bootstrap.min.css&#39;</span><span class="o">)</span> <span class="cp">}}</span><span class="s">&quot;</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">style</span><span class="p">&gt;</span>
+        <span class="p">.</span><span class="nc">content</span><span class="p">{</span>
+            <span class="k">width</span><span class="p">:</span><span class="mi">1000</span><span class="kt">px</span><span class="p">;</span>
+            <span class="k">margin</span><span class="p">:</span> <span class="kc">auto</span><span class="p">;</span>
+        <span class="p">}</span>
+        <span class="p">.</span><span class="nc">container</span><span class="p">{</span>
+            <span class="k">width</span><span class="p">:</span> <span class="mi">1000</span><span class="kt">px</span><span class="p">;</span>
+            <span class="k">margin</span><span class="p">:</span> <span class="mi">0</span> <span class="kc">auto</span><span class="p">;</span>
+            <span class="k">text-align</span><span class="p">:</span> <span class="kc">center</span><span class="p">;</span>
+        <span class="p">}</span>
+        <span class="nt">a</span><span class="p">{</span>
+            <span class="k">text-decoration</span><span class="p">:</span> <span class="kc">none</span><span class="p">;</span>
+            <span class="k">font-size</span><span class="p">:</span><span class="mi">20</span><span class="kt">px</span><span class="p">;</span>
+            <span class="k">margin-top</span><span class="p">:</span> <span class="mi">50</span><span class="kt">px</span><span class="p">;</span>
+        <span class="p">}</span>
+        <span class="nt">a</span><span class="p">:</span><span class="nd">click</span><span class="p">{</span>
+            <span class="k">color</span><span class="p">:</span> <span class="mh">#red</span><span class="p">;</span>
+        <span class="p">}</span>
+    <span class="p">&lt;/</span><span class="nt">style</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">head</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">body</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;content&quot;</span><span class="p">&gt;</span>
+        <span class="cp">{%</span> <span class="k">block</span> <span class="nv">content</span> <span class="cp">%}</span>
+        <span class="cp">{%</span> <span class="k">endblock</span> <span class="cp">%}</span>
+    <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;container&quot;</span><span class="p">&gt;</span>
+        <span class="cp">{%</span> <span class="k">block</span> <span class="nv">container</span> <span class="cp">%}</span>
+        <span class="cp">{%</span> <span class="k">endblock</span> <span class="cp">%}</span>
+    <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">body</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">html</span><span class="p">&gt;</span>
+</pre></div>
+
+
+<p><code>list.html</code></p>
+<div class="highlight"><pre><span></span><span class="cp">{%</span> <span class="k">extends</span> <span class="s1">&#39;layout.html&#39;</span> <span class="cp">%}</span>
+
+<span class="nt">&lt;style&gt;</span>
+    .content {
+        margin-top: 200px;
+    }
+<span class="nt">&lt;/style&gt;</span>
+
+<span class="cp">{%</span> <span class="k">block</span> <span class="nv">content</span> <span class="cp">%}</span>
+    <span class="nt">&lt;fieldset</span> <span class="na">class=</span><span class="s">&quot;text-left&quot;</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;legend</span> <span class="na">class=</span><span class="s">&quot;text-center&quot;</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;h1&gt;&lt;a</span> <span class="na">href=</span><span class="s">&quot;/&quot;</span><span class="nt">&gt;</span>初生的码农<span class="nt">&lt;/a&gt;&lt;/h1&gt;</span>
+        <span class="nt">&lt;/legend&gt;</span>
+        <span class="cp">{%</span> <span class="k">if</span> <span class="nv">data</span><span class="o">:</span> <span class="cp">%}</span>
+            <span class="cp">{%</span> <span class="k">for</span> <span class="nv">item</span> <span class="k">in</span> <span class="nv">data</span><span class="o">:</span> <span class="cp">%}</span>
+                <span class="nt">&lt;h4&gt;</span>
+                    <span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">&quot;/</span><span class="cp">{{</span> <span class="nv">item.get</span><span class="o">(</span><span class="s1">&#39;id&#39;</span><span class="o">,</span><span class="s1">&#39;&#39;</span><span class="o">)</span> <span class="cp">}}</span><span class="s">&quot;</span><span class="nt">&gt;</span><span class="cp">{{</span> <span class="nv">item.get</span><span class="o">(</span><span class="s1">&#39;title&#39;</span><span class="o">,</span><span class="s1">&#39;&#39;</span><span class="o">)</span> <span class="cp">}}</span>
+                        / <span class="cp">{{</span> <span class="nv">item.get</span><span class="o">(</span><span class="s1">&#39;createTime&#39;</span><span class="o">,</span><span class="s1">&#39;&#39;</span><span class="o">)</span><span class="nv">.strftime</span><span class="o">(</span><span class="s1">&#39;%Y-%m-%d&#39;</span><span class="o">)</span> <span class="cp">}}</span><span class="nt">&lt;/a&gt;</span>
+                <span class="nt">&lt;/h4&gt;</span>
+            <span class="cp">{%</span> <span class="k">endfor</span> <span class="cp">%}</span>
+        <span class="cp">{%</span> <span class="k">endif</span> <span class="cp">%}</span>
+    <span class="nt">&lt;/fieldset&gt;</span>
+<span class="cp">{%</span> <span class="k">endblock</span> <span class="cp">%}</span>
+</pre></div>
+
+
+<p>实现效果如图:</p>
+<p><img alt="首页" src="http://7xv8p6.com1.z0.glb.clouddn.com/75db087b386d40c4692cdbacae6a680c.png"></p>
+<h4>4.写博文</h4>
+<div class="highlight"><pre><span></span>@app.route(&#39;/write&#39;, methods=[&#39;GET&#39;, &#39;POST&#39;])
+def _write():
+    if not session.get(&#39;loged&#39;, &#39;&#39;):
+        return redirect(&#39;/&#39;)
+    if request.method == &#39;GET&#39;:
+        return render_template(&#39;write.html&#39;)
+    else:
+        password = request.form[&#39;password&#39;]
+        if re.subn(r&#39;\s+&#39;, &#39;&#39;, password) != &#39;&#39; and password == &#39;password&#39;:
+            session[&#39;loged&#39;] = True
+            article = request.form[&#39;source&#39;]
+            title = request.form[&#39;title&#39;]
+            a = Article()
+            a.id = hashlib.md5(title + &#39;%s&#39; % article).hexdigest()
+            a.title = title
+            a.source = article
+            data = a.todict()
+            col.update_one({&#39;id&#39;: data.get(&#39;id&#39;, &#39;&#39;)}, {&#39;$set&#39;: data}, upsert=True)
+            return redirect(&#39;/&#39;)
+        else:
+            return redirect(&#39;/&#39;, code=401)
+</pre></div>
+
+
+<p><code>write.html</code>:</p>
+<div class="highlight"><pre><span></span><span class="cp">{%</span> <span class="k">extends</span> <span class="s1">&#39;layout.html&#39;</span> <span class="cp">%}</span>
+<span class="cp">{%</span> <span class="k">block</span> <span class="nv">container</span> <span class="cp">%}</span>
+    <span class="nt">&lt;link</span> <span class="na">rel=</span><span class="s">&quot;stylesheet&quot;</span> <span class="na">href=</span><span class="s">&quot;</span><span class="cp">{{</span> <span class="nv">url_for</span><span class="o">(</span><span class="s1">&#39;static&#39;</span><span class="o">,</span><span class="nv">filename</span><span class="o">=</span><span class="s2">&quot;summernote.css&quot;</span><span class="o">)</span> <span class="cp">}}</span><span class="s">&quot;</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;style&gt;</span>
+        body &gt; div.container &gt; fieldset &gt; form &gt; div {
+            text-align: left;
+        }
+    <span class="nt">&lt;/style&gt;</span>
+    <span class="nt">&lt;fieldset&gt;</span>
+        <span class="nt">&lt;legend&gt;</span>
+            <span class="cp">{{</span> <span class="s1">&#39;修改&#39;</span> <span class="k">if</span> <span class="nv">data</span> <span class="k">else</span> <span class="s1">&#39;发表&#39;</span> <span class="cp">}}</span>文章
+        <span class="nt">&lt;/legend&gt;</span>
+        <span class="nt">&lt;form</span> <span class="na">action=</span><span class="s">&quot;</span><span class="cp">{{</span> <span class="s1">&#39;/edit/&#39;</span><span class="o">+</span><span class="nv">data.get</span><span class="o">(</span><span class="s1">&#39;id&#39;</span><span class="o">,</span><span class="s1">&#39;&#39;</span><span class="o">)</span> <span class="k">if</span> <span class="nv">data</span> <span class="k">else</span> <span class="s1">&#39;/write&#39;</span> <span class="cp">}}</span><span class="s">&quot;</span> <span class="na">method=</span><span class="s">&quot;post&quot;</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">&quot;text&quot;</span> <span class="na">name=</span><span class="s">&quot;title&quot;</span> <span class="na">placeholder=</span><span class="s">&quot;标题&quot;</span> <span class="na">value=</span><span class="s">&quot;</span><span class="cp">{{</span> <span class="nv">data.get</span><span class="o">(</span><span class="s1">&#39;title&#39;</span><span class="o">)</span> <span class="k">if</span> <span class="nv">data</span> <span class="k">else</span> <span class="s1">&#39;&#39;</span> <span class="cp">}}</span><span class="s">&quot;</span>
+                   <span class="na">class=</span><span class="s">&quot;form-control&quot;</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;br&gt;</span>
+            <span class="nt">&lt;textarea</span> <span class="na">name=</span><span class="s">&quot;source&quot;</span> <span class="na">class=</span><span class="s">&quot;form-control&quot;</span> <span class="na">rows=</span><span class="s">&quot;20&quot;</span><span class="nt">&gt;</span>
+                <span class="cp">{{</span> <span class="nv">data.get</span><span class="o">(</span><span class="s1">&#39;source&#39;</span><span class="o">,</span><span class="s1">&#39;&#39;</span><span class="o">)</span> <span class="k">if</span> <span class="nv">data</span> <span class="k">else</span> <span class="s1">&#39;&#39;</span> <span class="cp">}}</span>
+            <span class="nt">&lt;/textarea&gt;</span>
+            <span class="nt">&lt;br&gt;</span>
+            <span class="nt">&lt;input</span> <span class="na">name=</span><span class="s">&quot;password&quot;</span> <span class="na">placeholder=</span><span class="s">&quot;password&quot;</span> <span class="na">class=</span><span class="s">&quot;form-control&quot;</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;br&gt;</span>
+            <span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">&quot;submit&quot;</span> <span class="na">class=</span><span class="s">&quot;btn btn-default btn-block&quot;</span> <span class="na">value=</span><span class="s">&quot;提交&quot;</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;/form&gt;</span>
+    <span class="nt">&lt;/fieldset&gt;</span>
+    <span class="nt">&lt;script</span> <span class="na">src=</span><span class="s">&quot;</span><span class="cp">{{</span> <span class="nv">url_for</span><span class="o">(</span><span class="s1">&#39;static&#39;</span><span class="o">,</span><span class="nv">filename</span><span class="o">=</span><span class="s2">&quot;jquery.min.js&quot;</span><span class="o">)</span> <span class="cp">}}</span><span class="s">&quot;</span><span class="nt">&gt;&lt;/script&gt;</span>
+    <span class="nt">&lt;script</span> <span class="na">src=</span><span class="s">&quot;</span><span class="cp">{{</span> <span class="nv">url_for</span><span class="o">(</span><span class="s1">&#39;static&#39;</span><span class="o">,</span><span class="nv">filename</span><span class="o">=</span><span class="s2">&quot;bootstrap.min.js&quot;</span><span class="o">)</span> <span class="cp">}}</span><span class="s">&quot;</span><span class="nt">&gt;&lt;/script&gt;</span>
+    <span class="nt">&lt;script</span> <span class="na">src=</span><span class="s">&quot;</span><span class="cp">{{</span> <span class="nv">url_for</span><span class="o">(</span><span class="s1">&#39;static&#39;</span><span class="o">,</span><span class="nv">filename</span><span class="o">=</span><span class="s2">&quot;summernote.min.js&quot;</span><span class="o">)</span> <span class="cp">}}</span><span class="s">&quot;</span><span class="nt">&gt;&lt;/script&gt;</span>
+    <span class="nt">&lt;script&gt;</span>
+        $(&#39;textarea&#39;).summernote({
+            height: 300,
+            minHeight: null,
+            maxHeight: null,
+            focus: true,
+            callbacks: {
+                onImageUpload: function (files, editor, welEditable) {
+                    sendFile(files[0],$(this));
+                }
+            }
+        });
+
+        function sendFile(file, el) {
+            data = new FormData();
+            data.append(&quot;image&quot;, file)
+            $.ajax({
+                data: data,
+                type: &#39;POST&#39;,
+                url: &#39;/upload&#39;,
+                cache: false,
+                contentType: false,
+                processData: false,
+                success: function (json) {
+                    nodeName = document.createElement(&#39;img&#39;)
+                    nodeName.setAttribute(&#39;src&#39;,&#39;http://7xv8p6.com1.z0.glb.clouddn.com/&#39; + json)
+                    el.summernote(&#39;insertNode&#39;, nodeName)
+                }
+            });
+        }
+    <span class="nt">&lt;/script&gt;</span>
+<span class="cp">{%</span> <span class="k">endblock</span> <span class="cp">%}</span>
+</pre></div>
+
+
+<p>这里使用了<code>summernote</code>的富文本编辑器<code>JQuery</code>插件，方便好用。在这里<code>summernote</code>上传图片是将图片转换成base64格式的图片，所以得到的博文源代码就很长，不太好看，所以重写了图片上传的方法<code>onImageUpload</code>，后端再传到七牛云，然后返回文件名。是这样的:</p>
+<div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">qiniu</span> <span class="kn">import</span> <span class="n">Auth</span><span class="p">,</span> <span class="n">put_data</span>
+<span class="n">ak</span> <span class="o">=</span> <span class="s1">&#39;Your qiniu Access Key&#39;</span>
+<span class="n">sk</span> <span class="o">=</span> <span class="s1">&#39;Your qiniu Secrect Key&#39;</span>
+<span class="n">auth</span> <span class="o">=</span> <span class="n">Auth</span><span class="p">(</span><span class="n">ak</span><span class="p">,</span> <span class="n">sk</span><span class="p">)</span>
+<span class="n">bucket_name</span> <span class="o">=</span> <span class="s1">&#39;blog&#39;</span>
+<span class="nd">@app.route</span><span class="p">(</span><span class="s1">&#39;/upload&#39;</span><span class="p">,</span> <span class="n">methods</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;POST&#39;</span><span class="p">])</span>
+<span class="k">def</span> <span class="nf">upload_img</span><span class="p">():</span>
+    <span class="k">if</span> <span class="n">request</span><span class="o">.</span><span class="n">files</span> <span class="ow">and</span> <span class="n">request</span><span class="o">.</span><span class="n">files</span><span class="p">[</span><span class="s1">&#39;image&#39;</span><span class="p">]:</span>
+        <span class="n">key</span> <span class="o">=</span> <span class="n">md5</span><span class="p">(</span><span class="n">request</span><span class="o">.</span><span class="n">files</span><span class="p">[</span><span class="s1">&#39;image&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">filename</span> <span class="o">+</span> <span class="s1">&#39;</span><span class="si">%s</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="n">datetime</span><span class="o">.</span><span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">())</span><span class="o">.</span><span class="n">hexdigest</span><span class="p">()</span> <span class="o">+</span> \
+              <span class="s1">&#39;.&#39;</span> <span class="o">+</span> <span class="n">request</span><span class="o">.</span><span class="n">files</span><span class="p">[</span><span class="s1">&#39;image&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">filename</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;.&#39;</span><span class="p">)[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+        <span class="n">token</span> <span class="o">=</span> <span class="n">auth</span><span class="o">.</span><span class="n">upload_token</span><span class="p">(</span><span class="n">bucket_name</span><span class="p">,</span> <span class="n">key</span><span class="p">,</span> <span class="mi">3600</span><span class="p">)</span>
+        <span class="n">ret</span><span class="p">,</span> <span class="n">info</span> <span class="o">=</span> <span class="n">put_data</span><span class="p">(</span><span class="n">token</span><span class="p">,</span> <span class="n">key</span><span class="p">,</span> <span class="n">request</span><span class="o">.</span><span class="n">files</span><span class="p">[</span><span class="s1">&#39;image&#39;</span><span class="p">])</span>
+        <span class="k">return</span> <span class="n">key</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">abort</span><span class="p">(</span><span class="mi">401</span><span class="p">)</span>
+</pre></div>
+
+
+<p>实现效果如图:</p>
+<p><img alt="修改文章" src="http://7xv8p6.com1.z0.glb.clouddn.com/cb57c5515802b0c1bcd75fb3134370a5.png"></p>
+<p><code>password</code>的作用是为了防止未知人物乱发。</p>
+<h4>5.查看博文详情</h4>
+<div class="highlight"><pre><span></span>@app.route(&#39;/&lt;id&gt;&#39;, methods=[&#39;GET&#39;])
+def _id(id):
+    result = col.find_one({&#39;id&#39;: id})
+    data = {}
+    data.update({&#39;title&#39;: result.get(&#39;title&#39;, &#39;&#39;)})
+    data.update({&#39;source&#39;: result.get(&#39;source&#39;, &#39;&#39;)})
+    data.update({&#39;id&#39;: result.get(&#39;id&#39;, &#39;&#39;)})
+    return render_template(&#39;detail.html&#39;, data=data)
+</pre></div>
+
+
+<p><code>detail.html</code>:</p>
+<div class="highlight"><pre><span></span><span class="cp">{%</span> <span class="k">extends</span> <span class="s1">&#39;layout.html&#39;</span> <span class="cp">%}</span>
+
+<span class="cp">{%</span> <span class="k">block</span> <span class="nv">content</span> <span class="cp">%}</span>
+    <span class="nt">&lt;fieldset&gt;</span>
+        <span class="nt">&lt;legend</span> <span class="na">style=</span><span class="s">&quot;text-align: center;&quot;</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;h1&gt;&lt;a</span> <span class="na">href=</span><span class="s">&quot;/</span><span class="cp">{{</span> <span class="nv">data.get</span><span class="o">(</span><span class="s1">&#39;id&#39;</span><span class="o">,</span><span class="s1">&#39;&#39;</span><span class="o">)</span> <span class="cp">}}</span><span class="s">&quot;</span><span class="nt">&gt;</span><span class="cp">{{</span> <span class="nv">data.get</span><span class="o">(</span><span class="s1">&#39;title&#39;</span><span class="o">,</span><span class="s1">&#39;&#39;</span><span class="o">)</span> <span class="cp">}}</span><span class="nt">&lt;/a&gt;&lt;/h1&gt;</span>
+        <span class="nt">&lt;/legend&gt;</span>
+        <span class="cp">{%</span> <span class="k">if</span> <span class="nv">data</span><span class="o">:</span> <span class="cp">%}</span>
+            <span class="cp">{{</span> <span class="nv">data.get</span><span class="o">(</span><span class="s1">&#39;source&#39;</span><span class="o">,</span><span class="s1">&#39;&#39;</span><span class="o">)|</span><span class="nf">safe</span> <span class="cp">}}</span>
+        <span class="cp">{%</span> <span class="k">endif</span> <span class="cp">%}</span>
+        <span class="nt">&lt;hr&gt;</span>
+        <span class="nt">&lt;div</span> <span class="na">style=</span><span class="s">&quot;text-align: center;&quot;</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">&#39;javascript:window.history.go(-1)&#39;</span><span class="nt">&gt;</span>返回<span class="nt">&lt;/a&gt;</span>
+        <span class="cp">{%</span> <span class="k">if</span> <span class="nv">session.get</span><span class="o">(</span><span class="s1">&#39;loged&#39;</span><span class="o">,</span><span class="s1">&#39;&#39;</span><span class="o">):</span> <span class="cp">%}</span>
+            <span class="nt">&lt;a</span> <span class="na">style=</span><span class="s">&quot;text-align: right&quot;</span> <span class="na">href=</span><span class="s">&quot;/edit/</span><span class="cp">{{</span> <span class="nv">data.get</span><span class="o">(</span><span class="s1">&#39;id&#39;</span><span class="o">,</span><span class="s1">&#39;&#39;</span><span class="o">)</span> <span class="cp">}}</span><span class="s">&quot;</span><span class="nt">&gt;</span>编辑<span class="nt">&lt;/a&gt;</span>
+        <span class="cp">{%</span> <span class="k">endif</span> <span class="cp">%}</span><span class="nt">&lt;/div&gt;</span>
+    <span class="nt">&lt;/fieldset&gt;</span>
+    <span class="nt">&lt;script&gt;</span>
+    <span class="nt">&lt;/script&gt;</span>
+<span class="cp">{%</span> <span class="k">endblock</span> <span class="cp">%}</span>
+</pre></div>
+
+
+<p>实现效果如图:</p>
+<p><img alt="查看详情" src="http://7xv8p6.com1.z0.glb.clouddn.com/604e52d03c45bfceea11c85a2f86bcbd.png"></p>
+<h4>6.再次编辑博文</h4>
+<div class="highlight"><pre><span></span>@app.route(&#39;/edit/&lt;id&gt;&#39;, methods=[&#39;GET&#39;, &#39;POST&#39;])
+def _edit(id):
+    if request.method == &#39;GET&#39;:
+        result = col.find_one({&#39;id&#39;: id})
+        upitem = {}
+        for key, value in result.items():
+            if key == &#39;_id&#39;:
+                continue
+            upitem.update({key: value})
+        return render_template(&#39;write.html&#39;, data=upitem)
+    else:
+        col.update_one({&#39;id&#39;: id}, {
+            &#39;$set&#39;: {
+                &#39;source&#39;: request.form[&#39;source&#39;],
+                &#39;title&#39;: request.form[&#39;title&#39;],
+                &#39;createTime&#39;: datetime.datetime.now()
+            }})
+        return redirect(&#39;/&#39; + id)
+</pre></div>
+
+
+<p>编辑博文和编写博文使用的是同一个模板页面，通过控制参数的名称来选择不同的展现方式。</p>
+<h4>7.权限控制</h4>
+<p><code>login</code>:</p>
+<div class="highlight"><pre><span></span>@app.route(&#39;/login/&lt;password&gt;&#39;)
+def login(password):
+    if re.subn(r&#39;\s+&#39;, &#39;&#39;, password) != &#39;&#39; and password == &#39;password&#39;:
+        session[&#39;loged&#39;] = True
+        return redirect(&#39;/&#39;)
+    else:
+        return &#39;Unauthorized&#39;
+</pre></div>
+
+
+<p>轻博客，直接输入密码就是了，不用去数据库查询了
+如果密码正确，就在<code>session</code>中添加一个已登录的标志</p>
+<p>在上面的写博客和下面的编辑博客中都需要登录
+<code>http://domain:port/login/password</code>
+这样登陆，如果登录成功，返回到列表页，否则返回<code>Unauthorized</code></p>
+<p>Finally</p>
+<p>本文涉及到的路由:
+GET /: 列表页
+GET /write: 写博文的页面
+POST /write: 将博文插入到数据库
+GET /<id>: 博文详情
+GET /login/<password>: 登录
+GET /edit/<id>: 请求需要编辑的博文的页面
+POST /edit/<id>: 更新博文
+POST /upload: 上传图片到七牛云</p>
+            </div>
+            <div class="article-info">
+                <hr/>
+                <div class="article-info">
+                    <span><b>Category: </b><a href="/category/python.html">python</a></span>
+                    <br/>
+                    <span><b>Publication Date: </b> Tue 19 July 2016 </span>
+                    <br/>
+                        <a class="label-default" href="/tag/flask.html">flask</a>
+                        <a class="label-default" href="/tag/bo-ke.html">博客</a>
+                    <br/>
+                </div>
+            </div>
+        </article>
+    </section>
+    <br/>
+    <br/>
+    <br/>
+</div>
+
+<footer class="footer">
+    &copy <a href="/" >kosmgco</a>. 2016
+    <br/>
+    Powered by <a href="//getpelican.com/">pelican</a>.
+    Theme by <a href="//github.com/kosmgco/ops">ops</a> | 
+    <a href="//www.miitbeian.gov.cn/">渝ICP备16003403号</a>
+</footer>
+<script>
+    var _hmt = _hmt || [];
+    (function() {
+        var hm = document.createElement("script");
+        hm.src = "https://hm.baidu.com/hm.js?67d2b3355046511d3ad9eef9c65d2a41";
+        var s = document.getElementsByTagName("script")[0]; 
+        s.parentNode.insertBefore(hm, s);
+    })();
+</script>
+</body>
+</html>

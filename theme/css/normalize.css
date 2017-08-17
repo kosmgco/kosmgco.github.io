@@ -231,11 +231,7 @@ code,
 kbd,
 pre,
 samp {
-<<<<<<< HEAD
     font-family: Monaco, monospace, monospace;
-=======
-    font-family: monospace, monospace;
->>>>>>> 3644867783a2c92a48e786d7ca27322fce5b664d
     font-size: 1em;
 }
 
@@ -429,8 +425,4 @@ table {
 td,
 th {
     padding: 0;
-<<<<<<< HEAD
 }
-=======
-}
->>>>>>> 3644867783a2c92a48e786d7ca27322fce5b664d

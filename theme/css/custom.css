@@ -8,14 +8,11 @@
     border-radius: 6px;
 }
 
-<<<<<<< HEAD
 .article-header {
     margin-top: 4rem;
     margin-bottom: 10rem;
 }
 
-=======
->>>>>>> 3644867783a2c92a48e786d7ca27322fce5b664d
 .label-default {
     background-color: black;
     color: white;
@@ -90,19 +87,12 @@ footer {
 }
 
 .home-post {
-<<<<<<< HEAD
 /*    margin: 0 5% 0% 5%; */
-=======
-    margin: 0 5% 0% 5%;
->>>>>>> 3644867783a2c92a48e786d7ca27322fce5b664d
     padding: 2% 2% 2% 2%;
     text-align: justify;
     /*border: dotted;*/
     border-width: thin;
-<<<<<<< HEAD
     margin-bottom: -35px;
-=======
->>>>>>> 3644867783a2c92a48e786d7ca27322fce5b664d
 }
 
 a {
@@ -249,7 +239,6 @@ a {
     display: none;
 }
 
-<<<<<<< HEAD
 
 @media (min-width: 0px){
     .blogpost-date {
@@ -262,15 +251,12 @@ a {
 }
 
 
-=======
->>>>>>> 3644867783a2c92a48e786d7ca27322fce5b664d
 /* Larger than phone */
 @media (min-width: 550px) {
     .header {
         margin-top: 10rem;
     }
 
-<<<<<<< HEAD
     .blogpost-date {
         display: none;
     }
@@ -278,8 +264,6 @@ a {
         margin-bottom: -35px;
     }
 
-=======
->>>>>>> 3644867783a2c92a48e786d7ca27322fce5b664d
     .value-props {
         margin-top: 9rem;
         margin-bottom: 7rem;
@@ -319,13 +303,10 @@ a {
         border-top-width: 0;
     }
 
-<<<<<<< HEAD
     .blogpost-date {
         display: block;
     }
 
-=======
->>>>>>> 3644867783a2c92a48e786d7ca27322fce5b664d
     .navbar,
     .navbar-spacer {
         display: block;
