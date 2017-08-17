@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>mongodb 小刀初试 | Kosmgco</title>
+
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta charset="utf-8">
+    <meta name="category" value="mongodb">
+    <meta name="date" value="2015-12-21 20:55:01">
+    <meta name="title" value="mongodb 小刀初试">
+    <meta name="tags" value="mongodb,NoSql">
+    <meta name="reader" value="markdown">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta property="wb:webmaster" content="ba29596b8c7c7ae7" /> 
+
+    <meta name="description" content="Linux. Python. Coder. Gopher.">
+    <meta name="author" content="kosmgco">
+
+    <link href="/theme/css/fonts.css" rel="stylesheet" />
+
+    <link href="/theme/css/normalize.css" rel="stylesheet"/>
+    <link href="/theme/css/skeleton.css" rel="stylesheet"/>
+    <link href="/theme/css/github-prettify-theme.css" rel="stylesheet"/>
+    <link href="/theme/css/custom.css" rel="stylesheet"/>
+    <link href="/theme/css/pygments.css" rel="stylesheet"/>
+
+    <script src="/theme/js/jquery.min.js"></script>
+    <script src="/theme/js/run_prettify.js"></script>
+    <script src="/theme/js/site.js"></script>
+</head>
+<body class="code-snippets-visible">
+
+<div class="navbar-spacer"></div>
+<nav class="navbar">
+    <div class="container">
+        <ul class="navbar-list">
+            <li class="navbar-item">
+                <a class="navbar-link" href="/">
+                    HOME
+                </a>
+            </li>
+                <li class="navbar-item">
+                    <a class="navbar-link" href="/pages/theme.html">
+                        theme
+                    </a>
+                </li>
+                <li class="navbar-item">
+                    <a class="navbar-link" href="/pages/about.html">
+                        about
+                    </a>
+                </li>
+                <li class="navbar-item">
+                    <a class="navbar-link" href="/pages/wiki.html">
+                        wiki
+                    </a>
+                </li>
+                <li class="navbar-item">
+                    <a class="navbar-link" href="/pages/books.html">
+                        books
+                    </a>
+                </li>
+                <li class="navbar-item">
+                    <a class="navbar-link" href="/pages/blog.html">
+                        blog
+                    </a>
+                </li>
+        </ul>
+        <div class="navbar-link">
+            <a href="/"><img src="/theme/images/header.jpg" class="site-icon"/></a>
+        </div>
+    </div>
+</nav>
+<div class="container">
+    <section id="content">
+        <article>
+            <p class="article-date">
+                全文总字数: 734
+            </p>
+            <header class="article-header">
+                <a href="/mongodb-xiao-dao-chu-shi.html" rel="bookmark" title="Permalink to mongodb 小刀初试">
+                    <h3 class="blogpost-title">
+                        mongodb 小刀初试
+                    </h3>
+                </a>
+            </header>
+            <div>
+                <hr>
+<p>现在使用爬虫很多都不使用关系性数据库了，使用NoSql要方便得多，因为你不必须为表结构操心了，也不用关心短连接对系统<code>io</code>资源的消耗了。</p>
+<h4>1.安装mongodb</h4>
+<p>Ubuntu下：</p>
+<div class="highlight"><pre><span></span>sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv 7F0CEB10
+
+<span class="nb">echo</span> <span class="s1">&#39;deb http://downloads-distro.mongodb.org/repo/ubuntu-upstart dist 10gen&#39;</span> <span class="p">|</span> sudo tee /etc/apt/sources.list.d/mongodb.list
+
+sudo apt-get update
+
+sudo apt-get install mongodb
+</pre></div>
+
+
+<p>这样差不多就完成了。</p>
+<h5>显示所有数据库</h5>
+<div class="highlight"><pre><span></span>show dbs
+或者
+show databases
+</pre></div>
+
+
+<h5>显示所有集合</h5>
+<div class="highlight"><pre><span></span>show tables
+或者
+show collections
+</pre></div>
+
+
+<h5>连接远程数据库</h5>
+<div class="highlight"><pre><span></span>mongo ip:port
+</pre></div>
+
+
+<h5>INSERT</h5>
+<div class="highlight"><pre><span></span><span class="c1"># 选择一个数据库，或者你想建立的数据库的名称</span>
+<span class="c1"># Sql: create table</span>
+use db 
+
+<span class="c1"># 查看所有集合，如果使用的新建立的数据库，可能结果为空。</span>
+show collection
+
+<span class="c1"># 插入一条记录</span>
+<span class="c1"># Sql: insert into test(content) values (&#39;test&#39;)</span>
+db.test.insert<span class="o">({</span><span class="s1">&#39;content&#39;</span>:<span class="s1">&#39;test&#39;</span><span class="o">})</span> 
+
+<span class="c1"># 然后查看插入结果</span>
+<span class="c1"># Sql: select * from test</span>
+db.test.find<span class="o">()</span>
+</pre></div>
+
+
+<h5>SELECT</h5>
+<div class="highlight"><pre><span></span><span class="c1"># 1. 普通查询</span>
+<span class="c1"># Sql: select * from table</span>
+db.test.find<span class="o">()</span>.pretty<span class="o">()</span>
+
+<span class="c1"># 2. 条件查询</span>
+<span class="c1"># Sql: select * from table where column = &#39;&#39;</span>
+db.test.find<span class="o">({</span><span class="s1">&#39;content&#39;</span>:<span class="s1">&#39;test&#39;</span><span class="o">})</span>.pretty<span class="o">()</span>
+
+<span class="c1"># 3. 翻页查询</span>
+<span class="c1"># Sql: select top pageSize * from table where id not in (select id from (pageSize * (pageIndex -1)) order by Id) order by id</span>
+db.test.find<span class="o">()</span>.skip<span class="o">((</span>pageIndex - <span class="m">1</span><span class="o">)</span> * pageSize<span class="o">)</span>.limit<span class="o">(</span>pageSize<span class="o">)</span>.pretty<span class="o">()</span>
+
+<span class="c1"># 4. 模糊查询</span>
+<span class="c1"># Sql: select * from table where column like &#39;%keyword%&#39;</span>
+db.test.find<span class="o">({</span><span class="s1">&#39;content&#39;</span>:<span class="o">{</span><span class="s1">&#39;$regex&#39;</span>:<span class="s1">&#39;/keyword/&#39;</span><span class="o">})</span>.pretty<span class="o">()</span>
+
+<span class="c1"># 5. 聚合查询</span>
+<span class="c1"># Sql: select count(*) from table where key = &#39;&#39;</span>
+db.test.find<span class="o">({</span><span class="s1">&#39;key&#39;</span>:<span class="s1">&#39;value&#39;</span><span class="o">})</span>.count<span class="o">()</span>
+
+<span class="c1"># ...</span>
+</pre></div>
+
+
+<h5>UPDATE</h5>
+<div class="highlight"><pre><span></span><span class="c1"># 更新</span>
+<span class="c1"># Sql: update table set column1 = value1,column2 = value2 where key = &#39;&#39;</span>
+db.test.update<span class="o">({</span><span class="s1">&#39;content&#39;</span>:<span class="s1">&#39;test&#39;</span><span class="o">}</span>,<span class="o">{</span><span class="s1">&#39;content&#39;</span>:<span class="s1">&#39;ddddddd&#39;</span><span class="o">})</span> <span class="c1"># 第一个括号里面是条件，根据这个条件来过滤，第二个括号里面是需要更新的内容</span>
+</pre></div>
+
+
+<h5>DELETE</h5>
+<div class="highlight"><pre><span></span><span class="c1"># 删除数据库</span>
+<span class="c1"># Sql: 忘了 -_-!!</span>
+db.dropDatabase<span class="o">()</span>
+
+<span class="c1"># 删除数据表</span>
+<span class="c1"># Sql: drop table </span>
+db.test.drop<span class="o">()</span>
+
+<span class="c1"># 删除数据</span>
+<span class="c1"># Sql: delete from table where key = &#39;&#39;</span>
+db.test.remove<span class="o">({</span><span class="s1">&#39;key&#39;</span>:<span class="s1">&#39;value&#39;</span><span class="o">})</span>
+</pre></div>
+
+
+<h5>数据导入导出</h5>
+<div class="highlight"><pre><span></span><span class="c1"># 1. 数据导出</span>
+mongoexport -h ip -d db -c collection -o data.dat
+
+<span class="c1"># 2. 数据导入</span>
+mongoimport -h ip -d db -c collection data.dat
+</pre></div>
+
+
+<h5>总结</h5>
+<p>对于爬虫这种数据极度不规则的文本，存关系性数据库本来就不方便，而且对于查询的性能来说，也不是很高。而且文档型数据库对于数据的导入导出也是非常方便的，对于需要把数据从爬取环境放到生产环境来说也是非常方便的（100w条数据，导出大小13G，总计花费2min）</p>
+            </div>
+            <div class="article-info">
+                <hr/>
+                <div class="article-info">
+                    <span><b>Category: </b><a href="/category/mongodb.html">mongodb</a></span>
+                    <br/>
+                    <span><b>Publication Date: </b> Mon 21 December 2015 </span>
+                    <br/>
+                        <a class="label-default" href="/tag/mongodb.html">mongodb</a>
+                        <a class="label-default" href="/tag/nosql.html">NoSql</a>
+                    <br/>
+                </div>
+            </div>
+        </article>
+    </section>
+    <br/>
+    <br/>
+    <br/>
+</div>
+
+<footer class="footer">
+    &copy <a href="/" >kosmgco</a>. 2016
+    <br/>
+    Powered by <a href="//getpelican.com/">pelican</a>.
+    Theme by <a href="//github.com/kosmgco/ops">ops</a> | 
+    <a href="//www.miitbeian.gov.cn/">渝ICP备16003403号</a>
+</footer>
+<script>
+    var _hmt = _hmt || [];
+    (function() {
+        var hm = document.createElement("script");
+        hm.src = "https://hm.baidu.com/hm.js?67d2b3355046511d3ad9eef9c65d2a41";
+        var s = document.getElementsByTagName("script")[0]; 
+        s.parentNode.insertBefore(hm, s);
+    })();
+</script>
+</body>
+</html>

@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>开启全站https | Kosmgco</title>
+
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta charset="utf-8">
+    <meta name="category" value="back-end">
+    <meta name="reader" value="markdown">
+    <meta name="date" value="2016-12-10 00:00:00">
+    <meta name="title" value="开启全站https">
+    <meta name="tags" value="https,security">
+    <meta name="summary" value="开启全站https">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta property="wb:webmaster" content="ba29596b8c7c7ae7" /> 
+
+    <meta name="description" content="Linux. Python. Coder. Gopher.">
+    <meta name="author" content="kosmgco">
+
+    <link href="/theme/css/fonts.css" rel="stylesheet" />
+
+    <link href="/theme/css/normalize.css" rel="stylesheet"/>
+    <link href="/theme/css/skeleton.css" rel="stylesheet"/>
+    <link href="/theme/css/github-prettify-theme.css" rel="stylesheet"/>
+    <link href="/theme/css/custom.css" rel="stylesheet"/>
+    <link href="/theme/css/pygments.css" rel="stylesheet"/>
+
+    <script src="/theme/js/jquery.min.js"></script>
+    <script src="/theme/js/run_prettify.js"></script>
+    <script src="/theme/js/site.js"></script>
+</head>
+<body class="code-snippets-visible">
+
+<div class="navbar-spacer"></div>
+<nav class="navbar">
+    <div class="container">
+        <ul class="navbar-list">
+            <li class="navbar-item">
+                <a class="navbar-link" href="/">
+                    HOME
+                </a>
+            </li>
+                <li class="navbar-item">
+                    <a class="navbar-link" href="/pages/theme.html">
+                        theme
+                    </a>
+                </li>
+                <li class="navbar-item">
+                    <a class="navbar-link" href="/pages/about.html">
+                        about
+                    </a>
+                </li>
+                <li class="navbar-item">
+                    <a class="navbar-link" href="/pages/wiki.html">
+                        wiki
+                    </a>
+                </li>
+                <li class="navbar-item">
+                    <a class="navbar-link" href="/pages/books.html">
+                        books
+                    </a>
+                </li>
+                <li class="navbar-item">
+                    <a class="navbar-link" href="/pages/blog.html">
+                        blog
+                    </a>
+                </li>
+        </ul>
+        <div class="navbar-link">
+            <a href="/"><img src="/theme/images/header.jpg" class="site-icon"/></a>
+        </div>
+    </div>
+</nav>
+<div class="container">
+    <section id="content">
+        <article>
+            <p class="article-date">
+                全文总字数: 316
+            </p>
+            <header class="article-header">
+                <a href="/kai-qi-quan-zhan-https.html" rel="bookmark" title="Permalink to 开启全站https">
+                    <h3 class="blogpost-title">
+                        开启全站https
+                    </h3>
+                </a>
+            </header>
+            <div>
+                <p>某一天在健身房，使用健身房的wifi来访问我的博客的时候，发现在页脚和页尾的地方加了好多广告。影响心情而且不美观，由于我也不知道运营商劫持的广告会推送些什么。于是决定加上全站https，恰逢苹果要求在2017年1月1日后所有app必须使用https，而且七牛云发给我的邮件说可以免费申请https证书。</p>
+<p>去七牛云申请了一个https的证书，然而却不能导出证书，可能是将https证书用于cdn，所以并不能满足我的需求。</p>
+<p>腾讯云与阿里云都有免费的https证书可供申请。</p>
+<p>我的域名是在阿里云买的，在阿里云上申请要方便的多，可以自动配置https dns解析，申请腾讯云的https证书，需要在阿里云域名解析管理中增加CNAME和A记录，然后会循环校验，验证成功即发放https证书。</p>
+<p>阿里云申请通过后，可以下载<code>orderno.pem</code>和<code>orderno.key</code>两个文件，上传到服务器。我使用的webserver为nginx，在nginx的配置文件中增加以下几行:</p>
+<div class="highlight"><pre><span></span><span class="nt">ssl_certificate</span> <span class="nt">path</span><span class="o">/</span><span class="nt">to</span><span class="o">/</span><span class="nt">orderno</span><span class="p">.</span><span class="nc">pem</span><span class="o">;</span>
+<span class="nt">ssl_certificate_key</span> <span class="nt">path</span><span class="o">/</span><span class="nt">to</span><span class="o">/</span><span class="nt">orderno</span><span class="p">.</span><span class="nc">key</span><span class="o">;</span>
+<span class="nt">ssl_session_timeout</span> <span class="nt">5m</span><span class="o">;</span>
+<span class="nt">ssl_protocols</span> <span class="nt">TLSv1</span> <span class="nt">TLSv1</span><span class="p">.</span><span class="nc">1</span> <span class="nt">TLSv1</span><span class="p">.</span><span class="nc">2</span><span class="o">;</span>
+<span class="nt">ssl_ciphers</span> <span class="nt">AESGCM</span><span class="p">:</span><span class="nd">ALL</span><span class="o">:!</span><span class="nt">DH</span><span class="o">:!</span><span class="nt">EXPORT</span><span class="o">:!</span><span class="nt">RC4</span><span class="o">:+</span><span class="nt">HIGH</span><span class="o">:!</span><span class="nt">MEDIUM</span><span class="o">:!</span><span class="nt">LOW</span><span class="o">:!</span><span class="nt">aNULL</span><span class="o">:!</span><span class="nt">eNULL</span><span class="o">;</span>
+<span class="nt">ssl_prefer_server_ciphers</span> <span class="nt">on</span><span class="o">;</span>
+</pre></div>
+
+
+<p>然后重启nginx</p>
+<div class="highlight"><pre><span></span>sudo service nginx restart
+</pre></div>
+            </div>
+            <div class="article-info">
+                <hr/>
+                <div class="article-info">
+                    <span><b>Category: </b><a href="/category/back-end.html">back-end</a></span>
+                    <br/>
+                    <span><b>Publication Date: </b> Sat 10 December 2016 </span>
+                    <br/>
+                        <a class="label-default" href="/tag/https.html">https</a>
+                        <a class="label-default" href="/tag/security.html">security</a>
+                    <br/>
+                </div>
+            </div>
+        </article>
+    </section>
+    <br/>
+    <br/>
+    <br/>
+</div>
+
+<footer class="footer">
+    &copy <a href="/" >kosmgco</a>. 2016
+    <br/>
+    Powered by <a href="//getpelican.com/">pelican</a>.
+    Theme by <a href="//github.com/kosmgco/ops">ops</a> | 
+    <a href="//www.miitbeian.gov.cn/">渝ICP备16003403号</a>
+</footer>
+<script>
+    var _hmt = _hmt || [];
+    (function() {
+        var hm = document.createElement("script");
+        hm.src = "https://hm.baidu.com/hm.js?67d2b3355046511d3ad9eef9c65d2a41";
+        var s = document.getElementsByTagName("script")[0]; 
+        s.parentNode.insertBefore(hm, s);
+    })();
+</script>
+</body>
+</html>

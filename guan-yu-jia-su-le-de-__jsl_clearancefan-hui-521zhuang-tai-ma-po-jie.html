@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>关于加速乐的__jsl_clearance返回521状态码破解 | Kosmgco</title>
+
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta charset="utf-8">
+    <meta name="category" value="python">
+    <meta name="date" value="2015-12-09 21:27:14">
+    <meta name="title" value="关于加速乐的__jsl_clearance返回521状态码破解">
+    <meta name="tags" value="python,js,Ghost">
+    <meta name="reader" value="markdown">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta property="wb:webmaster" content="ba29596b8c7c7ae7" /> 
+
+    <meta name="description" content="Linux. Python. Coder. Gopher.">
+    <meta name="author" content="kosmgco">
+
+    <link href="/theme/css/fonts.css" rel="stylesheet" />
+
+    <link href="/theme/css/normalize.css" rel="stylesheet"/>
+    <link href="/theme/css/skeleton.css" rel="stylesheet"/>
+    <link href="/theme/css/github-prettify-theme.css" rel="stylesheet"/>
+    <link href="/theme/css/custom.css" rel="stylesheet"/>
+    <link href="/theme/css/pygments.css" rel="stylesheet"/>
+
+    <script src="/theme/js/jquery.min.js"></script>
+    <script src="/theme/js/run_prettify.js"></script>
+    <script src="/theme/js/site.js"></script>
+</head>
+<body class="code-snippets-visible">
+
+<div class="navbar-spacer"></div>
+<nav class="navbar">
+    <div class="container">
+        <ul class="navbar-list">
+            <li class="navbar-item">
+                <a class="navbar-link" href="/">
+                    HOME
+                </a>
+            </li>
+                <li class="navbar-item">
+                    <a class="navbar-link" href="/pages/theme.html">
+                        theme
+                    </a>
+                </li>
+                <li class="navbar-item">
+                    <a class="navbar-link" href="/pages/about.html">
+                        about
+                    </a>
+                </li>
+                <li class="navbar-item">
+                    <a class="navbar-link" href="/pages/wiki.html">
+                        wiki
+                    </a>
+                </li>
+                <li class="navbar-item">
+                    <a class="navbar-link" href="/pages/books.html">
+                        books
+                    </a>
+                </li>
+                <li class="navbar-item">
+                    <a class="navbar-link" href="/pages/blog.html">
+                        blog
+                    </a>
+                </li>
+        </ul>
+        <div class="navbar-link">
+            <a href="/"><img src="/theme/images/header.jpg" class="site-icon"/></a>
+        </div>
+    </div>
+</nav>
+<div class="container">
+    <section id="content">
+        <article>
+            <p class="article-date">
+                全文总字数: 4593
+            </p>
+            <header class="article-header">
+                <a href="/guan-yu-jia-su-le-de-__jsl_clearancefan-hui-521zhuang-tai-ma-po-jie.html" rel="bookmark" title="Permalink to 关于加速乐的__jsl_clearance返回521状态码破解">
+                    <h3 class="blogpost-title">
+                        关于加速乐的__jsl_clearance返回521状态码破解
+                    </h3>
+                </a>
+            </header>
+            <div>
+                <hr>
+<p>最近公司由于业务需要，需要对一个网站的数据进行爬取<a href="http://www.court.gov.cn/zgcpwsw/">中国裁判文书网</a>，但是由于使用了加速乐的服务，在访问之前先判断cookie正不正确。如果不正确，先获取一次cookie，否则直接打开。而且cookie的Expires时间非常短，所以那种想要获取一次cookie然后就没什么事的想法破灭了。</p>
+<p>但是经过不懈努力(→_→)，发现返回521的时候也返回了一段js代码：</p>
+<div class="highlight"><pre><span></span>    <span class="kd">var</span> <span class="nx">dc</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">;</span><span class="kd">var</span> <span class="nx">t_d</span><span class="o">=</span><span class="p">{</span><span class="nx">hello</span><span class="o">:</span><span class="s2">&quot;world&quot;</span><span class="p">,</span><span class="nx">t_c</span><span class="o">:</span><span class="kd">function</span><span class="p">(</span><span class="nx">x</span><span class="p">){</span><span class="k">if</span><span class="p">(</span><span class="nx">x</span><span class="o">===</span><span class="s2">&quot;&quot;</span><span class="p">)</span><span class="k">return</span><span class="p">;</span><span class="k">if</span><span class="p">(</span><span class="nx">x</span><span class="p">.</span><span class="nx">slice</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="o">===</span><span class="s2">&quot;;&quot;</span><span class="p">){</span><span class="nx">x</span><span class="o">=</span><span class="nx">x</span><span class="o">+</span><span class="s2">&quot; &quot;</span><span class="p">;};</span><span class="k">if</span><span class="p">(</span><span class="nx">x</span><span class="p">.</span><span class="nx">slice</span><span class="p">(</span><span class="o">-</span><span class="mi">2</span><span class="p">)</span><span class="o">!==</span><span class="s2">&quot;; &quot;</span><span class="p">){</span><span class="nx">x</span><span class="o">=</span><span class="nx">x</span><span class="o">+</span><span class="s2">&quot;; &quot;</span><span class="p">;};</span><span class="nx">dc</span><span class="o">=</span><span class="nx">dc</span><span class="o">+</span><span class="nx">x</span><span class="p">;}};(</span><span class="kd">function</span><span class="p">(</span><span class="nx">a</span><span class="p">){</span><span class="nb">eval</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">p</span><span class="p">,</span><span class="nx">a</span><span class="p">,</span><span class="nx">c</span><span class="p">,</span><span class="nx">k</span><span class="p">,</span><span class="nx">e</span><span class="p">,</span><span class="nx">d</span><span class="p">){</span><span class="nx">e</span><span class="o">=</span><span class="kd">function</span><span class="p">(</span><span class="nx">c</span><span class="p">){</span><span class="k">return</span><span class="p">(</span><span class="nx">c</span><span class="o">&lt;</span><span class="nx">a</span><span class="o">?</span><span class="s2">&quot;&quot;</span><span class="o">:</span><span class="nx">e</span><span class="p">(</span><span class="nb">parseInt</span><span class="p">(</span><span class="nx">c</span><span class="o">/</span><span class="nx">a</span><span class="p">)))</span><span class="o">+</span><span class="p">((</span><span class="nx">c</span><span class="o">=</span><span class="nx">c</span><span class="o">%</span><span class="nx">a</span><span class="p">)</span><span class="o">&gt;</span><span class="mi">35</span><span class="o">?</span><span class="nb">String</span><span class="p">.</span><span class="nx">fromCharCode</span><span class="p">(</span><span class="nx">c</span><span class="o">+</span><span class="mi">29</span><span class="p">)</span><span class="o">:</span><span class="nx">c</span><span class="p">.</span><span class="nx">toString</span><span class="p">(</span><span class="mi">36</span><span class="p">))};</span><span class="k">if</span><span class="p">(</span><span class="o">!</span><span class="s1">&#39;&#39;</span><span class="p">.</span><span class="nx">replace</span><span class="p">(</span><span class="sr">/^/</span><span class="p">,</span><span class="nb">String</span><span class="p">)){</span><span class="k">while</span><span class="p">(</span><span class="nx">c</span><span class="o">--</span><span class="p">)</span><span class="nx">d</span><span class="p">[</span><span class="nx">e</span><span class="p">(</span><span class="nx">c</span><span class="p">)]</span><span class="o">=</span><span class="nx">k</span><span class="p">[</span><span class="nx">c</span><span class="p">]</span><span class="o">||</span><span class="nx">e</span><span class="p">(</span><span class="nx">c</span><span class="p">);</span><span class="nx">k</span><span class="o">=</span><span class="p">[</span><span class="kd">function</span><span class="p">(</span><span class="nx">e</span><span class="p">){</span><span class="k">return</span> <span class="nx">d</span><span class="p">[</span><span class="nx">e</span><span class="p">]}];</span><span class="nx">e</span><span class="o">=</span><span class="kd">function</span><span class="p">(){</span><span class="k">return</span><span class="s1">&#39;\\w+&#39;</span><span class="p">};</span><span class="nx">c</span><span class="o">=</span><span class="mi">1</span><span class="p">;};</span><span class="k">while</span><span class="p">(</span><span class="nx">c</span><span class="o">--</span><span class="p">)</span><span class="k">if</span><span class="p">(</span><span class="nx">k</span><span class="p">[</span><span class="nx">c</span><span class="p">])</span><span class="nx">p</span><span class="o">=</span><span class="nx">p</span><span class="p">.</span><span class="nx">replace</span><span class="p">(</span><span class="k">new</span> <span class="nb">RegExp</span><span class="p">(</span><span class="s1">&#39;\\b&#39;</span><span class="o">+</span><span class="nx">e</span><span class="p">(</span><span class="nx">c</span><span class="p">)</span><span class="o">+</span><span class="s1">&#39;\\b&#39;</span><span class="p">,</span><span class="s1">&#39;g&#39;</span><span class="p">),</span><span class="nx">k</span><span class="p">[</span><span class="nx">c</span><span class="p">]);</span><span class="k">return</span> <span class="nx">p</span><span class="p">;}(</span><span class="s1">&#39;b a=a.h(\&#39;l\&#39;);b d=[2,0,5,4,1,3];b o=[];b p=0;g(b i=d.c;i--;){o[d[i]]=a[i]}o=o.m(\&#39;\&#39;);g(b i=0;i&lt;o.c;i++){u(o.q(i)===\&#39;;\&#39;){s(o,p,i);p=i+1}}s(o,p,o.c);k s(t,r,n){j.A(t.B(r,n))};w(&quot;f.e=f.e.v(/[\\?|&amp;]x-z/, \&#39;\&#39;)&quot;,y);&#39;</span><span class="p">,</span><span class="mi">38</span><span class="p">,</span><span class="mi">38</span><span class="p">,</span><span class="s1">&#39;|||||||||||var|length||href|location|for|split||t_d|function|[&gt;j)W|join||||charAt||||if|replace|setTimeout|captcha|1500|challenge|t_c|substring&#39;</span><span class="p">.</span><span class="nx">split</span><span class="p">(</span><span class="s1">&#39;|&#39;</span><span class="p">),</span><span class="mi">0</span><span class="p">,{}));})(</span><span class="s1">&#39;kcbYSQx9ni%2BYKrP6a6[&gt;j)W__jsl_clearance=144966914[&gt;j)W2:22 GMT;Path=/;[&gt;j)W, 09-Dec-15 14:5[&gt;j)W2.651|0|8q3[&gt;j)Wf3LoO8%3D;Expires=Wed&#39;</span><span class="p">);</span><span class="nb">document</span><span class="p">.</span><span class="nx">cookie</span><span class="o">=</span><span class="nx">dc</span><span class="p">;</span>
+</pre></div>
+
+
+<p>经过js代码格式化之后：</p>
+<div class="highlight"><pre><span></span>    <span class="kd">var</span> <span class="nx">dc</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span><span class="p">;</span>
+<span class="kd">var</span> <span class="nx">t_d</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="nx">hello</span><span class="o">:</span> <span class="s2">&quot;world&quot;</span><span class="p">,</span>
+    <span class="nx">t_c</span><span class="o">:</span> <span class="kd">function</span><span class="p">(</span><span class="nx">x</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">if</span> <span class="p">(</span><span class="nx">x</span> <span class="o">===</span> <span class="s2">&quot;&quot;</span><span class="p">)</span> <span class="k">return</span><span class="p">;</span>
+        <span class="k">if</span> <span class="p">(</span><span class="nx">x</span><span class="p">.</span><span class="nx">slice</span><span class="p">(</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span> <span class="o">===</span> <span class="s2">&quot;;&quot;</span><span class="p">)</span> <span class="p">{</span>
+            <span class="nx">x</span> <span class="o">=</span> <span class="nx">x</span> <span class="o">+</span> <span class="s2">&quot; &quot;</span><span class="p">;</span>
+        <span class="p">};</span>
+        <span class="k">if</span> <span class="p">(</span><span class="nx">x</span><span class="p">.</span><span class="nx">slice</span><span class="p">(</span> <span class="o">-</span> <span class="mi">2</span><span class="p">)</span> <span class="o">!==</span> <span class="s2">&quot;; &quot;</span><span class="p">)</span> <span class="p">{</span>
+            <span class="nx">x</span> <span class="o">=</span> <span class="nx">x</span> <span class="o">+</span> <span class="s2">&quot;; &quot;</span><span class="p">;</span>
+        <span class="p">};</span>
+        <span class="nx">dc</span> <span class="o">=</span> <span class="nx">dc</span> <span class="o">+</span> <span class="nx">x</span><span class="p">;</span>
+    <span class="p">}</span>
+<span class="p">};</span> <span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">a</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nb">eval</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">p</span><span class="p">,</span> <span class="nx">a</span><span class="p">,</span> <span class="nx">c</span><span class="p">,</span> <span class="nx">k</span><span class="p">,</span> <span class="nx">e</span><span class="p">,</span> <span class="nx">d</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nx">e</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">c</span><span class="p">)</span> <span class="p">{</span>
+            <span class="k">return</span> <span class="p">(</span><span class="nx">c</span> <span class="o">&lt;</span> <span class="nx">a</span> <span class="o">?</span> <span class="s2">&quot;&quot;</span><span class="o">:</span> <span class="nx">e</span><span class="p">(</span><span class="nb">parseInt</span><span class="p">(</span><span class="nx">c</span> <span class="o">/</span> <span class="nx">a</span><span class="p">)))</span> <span class="o">+</span> <span class="p">((</span><span class="nx">c</span> <span class="o">=</span> <span class="nx">c</span> <span class="o">%</span> <span class="nx">a</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">35</span> <span class="o">?</span> <span class="nb">String</span><span class="p">.</span><span class="nx">fromCharCode</span><span class="p">(</span><span class="nx">c</span> <span class="o">+</span> <span class="mi">29</span><span class="p">)</span> <span class="o">:</span> <span class="nx">c</span><span class="p">.</span><span class="nx">toString</span><span class="p">(</span><span class="mi">36</span><span class="p">))</span>
+        <span class="p">};</span>
+        <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="s1">&#39;&#39;</span><span class="p">.</span><span class="nx">replace</span><span class="p">(</span><span class="sr">/^/</span><span class="p">,</span> <span class="nb">String</span><span class="p">))</span> <span class="p">{</span>
+            <span class="k">while</span> <span class="p">(</span><span class="nx">c</span><span class="o">--</span><span class="p">)</span> <span class="nx">d</span><span class="p">[</span><span class="nx">e</span><span class="p">(</span><span class="nx">c</span><span class="p">)]</span> <span class="o">=</span> <span class="nx">k</span><span class="p">[</span><span class="nx">c</span><span class="p">]</span> <span class="o">||</span> <span class="nx">e</span><span class="p">(</span><span class="nx">c</span><span class="p">);</span>
+            <span class="nx">k</span> <span class="o">=</span> <span class="p">[</span><span class="kd">function</span><span class="p">(</span><span class="nx">e</span><span class="p">)</span> <span class="p">{</span>
+                <span class="k">return</span> <span class="nx">d</span><span class="p">[</span><span class="nx">e</span><span class="p">]</span>
+            <span class="p">}];</span>
+            <span class="nx">e</span> <span class="o">=</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+                <span class="k">return</span> <span class="s1">&#39;\\w+&#39;</span>
+            <span class="p">};</span>
+            <span class="nx">c</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+        <span class="p">};</span>
+        <span class="k">while</span> <span class="p">(</span><span class="nx">c</span><span class="o">--</span><span class="p">)</span> <span class="k">if</span> <span class="p">(</span><span class="nx">k</span><span class="p">[</span><span class="nx">c</span><span class="p">])</span> <span class="nx">p</span> <span class="o">=</span> <span class="nx">p</span><span class="p">.</span><span class="nx">replace</span><span class="p">(</span><span class="k">new</span> <span class="nb">RegExp</span><span class="p">(</span><span class="s1">&#39;\\b&#39;</span> <span class="o">+</span> <span class="nx">e</span><span class="p">(</span><span class="nx">c</span><span class="p">)</span> <span class="o">+</span> <span class="s1">&#39;\\b&#39;</span><span class="p">,</span> <span class="s1">&#39;g&#39;</span><span class="p">),</span> <span class="nx">k</span><span class="p">[</span><span class="nx">c</span><span class="p">]);</span>
+        <span class="k">return</span> <span class="nx">p</span><span class="p">;</span>
+    <span class="p">}</span> <span class="p">(</span><span class="s1">&#39;b a=a.h(\&#39;l\&#39;);b d=[2,0,5,4,1,3];b o=[];b p=0;g(b i=d.c;i--;){o[d[i]]=a[i]}o=o.m(\&#39;\&#39;);g(b i=0;i&lt;o.c;i++){u(o.q(i)===\&#39;;\&#39;){s(o,p,i);p=i+1}}s(o,p,o.c);k s(t,r,n){j.A(t.B(r,n))};w(&quot;f.e=f.e.v(/[\\?|&amp;]x-z/, \&#39;\&#39;)&quot;,y);&#39;</span><span class="p">,</span> <span class="mi">38</span><span class="p">,</span> <span class="mi">38</span><span class="p">,</span> <span class="s1">&#39;|||||||||||var|length||href|location|for|split||t_d|function|[&gt;j)W|join||||charAt||||if|replace|setTimeout|captcha|1500|challenge|t_c|substring&#39;</span><span class="p">.</span><span class="nx">split</span><span class="p">(</span><span class="s1">&#39;|&#39;</span><span class="p">),</span> <span class="mi">0</span><span class="p">,</span> <span class="p">{}));</span>
+<span class="p">})(</span><span class="s1">&#39;kcbYSQx9ni%2BYKrP6a6[&gt;j)W__jsl_clearance=144966914[&gt;j)W2:22 GMT;Path=/;[&gt;j)W, 09-Dec-15 14:5[&gt;j)W2.651|0|8q3[&gt;j)Wf3LoO8%3D;Expires=Wed&#39;</span><span class="p">);</span>
+<span class="nb">document</span><span class="p">.</span><span class="nx">cookie</span> <span class="o">=</span> <span class="nx">dc</span><span class="p">;</span>
+</pre></div>
+
+
+<p>依然看不懂-_-!!</p>
+<p>好吧，经过大神讲解<a href="http://bbs.csdn.net/topics/391851259">CSDN技术博客</a>，发现是经过js的eval函数加密的，略微懂一点jQuery的我完全不懂eval是什么...</p>
+<p>但是我发现通过js的eval函数就能直接算出__jsl_clearance的结果：</p>
+<div class="highlight"><pre><span></span><span class="kd">function</span> <span class="nx">decode</span><span class="p">(</span><span class="nx">code</span><span class="p">)</span> <span class="p">{</span> 
+    <span class="nx">code</span> <span class="o">=</span> <span class="nx">code</span><span class="p">.</span><span class="nx">replace</span><span class="p">(</span><span class="sr">/^eval/</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">);</span> 
+    <span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s1">&#39;code&#39;</span><span class="p">).</span><span class="nx">value</span> <span class="o">=</span> <span class="nb">eval</span><span class="p">(</span><span class="nx">code</span><span class="p">);</span> 
+<span class="p">}</span> 
+</pre></div>
+
+
+<p>就是这么简单的两行代码，但是真的就能够将结果计算出来。</p>
+<p>那我就想着在python环境下执行js代码就行了啊，于是找到了<a href="https://github.com/PiotrDabkowski/Js2Py">js2py</a>，但是js2py的函数库里面没有setTimeout这个函数，所以模拟运行到这的时候就会报错。同事推荐的python-selenium模拟浏览器环境，但是我发现会打开一个浏览器窗口，就也放弃了。然后试过spidermonkey库，依然是setTimeout这个问题(删除setTimeout后并不能得到结果)。</p>
+<p>突然想起来之前的csdn博客上面有提到过：</p>
+<blockquote>
+<p>[ "0:53 GMT;Path=/;", "__jsl_clearance=1", "446122453.919|0|lVbd9uFAurz9E%2", "BCmjaLY6j%2Bvycw%3D;Expires", "=Thu, 29-Oct-15 13:4" ]里面就是设置cookie的内容，按顺序 [ 1, 2, 3, 4, 0 ]拼起来就完了，然后用t_d. t_c把cookie属性用"; "格式化。</p>
+</blockquote>
+<p>于是写了个get_cookie的函数：</p>
+<div class="highlight"><pre><span></span>    <span class="k">def</span> <span class="nf">get_cookie</span><span class="p">(</span><span class="n">content</span><span class="p">):</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="n">ret</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">subn</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;&lt;script&gt;|&lt;/script&gt;&#39;</span><span class="p">,</span><span class="s1">&#39;&#39;</span><span class="p">,</span><span class="n">content</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+        <span class="n">arr1</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;b d=(\[.*?\]);&#39;</span><span class="p">,</span><span class="n">ret</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">arr1</span><span class="p">:</span>
+            <span class="n">arr1</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">subn</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;\[|\]&#39;</span><span class="p">,</span><span class="s1">&#39;&#39;</span><span class="p">,</span><span class="n">arr1</span><span class="o">.</span><span class="n">group</span><span class="p">(</span><span class="mi">1</span><span class="p">))[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;,&#39;</span><span class="p">)</span>
+
+        <span class="n">arr2</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;\((\[.*?\])\)&#39;</span><span class="p">,</span><span class="n">ret</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">arr2</span><span class="p">:</span>
+            <span class="n">arr2</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;</span><span class="se">\&#39;</span><span class="s1">&#39;</span><span class="p">,</span><span class="n">re</span><span class="o">.</span><span class="n">subn</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;\[|\]&#39;</span><span class="p">,</span><span class="s1">&#39;&#39;</span><span class="p">,</span><span class="n">arr2</span><span class="o">.</span><span class="n">group</span><span class="p">(</span><span class="mi">1</span><span class="p">))[</span><span class="mi">0</span><span class="p">])</span>
+
+        <span class="n">arr2_2</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">arr1</span> <span class="ow">or</span> <span class="ow">not</span> <span class="n">arr2</span><span class="p">:</span>
+            <span class="k">return</span> <span class="s1">&#39;&#39;</span>
+        <span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">arr2</span><span class="p">:</span>
+            <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">item</span><span class="o">.</span><span class="n">strip</span><span class="p">())</span> <span class="o">!=</span> <span class="mi">0</span> <span class="ow">and</span> <span class="n">item</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span> <span class="o">!=</span> <span class="s1">&#39;,&#39;</span><span class="p">:</span>
+                <span class="n">arr2_2</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">item</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span><span class="o">.</span><span class="n">strip</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\&#39;</span><span class="s1">&#39;</span><span class="p">))</span>
+        <span class="k">print</span> <span class="s1">&#39;arr2 = &#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">arr2_2</span><span class="p">)</span>
+        <span class="n">coo</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">*</span> <span class="nb">len</span><span class="p">(</span><span class="n">arr2_2</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">arr1</span><span class="p">:</span>
+            <span class="n">coo</span><span class="p">[</span><span class="nb">int</span><span class="p">(</span><span class="n">item</span><span class="p">)]</span> <span class="o">=</span> <span class="n">arr2_2</span><span class="p">[</span><span class="n">arr1</span><span class="o">.</span><span class="n">index</span><span class="p">(</span><span class="n">item</span><span class="p">)]</span>
+
+        <span class="n">cook</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span>
+        <span class="k">for</span> <span class="n">o</span> <span class="ow">in</span> <span class="n">coo</span><span class="p">:</span>
+            <span class="n">cook</span> <span class="o">+=</span> <span class="nb">str</span><span class="p">(</span><span class="n">o</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">cook</span>
+    <span class="k">except</span> <span class="ne">Exception</span><span class="p">,</span><span class="n">e</span><span class="p">:</span>
+        <span class="n">logger</span><span class="o">.</span><span class="n">exception</span><span class="p">(</span><span class="s1">&#39;get cookie failed,retring...&#39;</span><span class="p">)</span>
+        <span class="n">get_cookie</span><span class="p">()</span>
+</pre></div>
+
+
+<p>-_-!! 代码写的比较丑，但是也只是为了自己用...</p>
+<p>这段代码的思路非常简单，先将两个数组取出来(字符串类型：<code>'[1,2]'</code>)，转变成python的数组类型：<code>[1,2]</code>，中间的<code>arr2</code> 可能为空，会报错，因为返回的cookie字符串数组可能并不是以<code>([</code>开头，以<code>]);</code>结尾的，所以正则表达式匹配不到，返回None，在split的时候就报错，倒数第三行捕获到后，继续执行。直到正确为止。亲测能获取到<code>__js_clearance</code> 的</p>
+<p>但是凡事有例外：比如我在文章开始贴的那段代码，我也不知道是用什么分割开的。。。</p>
+<p>-------------------------------- UPDATE  2015年12月10日22:05:26 -------------------------------</p>
+<p>使用<code>ghost.py</code>可以直接获取到cookie：</p>
+<div class="highlight"><pre><span></span>    <span class="c1">#install:</span>
+    sudo pip install Ghost.py<span class="o">==</span><span class="m">0</span>.1.2
+</pre></div>
+
+
+<div class="highlight"><pre><span></span>    <span class="kn">from</span> <span class="nn">ghost</span> <span class="kn">import</span> <span class="n">Ghost</span>
+    <span class="n">gh</span> <span class="o">=</span> <span class="n">Ghost</span><span class="p">(</span><span class="n">wait_timeout</span><span class="o">=</span><span class="mi">30</span><span class="p">,</span><span class="n">download_images</span><span class="o">=</span><span class="bp">False</span><span class="p">)</span>
+    <span class="n">gh</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="s1">&#39;http://zhixing.court.gov.cn/&#39;</span><span class="p">)</span>
+    <span class="n">gh</span><span class="o">.</span><span class="n">save_cookies</span><span class="p">(</span><span class="s1">&#39;test.cookies&#39;</span><span class="p">)</span> <span class="c1"># 存储cookie到本地</span>
+    <span class="k">print</span> <span class="n">gh</span><span class="o">.</span><span class="n">cookies</span>
+    <span class="k">print</span> <span class="nb">dir</span><span class="p">(</span><span class="n">gh</span><span class="p">)</span>
+</pre></div>
+
+
+<div class="highlight"><pre><span></span>    <span class="kn">from</span> <span class="nn">ghost</span> <span class="kn">import</span> <span class="n">Ghost</span>
+
+    <span class="n">url</span> <span class="o">=</span> <span class="s1">&#39;http://shixin.court.gov.cn/&#39;</span>
+    <span class="n">gh</span> <span class="o">=</span> <span class="n">Ghost</span><span class="p">(</span><span class="n">wait_timeout</span><span class="o">=</span><span class="mi">30</span><span class="p">,</span><span class="n">download_images</span><span class="o">=</span><span class="bp">False</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">get_page</span><span class="p">(</span><span class="n">url</span><span class="p">):</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">url</span><span class="p">:</span>
+        <span class="k">print</span> <span class="s1">&#39;not url&#39;</span>
+        <span class="k">return</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="n">gh</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="n">url</span><span class="p">)</span> <span class="c1"># 第一次访问,不能获取到正确的内容,返回的是js代码</span>
+        <span class="n">gh</span><span class="o">.</span><span class="n">save_cookie</span><span class="p">(</span><span class="s1">&#39;cookies.txt&#39;</span><span class="p">)</span>
+        <span class="n">gh</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="n">url</span><span class="p">)</span> <span class="c1"># 第二次访问,此次可以获取到正确的内容</span>
+    <span class="k">except</span> <span class="ne">Exception</span><span class="p">,</span><span class="n">e</span><span class="p">:</span>
+        <span class="k">print</span> <span class="n">e</span>
+        <span class="k">return</span>
+    <span class="k">return</span> <span class="n">gh</span><span class="o">.</span><span class="n">content</span>
+</pre></div>
+
+
+<p>在获取到正确的内容之后就可以使用<code>BeautifulSoup</code>，<code>re</code>等module进行数据处理了。</p>
+            </div>
+            <div class="article-info">
+                <hr/>
+                <div class="article-info">
+                    <span><b>Category: </b><a href="/category/python.html">python</a></span>
+                    <br/>
+                    <span><b>Publication Date: </b> Wed 09 December 2015 </span>
+                    <br/>
+                        <a class="label-default" href="/tag/python.html">python</a>
+                        <a class="label-default" href="/tag/js.html">js</a>
+                        <a class="label-default" href="/tag/ghost.html">Ghost</a>
+                    <br/>
+                </div>
+            </div>
+        </article>
+    </section>
+    <br/>
+    <br/>
+    <br/>
+</div>
+
+<footer class="footer">
+    &copy <a href="/" >kosmgco</a>. 2016
+    <br/>
+    Powered by <a href="//getpelican.com/">pelican</a>.
+    Theme by <a href="//github.com/kosmgco/ops">ops</a> | 
+    <a href="//www.miitbeian.gov.cn/">渝ICP备16003403号</a>
+</footer>
+<script>
+    var _hmt = _hmt || [];
+    (function() {
+        var hm = document.createElement("script");
+        hm.src = "https://hm.baidu.com/hm.js?67d2b3355046511d3ad9eef9c65d2a41";
+        var s = document.getElementsByTagName("script")[0]; 
+        s.parentNode.insertBefore(hm, s);
+    })();
+</script>
+</body>
+</html>

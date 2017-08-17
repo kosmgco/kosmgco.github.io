@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>PostgreSql操作 | Kosmgco</title>
+
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta charset="utf-8">
+    <meta name="category" value="wiki">
+    <meta name="status" value="draft">
+    <meta name="title" value="PostgreSql操作">
+    <meta name="date" value="2016-07-10 00:00:00">
+    <meta name="tags" value="database,postgresql">
+    <meta name="reader" value="rst">
+    <meta name="summary" value="存放对数据库操作的一些命令">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta property="wb:webmaster" content="ba29596b8c7c7ae7" /> 
+
+    <meta name="description" content="Linux. Python. Coder. Gopher.">
+    <meta name="author" content="kosmgco">
+
+    <link href="/theme/css/fonts.css" rel="stylesheet" />
+
+    <link href="/theme/css/normalize.css" rel="stylesheet"/>
+    <link href="/theme/css/skeleton.css" rel="stylesheet"/>
+    <link href="/theme/css/github-prettify-theme.css" rel="stylesheet"/>
+    <link href="/theme/css/custom.css" rel="stylesheet"/>
+    <link href="/theme/css/pygments.css" rel="stylesheet"/>
+
+    <script src="/theme/js/jquery.min.js"></script>
+    <script src="/theme/js/run_prettify.js"></script>
+    <script src="/theme/js/site.js"></script>
+</head>
+<body class="code-snippets-visible">
+
+<div class="navbar-spacer"></div>
+<nav class="navbar">
+    <div class="container">
+        <ul class="navbar-list">
+            <li class="navbar-item">
+                <a class="navbar-link" href="/">
+                    HOME
+                </a>
+            </li>
+                <li class="navbar-item">
+                    <a class="navbar-link" href="/pages/theme.html">
+                        theme
+                    </a>
+                </li>
+                <li class="navbar-item">
+                    <a class="navbar-link" href="/pages/about.html">
+                        about
+                    </a>
+                </li>
+                <li class="navbar-item">
+                    <a class="navbar-link" href="/pages/wiki.html">
+                        wiki
+                    </a>
+                </li>
+                <li class="navbar-item">
+                    <a class="navbar-link" href="/pages/books.html">
+                        books
+                    </a>
+                </li>
+                <li class="navbar-item">
+                    <a class="navbar-link" href="/pages/blog.html">
+                        blog
+                    </a>
+                </li>
+        </ul>
+        <div class="navbar-link">
+            <a href="/"><img src="/theme/images/header.jpg" class="site-icon"/></a>
+        </div>
+    </div>
+</nav>
+<div class="container">
+    <section id="content">
+        <article>
+            <p class="article-date">
+                全文总字数: 169
+            </p>
+            <header class="article-header">
+                <a href="/drafts/postgresqlcao-zuo.html" rel="bookmark" title="Permalink to PostgreSql操作">
+                    <h3 class="blogpost-title">
+                        PostgreSql操作
+                    </h3>
+                </a>
+            </header>
+            <div>
+                <div class="section" id="id1">
+<h2>安装</h2>
+<pre class="literal-block">
+sudo apt-get install postgresql-client
+sudo apt-get install postgresql
+sudo apt-get install pgadmin3
+</pre>
+</div>
+<div class="section" id="id2">
+<h2>操作</h2>
+<p><cite>修改默认密码</cite></p>
+<pre class="literal-block">
+sudo su postgress
+psql
+\password postgress
+</pre>
+<p><cite>数据库备份恢复</cite></p>
+<pre class="literal-block">
+# 备份成sql文件
+# -h host
+# -U user
+# -p port
+# -d database
+# -t table
+# -a data-only 只导出数据，不导出表结构
+# -f output file
+# --inserts 导出成insert into table values(). 没有field，所以会导致一个问题，备份表和恢复表的表结构要完全一致，数据字段的排列顺序都要一致.缺少这个参数会导出成copy table (fields) from stdin: 这样恢复比较快也比较准确.
+# -n only schema 只导出表结构，不导出数据
+# -W force password 强制输入密码
+# -w no-password 不需要密码
+pg_dump -h host -U user -p port -d database -t table -W -a -f file.sql
+
+# 恢复
+psql -h host -U user -p port -d database -W file.sql
+
+# 创建btree索引
+create index company_name_court_zhixing_index on court_zhixing using btree (company_name);
+</pre>
+<p>使用 <cite>--inserts</cite> 和不使用这个参数恢复的速度是千差万别的，所以尽量不要使用 <cite>--inserts</cite> 参数</p>
+<p><cite>Python-PGUtils.py</cite></p>
+</div>
+
+            </div>
+            <div class="article-info">
+                <hr/>
+                <div class="article-info">
+                    <span><b>Category: </b><a href="/category/wiki.html">wiki</a></span>
+                    <br/>
+                    <span><b>Publication Date: </b> Sun 10 July 2016 </span>
+                    <br/>
+                        <a class="label-default" href="/tag/database.html">database</a>
+                        <a class="label-default" href="/tag/postgresql.html">postgresql</a>
+                    <br/>
+                </div>
+            </div>
+        </article>
+    </section>
+    <br/>
+    <br/>
+    <br/>
+</div>
+
+<footer class="footer">
+    &copy <a href="/" >kosmgco</a>. 2016
+    <br/>
+    Powered by <a href="//getpelican.com/">pelican</a>.
+    Theme by <a href="//github.com/kosmgco/ops">ops</a> | 
+    <a href="//www.miitbeian.gov.cn/">渝ICP备16003403号</a>
+</footer>
+<script>
+    var _hmt = _hmt || [];
+    (function() {
+        var hm = document.createElement("script");
+        hm.src = "https://hm.baidu.com/hm.js?67d2b3355046511d3ad9eef9c65d2a41";
+        var s = document.getElementsByTagName("script")[0]; 
+        s.parentNode.insertBefore(hm, s);
+    })();
+</script>
+</body>
+</html>

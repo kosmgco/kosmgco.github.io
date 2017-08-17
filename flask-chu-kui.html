@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>flask 初窥 | Kosmgco</title>
+
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta charset="utf-8">
+    <meta name="category" value="python">
+    <meta name="date" value="2015-12-12 22:18:45">
+    <meta name="title" value="flask 初窥">
+    <meta name="tags" value="python,flask,web框架">
+    <meta name="reader" value="markdown">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta property="wb:webmaster" content="ba29596b8c7c7ae7" /> 
+
+    <meta name="description" content="Linux. Python. Coder. Gopher.">
+    <meta name="author" content="kosmgco">
+
+    <link href="/theme/css/fonts.css" rel="stylesheet" />
+
+    <link href="/theme/css/normalize.css" rel="stylesheet"/>
+    <link href="/theme/css/skeleton.css" rel="stylesheet"/>
+    <link href="/theme/css/github-prettify-theme.css" rel="stylesheet"/>
+    <link href="/theme/css/custom.css" rel="stylesheet"/>
+    <link href="/theme/css/pygments.css" rel="stylesheet"/>
+
+    <script src="/theme/js/jquery.min.js"></script>
+    <script src="/theme/js/run_prettify.js"></script>
+    <script src="/theme/js/site.js"></script>
+</head>
+<body class="code-snippets-visible">
+
+<div class="navbar-spacer"></div>
+<nav class="navbar">
+    <div class="container">
+        <ul class="navbar-list">
+            <li class="navbar-item">
+                <a class="navbar-link" href="/">
+                    HOME
+                </a>
+            </li>
+                <li class="navbar-item">
+                    <a class="navbar-link" href="/pages/theme.html">
+                        theme
+                    </a>
+                </li>
+                <li class="navbar-item">
+                    <a class="navbar-link" href="/pages/about.html">
+                        about
+                    </a>
+                </li>
+                <li class="navbar-item">
+                    <a class="navbar-link" href="/pages/wiki.html">
+                        wiki
+                    </a>
+                </li>
+                <li class="navbar-item">
+                    <a class="navbar-link" href="/pages/books.html">
+                        books
+                    </a>
+                </li>
+                <li class="navbar-item">
+                    <a class="navbar-link" href="/pages/blog.html">
+                        blog
+                    </a>
+                </li>
+        </ul>
+        <div class="navbar-link">
+            <a href="/"><img src="/theme/images/header.jpg" class="site-icon"/></a>
+        </div>
+    </div>
+</nav>
+<div class="container">
+    <section id="content">
+        <article>
+            <p class="article-date">
+                全文总字数: 378
+            </p>
+            <header class="article-header">
+                <a href="/flask-chu-kui.html" rel="bookmark" title="Permalink to flask 初窥">
+                    <h3 class="blogpost-title">
+                        flask 初窥
+                    </h3>
+                </a>
+            </header>
+            <div>
+                <hr>
+<h5><strong>起因:</strong></h5>
+<p>之前做的一个项目，因为某些原因中断了，现在指导老师又想重拾这个项目，但是之前做的时候，需求没有完全确定、服务器地址改变等导致代码写的非常乱。现在让学弟学妹在此代码的基础上进行学习、修改，无疑是&gt;&gt;糊涂。</p>
+<p>这让我有了重新写接口后台代码的想法，于是百度了一下<code>python web api</code>，发现了flask框架。而且当时就根据入门指南写了一个<code>hello world</code>，所以跟一个自诩为'架构师'的同学商量了一下，让我在<code>github</code>写一个demo。</p>
+<p>demo地址:<a href="https://github.com/liyuan-t/api-burro">api-burro</a></p>
+<p>说说过程吧：</p>
+<h5><strong>1.环境配置</strong></h5>
+<p>python环境配置就不用说了吧，什么<code>pip</code>,<code>easy_install</code>等等</p>
+<p>1.安装virtualenv</p>
+<div class="highlight"><pre><span></span>sudo pip install python-virtualenv
+</pre></div>
+
+
+<p>2.创建应用目录</p>
+<div class="highlight"><pre><span></span>mkdir flask-demo
+cd flask-demo
+</pre></div>
+
+
+<p>3.在virtualenv中使用flask</p>
+<div class="highlight"><pre><span></span>virtualenv flask
+flask/bin/pip install flask
+vim test.py
+</pre></div>
+
+
+<p>4.编辑<code>test.py</code></p>
+<div class="highlight"><pre><span></span><span class="c1"># coding:utf-8</span>
+<span class="n">__author__</span> <span class="o">=</span> <span class="s1">&#39;liyuan_t&#39;</span>
+
+<span class="kn">from</span> <span class="nn">flask</span> <span class="kn">import</span> <span class="n">Flask</span>
+
+<span class="n">app</span> <span class="o">=</span> <span class="n">Flask</span><span class="p">(</span><span class="vm">__name__</span><span class="p">)</span>
+
+<span class="nd">@app.route</span><span class="p">(</span><span class="s1">&#39;/route&#39;</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">index</span><span class="p">():</span>
+    <span class="k">return</span> <span class="s1">&#39;hello world&#39;</span>
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
+    <span class="n">app</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">debug</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span><span class="n">port</span><span class="o">=</span><span class="mi">8080</span><span class="p">)</span>
+</pre></div>
+
+
+<p>运行之</p>
+<p>然后打开浏览器访问<code>http://127.0.0.1:8080/route</code>或者<code>http://0.0.0.0:8080/route</code>，在浏览器中都会出现<code>hello world</code>。</p>
+            </div>
+            <div class="article-info">
+                <hr/>
+                <div class="article-info">
+                    <span><b>Category: </b><a href="/category/python.html">python</a></span>
+                    <br/>
+                    <span><b>Publication Date: </b> Sat 12 December 2015 </span>
+                    <br/>
+                        <a class="label-default" href="/tag/python.html">python</a>
+                        <a class="label-default" href="/tag/flask.html">flask</a>
+                        <a class="label-default" href="/tag/webkuang-jia.html">web框架</a>
+                    <br/>
+                </div>
+            </div>
+        </article>
+    </section>
+    <br/>
+    <br/>
+    <br/>
+</div>
+
+<footer class="footer">
+    &copy <a href="/" >kosmgco</a>. 2016
+    <br/>
+    Powered by <a href="//getpelican.com/">pelican</a>.
+    Theme by <a href="//github.com/kosmgco/ops">ops</a> | 
+    <a href="//www.miitbeian.gov.cn/">渝ICP备16003403号</a>
+</footer>
+<script>
+    var _hmt = _hmt || [];
+    (function() {
+        var hm = document.createElement("script");
+        hm.src = "https://hm.baidu.com/hm.js?67d2b3355046511d3ad9eef9c65d2a41";
+        var s = document.getElementsByTagName("script")[0]; 
+        s.parentNode.insertBefore(hm, s);
+    })();
+</script>
+</body>
+</html>

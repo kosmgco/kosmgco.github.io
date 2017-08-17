@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Nginx日志分析 | Kosmgco</title>
+
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta charset="utf-8">
+    <meta name="category" value="back-end">
+    <meta name="reader" value="markdown">
+    <meta name="date" value="2017-07-08 09:54:00">
+    <meta name="title" value="Nginx日志分析">
+    <meta name="tags" value="Nginx,log">
+    <meta name="summary" value="对Nginx日志进行文本分析, 统计访问量等数据">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta property="wb:webmaster" content="ba29596b8c7c7ae7" /> 
+
+    <meta name="description" content="Linux. Python. Coder. Gopher.">
+    <meta name="author" content="kosmgco">
+
+    <link href="/theme/css/fonts.css" rel="stylesheet" />
+
+    <link href="/theme/css/normalize.css" rel="stylesheet"/>
+    <link href="/theme/css/skeleton.css" rel="stylesheet"/>
+    <link href="/theme/css/github-prettify-theme.css" rel="stylesheet"/>
+    <link href="/theme/css/custom.css" rel="stylesheet"/>
+    <link href="/theme/css/pygments.css" rel="stylesheet"/>
+
+    <script src="/theme/js/jquery.min.js"></script>
+    <script src="/theme/js/run_prettify.js"></script>
+    <script src="/theme/js/site.js"></script>
+</head>
+<body class="code-snippets-visible">
+
+<div class="navbar-spacer"></div>
+<nav class="navbar">
+    <div class="container">
+        <ul class="navbar-list">
+            <li class="navbar-item">
+                <a class="navbar-link" href="/">
+                    HOME
+                </a>
+            </li>
+                <li class="navbar-item">
+                    <a class="navbar-link" href="/pages/theme.html">
+                        theme
+                    </a>
+                </li>
+                <li class="navbar-item">
+                    <a class="navbar-link" href="/pages/about.html">
+                        about
+                    </a>
+                </li>
+                <li class="navbar-item">
+                    <a class="navbar-link" href="/pages/wiki.html">
+                        wiki
+                    </a>
+                </li>
+                <li class="navbar-item">
+                    <a class="navbar-link" href="/pages/books.html">
+                        books
+                    </a>
+                </li>
+                <li class="navbar-item">
+                    <a class="navbar-link" href="/pages/blog.html">
+                        blog
+                    </a>
+                </li>
+        </ul>
+        <div class="navbar-link">
+            <a href="/"><img src="/theme/images/header.jpg" class="site-icon"/></a>
+        </div>
+    </div>
+</nav>
+<div class="container">
+    <section id="content">
+        <article>
+            <p class="article-date">
+                全文总字数: 371
+            </p>
+            <header class="article-header">
+                <a href="/nginxri-zhi-fen-xi.html" rel="bookmark" title="Permalink to Nginx日志分析">
+                    <h3 class="blogpost-title">
+                        Nginx日志分析
+                    </h3>
+                </a>
+            </header>
+            <div>
+                <h4>日志格式</h4>
+<div class="highlight"><pre><span></span>log_format combined &#39;$remote_addr - $remote_user [$time_local]&#39;
+                                   &#39; &quot;$request&quot; $status $body_bytes_sent&#39;
+                                   &#39; &quot;$http_referer&quot; &quot;$http_user_agent&quot;&#39;;
+# $remote_addr 请求客户端地址
+# $remote_user 请求客户端用户
+# $time_local 当前机器的时间
+# $request 请求头(请求方法，路径，协议)
+# $status 返回状态码
+# $body_byte_sent 返回数据长度
+# $http_referer 来源
+# $http_user_agent 请求工具
+</pre></div>
+
+
+<h4>获取请求总数(pv)</h4>
+<div class="highlight"><pre><span></span>cat access.log | wc -l
+</pre></div>
+
+
+<p>Output:
+<img alt="Alt text" src="https://static.ooops.me/4f1dd04ffc57305d68bb6e6978038836.jpeg"></p>
+<h4>获取蜘蛛请求量</h4>
+<div class="highlight"><pre><span></span>cat access.log |grep &quot;Baiduspider&quot; | wc -l
+</pre></div>
+
+
+<p>Output:
+<img alt="enter image description here" src="https://static.ooops.me/345ae7bcf51fa5ee006e107a3bdccdb6.jpeg"></p>
+<h4>获取所有请求IP</h4>
+<div class="highlight"><pre><span></span>cat access.log | awk &#39;{print $1}&#39;|sort -n | uniq
+</pre></div>
+
+
+<p>Output:
+<img alt="enter image description here" src="https://static.ooops.me/17ae171f59df46eaf98fcd303ed65a51.jpeg"></p>
+<h4>获取每个IP请求次数</h4>
+<div class="highlight"><pre><span></span>cat access.log | awk &#39;{print $1}&#39; | sort -n | uniq -c | awk &#39;{print $2, $1}&#39;
+</pre></div>
+
+
+<p>Output:</p>
+<p><img alt="enter image description here" src="https://static.ooops.me/23edc73c8d3d901cdee31c9564460595.jpeg"></p>
+<h4>获取状态码为404的请求</h4>
+<div class="highlight"><pre><span></span>cat access.log | awk &#39;{if($9==404) print $0}&#39;
+</pre></div>
+
+
+<p>Output:
+<img alt="enter image description here" src="https://static.ooops.me/fa49995846caddbcfdaf6bcffbd4be2b.jpeg"></p>
+<h4>获取所有的状态码</h4>
+<div class="highlight"><pre><span></span>cat access.log | awk &#39;{print $9}&#39; | sort -n | uniq
+</pre></div>
+
+
+<p>Output:
+<img alt="enter image description here" src="https://static.ooops.me/8a474297d447d903543fda8554b30c85.jpeg"></p>
+<h4>获取每种状态码的请求次数</h4>
+<div class="highlight"><pre><span></span>cat access.log | awk &#39;{print $9}&#39; | sort -n | uniq -c | awk &#39;{print $2, $1}&#39;
+</pre></div>
+
+
+<p>Output:
+<img alt="enter image description here" src="https://static.ooops.me/c5757ea668d52ab076f54c392c13b8a3.jpeg"></p>
+<h4>获取每分钟请求数</h4>
+<div class="highlight"><pre><span></span>cat access.log| awk &#39;{print substr($4, 14, 5)}&#39; | uniq -c | awk &#39;{print $2, $1}&#39;
+</pre></div>
+
+
+<p>Output:
+<img alt="enter image description here" src="https://static.ooops.me/ee49ba9e40b59c02f67a1b52c65c7ddd.jpeg"></p>
+            </div>
+            <div class="article-info">
+                <hr/>
+                <div class="article-info">
+                    <span><b>Category: </b><a href="/category/back-end.html">back-end</a></span>
+                    <br/>
+                    <span><b>Publication Date: </b> Sat 08 July 2017 </span>
+                    <br/>
+                        <a class="label-default" href="/tag/nginx.html">Nginx</a>
+                        <a class="label-default" href="/tag/log.html">log</a>
+                    <br/>
+                </div>
+            </div>
+        </article>
+    </section>
+    <br/>
+    <br/>
+    <br/>
+</div>
+
+<footer class="footer">
+    &copy <a href="/" >kosmgco</a>. 2016
+    <br/>
+    Powered by <a href="//getpelican.com/">pelican</a>.
+    Theme by <a href="//github.com/kosmgco/ops">ops</a> | 
+    <a href="//www.miitbeian.gov.cn/">渝ICP备16003403号</a>
+</footer>
+<script>
+    var _hmt = _hmt || [];
+    (function() {
+        var hm = document.createElement("script");
+        hm.src = "https://hm.baidu.com/hm.js?67d2b3355046511d3ad9eef9c65d2a41";
+        var s = document.getElementsByTagName("script")[0]; 
+        s.parentNode.insertBefore(hm, s);
+    })();
+</script>
+</body>
+</html>

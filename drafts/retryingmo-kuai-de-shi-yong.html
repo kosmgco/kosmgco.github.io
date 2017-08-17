@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>retrying模块的使用 | Kosmgco</title>
+
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta charset="utf-8">
+    <meta name="category" value="wiki">
+    <meta name="status" value="draft">
+    <meta name="tags" value="python,retrying">
+    <meta name="date" value="2016-10-19 13:36:00">
+    <meta name="title" value="retrying模块的使用">
+    <meta name="reader" value="markdown">
+    <meta name="summary" value="python retrying 模块的使用">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta property="wb:webmaster" content="ba29596b8c7c7ae7" /> 
+
+    <meta name="description" content="Linux. Python. Coder. Gopher.">
+    <meta name="author" content="kosmgco">
+
+    <link href="/theme/css/fonts.css" rel="stylesheet" />
+
+    <link href="/theme/css/normalize.css" rel="stylesheet"/>
+    <link href="/theme/css/skeleton.css" rel="stylesheet"/>
+    <link href="/theme/css/github-prettify-theme.css" rel="stylesheet"/>
+    <link href="/theme/css/custom.css" rel="stylesheet"/>
+    <link href="/theme/css/pygments.css" rel="stylesheet"/>
+
+    <script src="/theme/js/jquery.min.js"></script>
+    <script src="/theme/js/run_prettify.js"></script>
+    <script src="/theme/js/site.js"></script>
+</head>
+<body class="code-snippets-visible">
+
+<div class="navbar-spacer"></div>
+<nav class="navbar">
+    <div class="container">
+        <ul class="navbar-list">
+            <li class="navbar-item">
+                <a class="navbar-link" href="/">
+                    HOME
+                </a>
+            </li>
+                <li class="navbar-item">
+                    <a class="navbar-link" href="/pages/theme.html">
+                        theme
+                    </a>
+                </li>
+                <li class="navbar-item">
+                    <a class="navbar-link" href="/pages/about.html">
+                        about
+                    </a>
+                </li>
+                <li class="navbar-item">
+                    <a class="navbar-link" href="/pages/wiki.html">
+                        wiki
+                    </a>
+                </li>
+                <li class="navbar-item">
+                    <a class="navbar-link" href="/pages/books.html">
+                        books
+                    </a>
+                </li>
+                <li class="navbar-item">
+                    <a class="navbar-link" href="/pages/blog.html">
+                        blog
+                    </a>
+                </li>
+        </ul>
+        <div class="navbar-link">
+            <a href="/"><img src="/theme/images/header.jpg" class="site-icon"/></a>
+        </div>
+    </div>
+</nav>
+<div class="container">
+    <section id="content">
+        <article>
+            <p class="article-date">
+                全文总字数: 179
+            </p>
+            <header class="article-header">
+                <a href="/drafts/retryingmo-kuai-de-shi-yong.html" rel="bookmark" title="Permalink to retrying模块的使用">
+                    <h3 class="blogpost-title">
+                        retrying模块的使用
+                    </h3>
+                </a>
+            </header>
+            <div>
+                <h3>install</h3>
+<div class="highlight"><pre><span></span>pip install retrying
+</pre></div>
+
+
+<h3>usage</h3>
+<div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">retrying</span> <span class="kn">import</span> <span class="n">retry</span>
+
+<span class="nd">@retry</span>
+<span class="k">def</span> <span class="nf">case1</span><span class="p">():</span>
+    <span class="k">pass</span>
+
+
+<span class="nd">@retry</span><span class="p">(</span><span class="n">wait_random_min</span><span class="o">=</span><span class="mi">1000</span><span class="p">,</span> <span class="n">wait_random_max</span><span class="o">=</span><span class="mi">2000</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">case2</span><span class="p">():</span>
+    <span class="k">pass</span>
+
+
+<span class="nd">@retry</span><span class="p">(</span><span class="n">stop_max_attempt_number</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">case3</span><span class="p">():</span>
+    <span class="k">pass</span>
+</pre></div>
+            </div>
+            <div class="article-info">
+                <hr/>
+                <div class="article-info">
+                    <span><b>Category: </b><a href="/category/wiki.html">wiki</a></span>
+                    <br/>
+                    <span><b>Publication Date: </b> Wed 19 October 2016 </span>
+                    <br/>
+                        <a class="label-default" href="/tag/python.html">python</a>
+                        <a class="label-default" href="/tag/retrying.html">retrying</a>
+                    <br/>
+                </div>
+            </div>
+        </article>
+    </section>
+    <br/>
+    <br/>
+    <br/>
+</div>
+
+<footer class="footer">
+    &copy <a href="/" >kosmgco</a>. 2016
+    <br/>
+    Powered by <a href="//getpelican.com/">pelican</a>.
+    Theme by <a href="//github.com/kosmgco/ops">ops</a> | 
+    <a href="//www.miitbeian.gov.cn/">渝ICP备16003403号</a>
+</footer>
+<script>
+    var _hmt = _hmt || [];
+    (function() {
+        var hm = document.createElement("script");
+        hm.src = "https://hm.baidu.com/hm.js?67d2b3355046511d3ad9eef9c65d2a41";
+        var s = document.getElementsByTagName("script")[0]; 
+        s.parentNode.insertBefore(hm, s);
+    })();
+</script>
+</body>
+</html>
