@@ -1,0 +1,23 @@
+User-agent:  Baiduspider
+Allow: 
+
+User-Agent:  Googlebot
+Allow: 
+
+User-agent:  Bingbot
+Allow:
+
+User-Agent:  360Spider
+Allow:
+
+User-Agent:  Yisouspider
+Disallow: /
+
+User-Agent:  Sogouspider
+Allow: 
+
+User-Agent:  Yahoo!  Slurp
+Allow: 
+
+User-Agent:  *
+Disallow:  /

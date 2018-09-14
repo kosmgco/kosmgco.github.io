@@ -1,0 +1,213 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>  Kosmgco | python json解析那点事 </title>
+<meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+<link href="/theme/css/github-markdown.css" rel="stylesheet"/>
+<link href="/theme/css/custom.css" rel="stylesheet"/>
+<meta name="baidu-site-verification" content="qfSD7JIuUr"/>
+<meta name="description" content="Linux. Python. Coder. Gopher."/>
+<meta name="author" content="kosmgco" />
+
+<meta name="viewport" content="width=device-width, initaial-scale=1"/>  </head>
+  <body class="markdown-body">
+    <style>
+      @media (max-width: 550px) {
+        .catalog, .content {
+          display:none;
+        }
+      }
+    </style>
+    <div class="menu">
+      <div class="title" style="background: url(https://static.ooops.me/md-upload-1536468495519.png) no-repeat; background-position: center"></div>
+      <h3> Kosmgco </h3>
+      <h4> Linux. Python. Coder. Gopher. </h4>
+      <div class="links-menu" >
+        <a href="/" class="menu-link" title="HOME"><img src="/theme/images/home.png" width="40"/></a>
+        <a href="/tags.html" class="menu-link" title="TAGS"><img src="/theme/images/tags.png" width="40"/></a>
+        <a href="/categories.html" class="menu-link" title="CATEGORIES"><img src="/theme/images/categories.png" width="40"/></a>
+        <a href="/pages/blog.html" class="menu-link" title="BLOG"><img src="/theme/images/blog.png" width="40"/></a>
+        <a href="/pages/about.html" class="menu-link" title="ABOUT"><img src="/theme/images/about.png" width="40"/></a>
+ 
+      </div>
+      <div class="links">
+        <a href="http://github.com/kosmgco" target="_blank">
+          <img src="/theme/images/github-128.png" style="width:32px;">
+        </a>
+        <a href="mailto:i@ooops.me" target="_blank">
+          <img src="/theme/images/mail-128.png" style="width:32px;">
+        </a>
+      </div>
+      <div class="links">
+        <a href="http://xlzd.me" target="_blank">xlzd杂谈</a>
+        <a href="http://midday.me" target="_blank">正午的博客</a>
+        <a href="http://mqhong.com" target="_blank">梦梦的咸鱼</a>
+        <a href="http://bilibili.ooops.me" target="_blank">B站弹幕</a>
+      </div>
+      <div class="copyright">
+        &copy <a href="/">Kosmgco</a>. 2018<br />
+        Powered by <a href="https://getpelican.com" target="_blank">Pelican</a>. Theme by <a href="https://github.com/kosmgco/pelican-theme-mdshow" target="_blank">MDShow</a> 
+        <br />
+        <a href="https://www.miitbeian.gov.cn/" target="_blank">渝ICP备16003403号</a>
+      </div>
+    </div>
+    <div class="catalog">
+      <b>2018-01-16</b><a href="/posts/2018/01/16/golang-json-zi-ding-yi-lei-xing-de-xu-lie-hua-yu-fan-xu-lie-hua.html">Golang JSON 自定义类型的序列化与反序列化</a>
+      <b>2017-10-22</b><a href="/posts/2017/10/22/pai-xu-cha-ru-pai-xu.html">排序 - 插入排序</a>
+      <b>2017-10-20</b><a href="/posts/2017/10/20/pai-xu-xuan-ze-pai-xu.html">排序 - 选择排序</a>
+      <b>2017-09-21</b><a href="/posts/2017/09/21/golang-3des-des-aesjia-mi-jie-mi.html">Golang 3DES, DES, AES加密解密</a>
+      <b>2017-09-16</b><a href="/posts/2017/09/16/zi-ji-shi-xian-shi-xian-yi-ge-zhan.html">自己实现实现一个栈</a>
+      <b>2017-07-30</b><a href="/posts/2017/07/30/mysqlji-zhu-nei-mu-innodbcun-chu-yin-qing-di-yi-zhang.html">《MySQL技术内幕: InnoDB存储引擎》 - 第一章</a>
+      <b>2017-07-08</b><a href="/posts/2017/07/08/nginxri-zhi-fen-xi.html">Nginx日志分析</a>
+      <b>2017-02-24</b><a href="/posts/2017/02/24/tong-guo-ren-lian-shi-bie-huo-qu-xue-xiao-xue-sheng-de-xing-bie-bi-li.html">通过人脸识别获取学校学生的性别比例</a>
+      <b>2016-12-10</b><a href="/posts/2016/12/10/kai-qi-quan-zhan-https.html">开启全站https</a>
+      <b>2016-12-04</b><a href="/posts/2016/12/04/say-hello-world-to-docker.html">Say Hello-World! To Docker</a>
+      <b>2016-10-25</b><a href="/posts/2016/10/25/ubuntu-gokai-fa-huan-jing-pei-zhi.html">Ubuntu-Go开发环境配置</a>
+      <b>2016-07-19</b><a href="/posts/2016/07/19/shi-yong-python-flaskda-jian-qing-bo-ke.html">使用Python-Flask搭建轻博客</a>
+      <b>2016-07-10</b><a href="/posts/2016/07/10/appfan-bian-yi.html">app反编译</a>
+      <b>2016-07-10</b><a href="/posts/2016/07/10/gitcao-zuo.html">git操作</a>
+      <b>2016-04-16</b><a href="/posts/2016/04/16/nginx-virtual-hostxu-ni-ji.html">nginx virtual host虚拟机</a>
+      <b>2016-03-25</b><a href="/posts/2016/03/25/shi-xi-zong-jie.html">实习总结</a>
+      <b>2016-03-04</b><a href="/posts/2016/03/04/wei-xin-gong-zhong-hao-yi-ji-zhi-neng-liao-tian-ji-qi-ren-de-jie-ru.html">微信公众号以及智能聊天机器人的接入</a>
+      <b>2016-02-27</b><a href="/posts/2016/02/27/jia-su-le-cookie__jsl_clearnce-po-jie-xin-jin-zhan.html">加速乐cookie:__jsl_clearnce 破解新进展</a>
+      <b>2016-02-23</b><a href="/posts/2016/02/23/fu-li-tie-shi-yong-ubermian-fei-zuo-zhuan-che.html">福利帖 - 使用uber免费坐专车</a>
+      <b>2016-02-02</b><a href="/posts/2016/02/02/pycharmandroid-studioyuan-an-zhuang.html">Pycharm,Android-Studio源安装</a>
+      <b>2016-01-17</b><a href="/posts/2016/01/17/pythonpa-qu-tu-pian.html">python爬取图片</a>
+      <b>2016-01-10</b><a href="/posts/2016/01/10/zheng-fang-jiao-wu-xi-tong-shu-ju-huo-qu.html">正方教务系统数据获取</a>
+      <b>2015-12-24</b><a href="/posts/2015/12/24/flask-wen-jian-jie-gou-zu-zhi.html">flask 文件结构组织</a>
+      <b>2015-12-21</b><a href="/posts/2015/12/21/mongodb-xiao-dao-chu-shi.html">mongodb 小刀初试</a>
+      <b>2015-12-20</b><a href="/posts/2015/12/20/guan-yu-shua-piao.html">关于刷票</a>
+      <b>2015-12-18</b><a href="/posts/2015/12/18/python-jsonjie-xi-na-dian-shi.html">python json解析那点事</a>
+      <b>2015-12-12</b><a href="/posts/2015/12/12/flask-chu-kui.html">flask 初窥</a>
+      <b>2015-12-09</b><a href="/posts/2015/12/09/guan-yu-jia-su-le-de-__jsl_clearancefan-hui-521zhuang-tai-ma-po-jie.html">关于加速乐的__jsl_clearance返回521状态码破解</a>
+    </div>
+    <div class="content">
+  <style>
+    @media(max-width: 550px) {
+      body {
+        height: auto;
+      }
+      .menu .links, .menu .copyright {
+        display:none;
+      }
+      .menu {
+        height: 65%;
+      }
+      .catalog {
+        display:none;
+      }
+      .content {
+        display: block;
+      }
+      h3 {
+        text-align: center;
+      }
+    }
+  </style>
+  <h3> python json解析那点事 </h3>
+    <a href="/tag/python.html" class="link-tags">python</a>
+    <a href="/tag/json.html" class="link-tags">json</a>
+  <hr style="clear:both"/>
+  <hr>
+<p>今天做了个<code>json</code>解析的模块，原因是为了得到一个网站的数据，通过post方式。返回数据的格式如下:</p>
+<div class="highlight"><pre><span></span><span class="s2">&quot;[{</span><span class="se">\&quot;</span><span class="s2">Count</span><span class="se">\&quot;</span><span class="s2">:</span><span class="se">\&quot;</span><span class="s2">2535773</span><span class="se">\&quot;</span><span class="s2">},{</span><span class="se">\&quot;</span><span class="s2">裁判要旨段原文</span><span class="se">\&quot;</span><span class="s2">:</span><span class="se">\&quot;</span><span class="s2">本院认为，被....</span><span class="se">\&quot;</span><span class="s2">,</span><span class="se">\&quot;</span><span class="s2">DocContent</span><span class="se">\&quot;</span><span class="s2">:</span><span class="se">\&quot;</span><span class="s2">人民陪审员</span><span class="se">\&quot;</span><span class="s2">,</span><span class="se">\&quot;</span><span class="s2">案件类型</span><span class="se">\&quot;</span><span class="s2">:</span><span class="se">\&quot;</span><span class="s2">1</span><span class="se">\&quot;</span><span class="s2">,</span><span class="se">\&quot;</span><span class="s2">裁判日期</span><span class="se">\&quot;</span><span class="s2">:</span><span class="se">\&quot;</span><span class="s2">2015-06-18</span><span class="se">\&quot;</span><span class="s2">,</span><span class="se">\&quot;</span><span class="s2">案件名称</span><span class="se">\&quot;</span><span class="s2">:</span><span class="se">\&quot;</span><span class="s2">被告人</span><span class="se">\&quot;</span><span class="s2">,</span><span class="se">\&quot;</span><span class="s2">文书ID</span><span class="se">\&quot;</span><span class="s2">:</span><span class="se">\&quot;</span><span class="s2">ffaf4515-b185-46d4-a306-6f6386d20002</span><span class="se">\&quot;</span><span class="s2">,</span><span class="se">\&quot;</span><span class="s2">审判程序</span><span class="se">\&quot;</span><span class="s2">:</span><span class="se">\&quot;</span><span class="s2">一审</span><span class="se">\&quot;</span><span class="s2">,</span><span class="se">\&quot;</span><span class="s2">案号</span><span class="se">\&quot;</span><span class="s2">:</span><span class="se">\&quot;</span><span class="s2">（2015）扶刑初字第</span><span class="se">\&quot;</span><span class="s2">,</span><span class="se">\&quot;</span><span class="s2">法院名称</span><span class="se">\&quot;</span><span class="s2">:</span><span class="se">\&quot;</span><span class="s2">吉林省扶</span><span class="se">\&quot;</span><span class="s2">},{</span><span class="se">\&quot;</span><span class="s2">裁判要旨段原文</span><span class="se">\&quot;</span><span class="s2">:</span><span class="se">\&quot;</span><span class="s2">如下</span><span class="se">\&quot;</span><span class="s2">,</span><span class="se">\&quot;</span><span class="s2">DocContent</span><span class="se">\&quot;</span><span class="s2">:</span><span class="se">\&quot;</span><span class="s2">起计算。</span><span class="se">\&quot;</span><span class="s2">,</span><span class="se">\&quot;</span><span class="s2">案件类型</span><span class="se">\&quot;</span><span class="s2">:</span><span class="se">\&quot;</span><span class="s2">1</span><span class="se">\&quot;</span><span class="s2">,</span><span class="se">\&quot;</span><span class="s2">裁判日期</span><span class="se">\&quot;</span><span class="s2">:</span><span class="se">\&quot;</span><span class="s2">2015-10-29</span><span class="se">\&quot;</span><span class="s2">,</span><span class="se">\&quot;</span><span class="s2">案件名称</span><span class="se">\&quot;</span><span class="s2">:</span><span class="se">\&quot;</span><span class="s2">姜某犯</span><span class="se">\&quot;</span><span class="s2">,</span><span class="se">\&quot;</span><span class="s2">文书ID</span><span class="se">\&quot;</span><span class="s2">:</span><span class="se">\&quot;</span><span class="s2">bf80393d-359a-4e80-bf8a-1c2a8ed7df33</span><span class="se">\&quot;</span><span class="s2">,</span><span class="se">\&quot;</span><span class="s2">审判程序</span><span class="se">\&quot;</span><span class="s2">:</span><span class="se">\&quot;</span><span class="s2">一审</span><span class="se">\&quot;</span><span class="s2">,</span><span class="se">\&quot;</span><span class="s2">案号</span><span class="se">\&quot;</span><span class="s2">:</span><span class="se">\&quot;</span><span class="s2">（2015）淮刑初字第00512号</span><span class="se">\&quot;</span><span class="s2">,</span><span class="se">\&quot;</span><span class="s2">法院名称</span><span class="se">\&quot;</span><span class="s2">:</span><span class="se">\&quot;</span><span class="s2">江江苏省淮安市淮阴区人民法院</span><span class="se">\&quot;</span><span class="s2">}]&quot;</span>
+</pre></div>
+
+
+<p>很明显，这并不是<code>json module</code>能够解析的了的，里面的引号都是转义的，报错<code>value</code>也有很多引号都是转义的<code>\"</code>，这给解析带来了很多麻烦。</p>
+<p>首先我想的是:</p>
+<div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">re</span>
+<span class="kn">import</span> <span class="nn">json</span>
+
+<span class="n">jsstr</span> <span class="o">=</span> <span class="s1">&#39;上面那一段&#39;</span>
+
+<span class="n">ret</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">subn</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;</span><span class="se">\\</span><span class="s1">\&quot;&#39;</span><span class="p">,</span><span class="s1">&#39;&quot;&#39;</span><span class="p">,</span><span class="n">jsstr</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+
+<span class="n">jsonstr</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">JSONDecoder</span><span class="p">()</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="n">ret</span><span class="p">)</span>
+</pre></div>
+
+
+<p>但是报错了，原因是<code>value</code>里面就有<code>对"XX事实"供认不讳</code>这样的语句，所以就把<code>value</code>分成了几段，就像<code>sql</code>注入那样，所以不能解析成功。</p>
+<p>没办法了，只能把那些个比较特殊的分别替换出来。</p>
+<p>于是替换后的结果为:</p>
+<div class="highlight"><pre><span></span><span class="p">[</span>
+    <span class="p">{</span>
+        <span class="nt">&quot;Count&quot;</span><span class="p">:</span><span class="s2">&quot;2535773&quot;</span>
+    <span class="p">},</span>
+    <span class="p">{</span>
+        <span class="nt">&quot;裁判要旨段原文&quot;</span><span class="p">:</span><span class="s2">&quot;本院认为，被....&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;DocContent&quot;</span><span class="p">:</span><span class="s2">&quot;人民陪审员&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;案件类型&quot;</span><span class="p">:</span><span class="s2">&quot;1&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;裁判日期&quot;</span><span class="p">:</span><span class="s2">&quot;2015-06-18&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;案件名称&quot;</span><span class="p">:</span><span class="s2">&quot;被告人&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;文书ID&quot;</span><span class="p">:</span><span class="s2">&quot;ffaf4515-b185-46d4-a306-6f6386d20002&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;审判程序&quot;</span><span class="p">:</span><span class="s2">&quot;一审&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;案号&quot;</span><span class="p">:</span><span class="s2">&quot;（2015）扶刑初字第&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;法院名称&quot;</span><span class="p">:</span><span class="s2">&quot;吉林省扶&quot;</span>
+    <span class="p">},</span>
+    <span class="p">{</span>
+        <span class="nt">&quot;裁判要旨段原文&quot;</span><span class="p">:</span><span class="s2">&quot;如下&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;DocContent&quot;</span><span class="p">:</span><span class="s2">&quot;起计算。&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;案件类型&quot;</span><span class="p">:</span><span class="s2">&quot;1&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;裁判日期&quot;</span><span class="p">:</span><span class="s2">&quot;2015-10-29&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;案件名称&quot;</span><span class="p">:</span><span class="s2">&quot;姜某犯&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;文书ID&quot;</span><span class="p">:</span><span class="s2">&quot;bf80393d-359a-4e80-bf8a-1c2a8ed7df33&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;审判程序&quot;</span><span class="p">:</span><span class="s2">&quot;一审&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;案号&quot;</span><span class="p">:</span><span class="s2">&quot;（2015）淮刑初字第005号&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;法院名称&quot;</span><span class="p">:</span><span class="s2">&quot;江苏&quot;</span>
+    <span class="p">}</span>
+<span class="p">]</span>
+</pre></div>
+
+
+<p>现在使用<code>jobj = json.JSONDecoder().decode(jsonstr)</code>就能得到一个<code>dict</code>类型的对象了。</p>
+<p>但是现在得到了一个比较复杂的json串：</p>
+<div class="highlight"><pre><span></span><span class="p">[</span>
+    <span class="p">{</span>
+        <span class="nt">&quot;北京&quot;</span><span class="p">:{</span>
+            <span class="nt">&quot;北京市第一中级人民法院&quot;</span><span class="p">:[</span>
+                <span class="s2">&quot;北京市石景山区人民法院&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;北京市海淀区人民法院&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;....&quot;</span>
+            <span class="p">],</span>
+            <span class="nt">&quot;北京市第二中级人民法院&quot;</span><span class="p">:[</span>
+                <span class="s2">&quot;北京市东城区人民法院&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;北京市西城区人民法院&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;....&quot;</span>
+            <span class="p">]</span>
+        <span class="p">},</span>
+        <span class="nt">&quot;河北&quot;</span><span class="p">:{</span>
+            <span class="nt">&quot;河北省石家庄市中级人民法院&quot;</span><span class="p">:[</span>
+                <span class="s2">&quot;石家庄市长安区人民法院&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;石家庄市桥西区人民法院&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;....&quot;</span>
+            <span class="p">],</span>
+            <span class="nt">&quot;河北省秦皇岛市中级人民法院&quot;</span><span class="p">:[</span>
+                <span class="s2">&quot;秦皇岛市海港区人民法院&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;秦皇岛市北戴河区人民法院&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;....&quot;</span>
+            <span class="p">]</span>
+        <span class="p">},</span>
+        <span class="nt">&quot;.....&quot;</span><span class="p">:{}</span>
+    <span class="p">}</span>
+<span class="p">]</span>
+</pre></div>
+
+
+<p>虽然以前使用<code>C#</code>的时候也解析过比较复杂的<code>json</code>串，但是<code>C#</code>使用<code>Newtonsoft.net</code>可以直接反序列化成结构化的对象。<code>python</code>只能解析成<code>dict</code>类型的对象。使用<code>jobj = json.JSONDecoder().decode(str)</code>得到类型为<code>dict</code>的<code>jobj</code>。但是我想得到<code>value</code>怎么办呢？只有遍历了，照这样子，算法复杂度可不低啊。</p>
+<p>至少两个循环，那算法的复杂度至少为<code>O(n^2)</code>了，虽然代码不多，但是我也不想这样做。</p>
+<p>如果有好的解决方案，请留言告诉我。</p>
+    </div>
+    <script>
+  var _hmt = _hmt || [];
+  (function() {
+    var hm = document.createElement("script");
+    hm.src = "https://hm.baidu.com/hm.js?67d2b3355046511d3ad9eef9c65d2a41";
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(hm, s);
+  })();
+
+    </script>
+  </body>
+</html>

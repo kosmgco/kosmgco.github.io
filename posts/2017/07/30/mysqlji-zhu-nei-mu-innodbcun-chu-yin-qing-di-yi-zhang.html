@@ -1,0 +1,387 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>  Kosmgco | 《MySQL技术内幕: InnoDB存储引擎》 - 第一章 </title>
+<meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+<link href="/theme/css/github-markdown.css" rel="stylesheet"/>
+<link href="/theme/css/custom.css" rel="stylesheet"/>
+<meta name="baidu-site-verification" content="qfSD7JIuUr"/>
+<meta name="description" content="Linux. Python. Coder. Gopher."/>
+<meta name="author" content="kosmgco" />
+
+<meta name="viewport" content="width=device-width, initaial-scale=1"/>  </head>
+  <body class="markdown-body">
+    <style>
+      @media (max-width: 550px) {
+        .catalog, .content {
+          display:none;
+        }
+      }
+    </style>
+    <div class="menu">
+      <div class="title" style="background: url(https://static.ooops.me/md-upload-1536468495519.png) no-repeat; background-position: center"></div>
+      <h3> Kosmgco </h3>
+      <h4> Linux. Python. Coder. Gopher. </h4>
+      <div class="links-menu" >
+        <a href="/" class="menu-link" title="HOME"><img src="/theme/images/home.png" width="40"/></a>
+        <a href="/tags.html" class="menu-link" title="TAGS"><img src="/theme/images/tags.png" width="40"/></a>
+        <a href="/categories.html" class="menu-link" title="CATEGORIES"><img src="/theme/images/categories.png" width="40"/></a>
+        <a href="/pages/blog.html" class="menu-link" title="BLOG"><img src="/theme/images/blog.png" width="40"/></a>
+        <a href="/pages/about.html" class="menu-link" title="ABOUT"><img src="/theme/images/about.png" width="40"/></a>
+ 
+      </div>
+      <div class="links">
+        <a href="http://github.com/kosmgco" target="_blank">
+          <img src="/theme/images/github-128.png" style="width:32px;">
+        </a>
+        <a href="mailto:i@ooops.me" target="_blank">
+          <img src="/theme/images/mail-128.png" style="width:32px;">
+        </a>
+      </div>
+      <div class="links">
+        <a href="http://xlzd.me" target="_blank">xlzd杂谈</a>
+        <a href="http://midday.me" target="_blank">正午的博客</a>
+        <a href="http://mqhong.com" target="_blank">梦梦的咸鱼</a>
+        <a href="http://bilibili.ooops.me" target="_blank">B站弹幕</a>
+      </div>
+      <div class="copyright">
+        &copy <a href="/">Kosmgco</a>. 2018<br />
+        Powered by <a href="https://getpelican.com" target="_blank">Pelican</a>. Theme by <a href="https://github.com/kosmgco/pelican-theme-mdshow" target="_blank">MDShow</a> 
+        <br />
+        <a href="https://www.miitbeian.gov.cn/" target="_blank">渝ICP备16003403号</a>
+      </div>
+    </div>
+    <div class="catalog">
+      <b>2018-01-16</b><a href="/posts/2018/01/16/golang-json-zi-ding-yi-lei-xing-de-xu-lie-hua-yu-fan-xu-lie-hua.html">Golang JSON 自定义类型的序列化与反序列化</a>
+      <b>2017-10-22</b><a href="/posts/2017/10/22/pai-xu-cha-ru-pai-xu.html">排序 - 插入排序</a>
+      <b>2017-10-20</b><a href="/posts/2017/10/20/pai-xu-xuan-ze-pai-xu.html">排序 - 选择排序</a>
+      <b>2017-09-21</b><a href="/posts/2017/09/21/golang-3des-des-aesjia-mi-jie-mi.html">Golang 3DES, DES, AES加密解密</a>
+      <b>2017-09-16</b><a href="/posts/2017/09/16/zi-ji-shi-xian-shi-xian-yi-ge-zhan.html">自己实现实现一个栈</a>
+      <b>2017-07-30</b><a href="/posts/2017/07/30/mysqlji-zhu-nei-mu-innodbcun-chu-yin-qing-di-yi-zhang.html">《MySQL技术内幕: InnoDB存储引擎》 - 第一章</a>
+      <b>2017-07-08</b><a href="/posts/2017/07/08/nginxri-zhi-fen-xi.html">Nginx日志分析</a>
+      <b>2017-02-24</b><a href="/posts/2017/02/24/tong-guo-ren-lian-shi-bie-huo-qu-xue-xiao-xue-sheng-de-xing-bie-bi-li.html">通过人脸识别获取学校学生的性别比例</a>
+      <b>2016-12-10</b><a href="/posts/2016/12/10/kai-qi-quan-zhan-https.html">开启全站https</a>
+      <b>2016-12-04</b><a href="/posts/2016/12/04/say-hello-world-to-docker.html">Say Hello-World! To Docker</a>
+      <b>2016-10-25</b><a href="/posts/2016/10/25/ubuntu-gokai-fa-huan-jing-pei-zhi.html">Ubuntu-Go开发环境配置</a>
+      <b>2016-07-19</b><a href="/posts/2016/07/19/shi-yong-python-flaskda-jian-qing-bo-ke.html">使用Python-Flask搭建轻博客</a>
+      <b>2016-07-10</b><a href="/posts/2016/07/10/appfan-bian-yi.html">app反编译</a>
+      <b>2016-07-10</b><a href="/posts/2016/07/10/gitcao-zuo.html">git操作</a>
+      <b>2016-04-16</b><a href="/posts/2016/04/16/nginx-virtual-hostxu-ni-ji.html">nginx virtual host虚拟机</a>
+      <b>2016-03-25</b><a href="/posts/2016/03/25/shi-xi-zong-jie.html">实习总结</a>
+      <b>2016-03-04</b><a href="/posts/2016/03/04/wei-xin-gong-zhong-hao-yi-ji-zhi-neng-liao-tian-ji-qi-ren-de-jie-ru.html">微信公众号以及智能聊天机器人的接入</a>
+      <b>2016-02-27</b><a href="/posts/2016/02/27/jia-su-le-cookie__jsl_clearnce-po-jie-xin-jin-zhan.html">加速乐cookie:__jsl_clearnce 破解新进展</a>
+      <b>2016-02-23</b><a href="/posts/2016/02/23/fu-li-tie-shi-yong-ubermian-fei-zuo-zhuan-che.html">福利帖 - 使用uber免费坐专车</a>
+      <b>2016-02-02</b><a href="/posts/2016/02/02/pycharmandroid-studioyuan-an-zhuang.html">Pycharm,Android-Studio源安装</a>
+      <b>2016-01-17</b><a href="/posts/2016/01/17/pythonpa-qu-tu-pian.html">python爬取图片</a>
+      <b>2016-01-10</b><a href="/posts/2016/01/10/zheng-fang-jiao-wu-xi-tong-shu-ju-huo-qu.html">正方教务系统数据获取</a>
+      <b>2015-12-24</b><a href="/posts/2015/12/24/flask-wen-jian-jie-gou-zu-zhi.html">flask 文件结构组织</a>
+      <b>2015-12-21</b><a href="/posts/2015/12/21/mongodb-xiao-dao-chu-shi.html">mongodb 小刀初试</a>
+      <b>2015-12-20</b><a href="/posts/2015/12/20/guan-yu-shua-piao.html">关于刷票</a>
+      <b>2015-12-18</b><a href="/posts/2015/12/18/python-jsonjie-xi-na-dian-shi.html">python json解析那点事</a>
+      <b>2015-12-12</b><a href="/posts/2015/12/12/flask-chu-kui.html">flask 初窥</a>
+      <b>2015-12-09</b><a href="/posts/2015/12/09/guan-yu-jia-su-le-de-__jsl_clearancefan-hui-521zhuang-tai-ma-po-jie.html">关于加速乐的__jsl_clearance返回521状态码破解</a>
+    </div>
+    <div class="content">
+  <style>
+    @media(max-width: 550px) {
+      body {
+        height: auto;
+      }
+      .menu .links, .menu .copyright {
+        display:none;
+      }
+      .menu {
+        height: 65%;
+      }
+      .catalog {
+        display:none;
+      }
+      .content {
+        display: block;
+      }
+      h3 {
+        text-align: center;
+      }
+    }
+  </style>
+  <h3> 《MySQL技术内幕: InnoDB存储引擎》 - 第一章 </h3>
+    <a href="/tag/mysql.html" class="link-tags">MySQL</a>
+    <a href="/tag/storage-engine.html" class="link-tags">Storage Engine</a>
+  <hr style="clear:both"/>
+  <h5>1. 数据库</h5>
+<p>物理操作系统文件或其他形式文件类型的集合</p>
+<h5>2. 数据库实例</h5>
+<p>由数据库后台进程/线程以及一个共享内存区组成。 共享内存可以被运行的后台线程/进程共享。</p>
+<h5>3. 读配置文件</h5>
+<p>MySQL是按<code>/etc/my.cnf</code> &gt; <code>/etc/mysql/my.cnf</code> &gt; <code>/usr/local/mysql/etc/my.cnf</code> &gt; <code>~/.my.cnf</code>， MySQL会以读取到的最后一个配置文件中的参数为准。</p>
+<h5>4. MySQL组成</h5>
+<ul>
+<li>连接池组件</li>
+<li>管理服务和工具组件</li>
+<li>SQL接口组件</li>
+<li>查询分析器组件</li>
+<li>优化器组件</li>
+<li>缓冲(Cache)组件</li>
+<li>插件式存储引擎</li>
+<li>物理文件</li>
+</ul>
+<h5>5. MySQL存储引擎</h5>
+<ul>
+<li>InnoDB存储引擎</li>
+</ul>
+<p>InnoDB存储引擎支持事务，主要面向在线事务处理(OLTP)方面的应用。 其特点是<strong>行锁设计</strong>、<strong>支持外键</strong>，并支持类似于Oracle的<strong>非锁定读</strong>，即默认情况下读取操作不会产生锁。</p>
+<ul>
+<li>MyISAM存储引擎</li>
+</ul>
+<p>MySQL官方提供的存储引擎。 其特点是不支持<strong>事务</strong>、<strong>表锁</strong>和<strong>全文索引</strong>， 对一些OLAP操作(在线分析处理)速度快。 由<code>MYD</code>和<code>MYI</code>组成， <code>MYD</code>用来存放数据文件，<code>MYI</code>用来存放索引文件。</p>
+<ul>
+<li>NDB存储引擎</li>
+</ul>
+<p>NDB存储引擎是一个集群存储引擎，其特点是数据全部放在内存中，因此主键查找的速度极快，并且通过添加NDB数据存储结点可以线性地提高数据库性能，是高可用，高性能的集群系统。
+NDB存储引擎的连接操作（JOIN）是在MySQL数据库层完成的，而不是在存储引擎层完成的。因此复杂的连接操作需要巨大的网络开销，查询速度很慢。</p>
+<ul>
+<li>Memory存储引擎</li>
+</ul>
+<p>将表中的数据存放在内存中，如果数据库发生崩溃，表中的数据将会消失。适用于存储临时数据的临时表，以及数据仓库的纬度表。默认使用哈希索引，而不是B+树索引。
+只支持表锁，并发性能较差，不支持TEXT和BLOB列类型。存储变长字段时是按照定常字段的方式进行的，因此会浪费内存。</p>
+<ul>
+<li>Archive存储引擎</li>
+</ul>
+<p>只支持INSERT和SELECT操作，使用<code>zlib</code>将数据进行压缩后存储，存储比率可达1：10。适用于存储归档数据。
+使用行锁来实现高并发的插入操作，但是本身并不是事务安全的存储引擎，其设计目标主要是提供高速的插入和压缩功能。</p>
+<ul>
+<li>Federated存储引擎</li>
+</ul>
+<p>表不存放数据，只支持MySQL数据库表，不支持异构数据库表。</p>
+<ul>
+<li>Maria存储引擎</li>
+</ul>
+<p>设计目标主要是用来取代原有的MyISAM存储引擎。其特点是缓存数据和索引文件，行锁设计，提供MVCC功能，支持事务和非事务安全的选项支持，以及更好的BLOB字符类型的处理性能。</p>
+<h5>6. 存储引擎的比较</h5>
+<table>
+<thead>
+<tr>
+<th align="center">Feature</th>
+<th align="center">MyISAM</th>
+<th align="center">BDB</th>
+<th align="center">Memory</th>
+<th align="center">InnoDB</th>
+<th align="center">Archive</th>
+<th align="center">NDB</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center">Storage Limits</td>
+<td align="center">NO</td>
+<td align="center">NO</td>
+<td align="center">Yes</td>
+<td align="center">64TB</td>
+<td align="center">No</td>
+<td align="center">Yes</td>
+</tr>
+<tr>
+<td align="center">Transactions (commits, rollback, etc.)</td>
+<td align="center"></td>
+<td align="center">√</td>
+<td align="center"></td>
+<td align="center">√</td>
+<td align="center"></td>
+<td align="center"></td>
+</tr>
+<tr>
+<td align="center">Locking granularity</td>
+<td align="center">Table</td>
+<td align="center">Page</td>
+<td align="center">Table</td>
+<td align="center">Row</td>
+<td align="center">Row</td>
+<td align="center">Row</td>
+</tr>
+<tr>
+<td align="center">MVCC/Snapshot Read</td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center">√</td>
+<td align="center">√</td>
+<td align="center">√</td>
+</tr>
+<tr>
+<td align="center">Geospatial support</td>
+<td align="center">√</td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+</tr>
+<tr>
+<td align="center">B-Tree indexes</td>
+<td align="center">√</td>
+<td align="center">√</td>
+<td align="center">√</td>
+<td align="center">√</td>
+<td align="center"></td>
+<td align="center">√</td>
+</tr>
+<tr>
+<td align="center">Hash Indexes</td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center">√</td>
+<td align="center">√</td>
+<td align="center"></td>
+<td align="center">√</td>
+</tr>
+<tr>
+<td align="center">Full text search index</td>
+<td align="center">√</td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+</tr>
+<tr>
+<td align="center">Clustered Index</td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center">√</td>
+<td align="center"></td>
+</tr>
+<tr>
+<td align="center">Data Caches</td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center">√</td>
+<td align="center">√</td>
+<td align="center"></td>
+<td align="center">√</td>
+</tr>
+<tr>
+<td align="center">Index Caches</td>
+<td align="center">√</td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center">√</td>
+<td align="center"></td>
+</tr>
+<tr>
+<td align="center">Compressed data</td>
+<td align="center">√</td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center">√</td>
+<td align="center"></td>
+</tr>
+<tr>
+<td align="center">Encrypted data(via function)</td>
+<td align="center">√</td>
+<td align="center">√</td>
+<td align="center">√</td>
+<td align="center">√</td>
+<td align="center">√</td>
+<td align="center">√</td>
+</tr>
+<tr>
+<td align="center">Storage cost(space used)</td>
+<td align="center">Low</td>
+<td align="center">Low</td>
+<td align="center">N/A</td>
+<td align="center">High</td>
+<td align="center">Very Low</td>
+<td align="center">Low</td>
+</tr>
+<tr>
+<td align="center">Memory cost</td>
+<td align="center">Low</td>
+<td align="center">Low</td>
+<td align="center">Medium</td>
+<td align="center">High</td>
+<td align="center">Low</td>
+<td align="center">High</td>
+</tr>
+<tr>
+<td align="center">Bulk Insert Speed</td>
+<td align="center">High</td>
+<td align="center">High</td>
+<td align="center">High</td>
+<td align="center">Low</td>
+<td align="center">Very High</td>
+<td align="center">High</td>
+</tr>
+<tr>
+<td align="center">Cluster database support</td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center">√</td>
+<td align="center">√</td>
+</tr>
+<tr>
+<td align="center">Replication support</td>
+<td align="center">√</td>
+<td align="center">√</td>
+<td align="center">√</td>
+<td align="center">√</td>
+<td align="center">√</td>
+<td align="center">√</td>
+</tr>
+<tr>
+<td align="center">Foreign key support</td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center">√</td>
+<td align="center"></td>
+<td align="center"></td>
+</tr>
+<tr>
+<td align="center">Backup/Point-in-time recory</td>
+<td align="center">√</td>
+<td align="center">√</td>
+<td align="center">√</td>
+<td align="center">√</td>
+<td align="center">√</td>
+<td align="center">√</td>
+</tr>
+<tr>
+<td align="center">Query cache support</td>
+<td align="center">√</td>
+<td align="center">√</td>
+<td align="center">√</td>
+<td align="center">√</td>
+<td align="center">√</td>
+<td align="center">√</td>
+</tr>
+<tr>
+<td align="center">Update Statics for Data Dictionary</td>
+<td align="center">√</td>
+<td align="center">√</td>
+<td align="center">√</td>
+<td align="center">√</td>
+<td align="center">√</td>
+<td align="center">√</td>
+</tr>
+</tbody>
+</table>
+    </div>
+    <script>
+  var _hmt = _hmt || [];
+  (function() {
+    var hm = document.createElement("script");
+    hm.src = "https://hm.baidu.com/hm.js?67d2b3355046511d3ad9eef9c65d2a41";
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(hm, s);
+  })();
+
+    </script>
+  </body>
+</html>

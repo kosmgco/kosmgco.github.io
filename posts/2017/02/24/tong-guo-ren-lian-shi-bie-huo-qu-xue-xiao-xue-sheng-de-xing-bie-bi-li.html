@@ -1,0 +1,310 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>  Kosmgco | 通过人脸识别获取学校学生的性别比例 </title>
+<meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+<link href="/theme/css/github-markdown.css" rel="stylesheet"/>
+<link href="/theme/css/custom.css" rel="stylesheet"/>
+<meta name="baidu-site-verification" content="qfSD7JIuUr"/>
+<meta name="description" content="Linux. Python. Coder. Gopher."/>
+<meta name="author" content="kosmgco" />
+
+<meta name="viewport" content="width=device-width, initaial-scale=1"/>  </head>
+  <body class="markdown-body">
+    <style>
+      @media (max-width: 550px) {
+        .catalog, .content {
+          display:none;
+        }
+      }
+    </style>
+    <div class="menu">
+      <div class="title" style="background: url(https://static.ooops.me/md-upload-1536468495519.png) no-repeat; background-position: center"></div>
+      <h3> Kosmgco </h3>
+      <h4> Linux. Python. Coder. Gopher. </h4>
+      <div class="links-menu" >
+        <a href="/" class="menu-link" title="HOME"><img src="/theme/images/home.png" width="40"/></a>
+        <a href="/tags.html" class="menu-link" title="TAGS"><img src="/theme/images/tags.png" width="40"/></a>
+        <a href="/categories.html" class="menu-link" title="CATEGORIES"><img src="/theme/images/categories.png" width="40"/></a>
+        <a href="/pages/blog.html" class="menu-link" title="BLOG"><img src="/theme/images/blog.png" width="40"/></a>
+        <a href="/pages/about.html" class="menu-link" title="ABOUT"><img src="/theme/images/about.png" width="40"/></a>
+ 
+      </div>
+      <div class="links">
+        <a href="http://github.com/kosmgco" target="_blank">
+          <img src="/theme/images/github-128.png" style="width:32px;">
+        </a>
+        <a href="mailto:i@ooops.me" target="_blank">
+          <img src="/theme/images/mail-128.png" style="width:32px;">
+        </a>
+      </div>
+      <div class="links">
+        <a href="http://xlzd.me" target="_blank">xlzd杂谈</a>
+        <a href="http://midday.me" target="_blank">正午的博客</a>
+        <a href="http://mqhong.com" target="_blank">梦梦的咸鱼</a>
+        <a href="http://bilibili.ooops.me" target="_blank">B站弹幕</a>
+      </div>
+      <div class="copyright">
+        &copy <a href="/">Kosmgco</a>. 2018<br />
+        Powered by <a href="https://getpelican.com" target="_blank">Pelican</a>. Theme by <a href="https://github.com/kosmgco/pelican-theme-mdshow" target="_blank">MDShow</a> 
+        <br />
+        <a href="https://www.miitbeian.gov.cn/" target="_blank">渝ICP备16003403号</a>
+      </div>
+    </div>
+    <div class="catalog">
+      <b>2018-01-16</b><a href="/posts/2018/01/16/golang-json-zi-ding-yi-lei-xing-de-xu-lie-hua-yu-fan-xu-lie-hua.html">Golang JSON 自定义类型的序列化与反序列化</a>
+      <b>2017-10-22</b><a href="/posts/2017/10/22/pai-xu-cha-ru-pai-xu.html">排序 - 插入排序</a>
+      <b>2017-10-20</b><a href="/posts/2017/10/20/pai-xu-xuan-ze-pai-xu.html">排序 - 选择排序</a>
+      <b>2017-09-21</b><a href="/posts/2017/09/21/golang-3des-des-aesjia-mi-jie-mi.html">Golang 3DES, DES, AES加密解密</a>
+      <b>2017-09-16</b><a href="/posts/2017/09/16/zi-ji-shi-xian-shi-xian-yi-ge-zhan.html">自己实现实现一个栈</a>
+      <b>2017-07-30</b><a href="/posts/2017/07/30/mysqlji-zhu-nei-mu-innodbcun-chu-yin-qing-di-yi-zhang.html">《MySQL技术内幕: InnoDB存储引擎》 - 第一章</a>
+      <b>2017-07-08</b><a href="/posts/2017/07/08/nginxri-zhi-fen-xi.html">Nginx日志分析</a>
+      <b>2017-02-24</b><a href="/posts/2017/02/24/tong-guo-ren-lian-shi-bie-huo-qu-xue-xiao-xue-sheng-de-xing-bie-bi-li.html">通过人脸识别获取学校学生的性别比例</a>
+      <b>2016-12-10</b><a href="/posts/2016/12/10/kai-qi-quan-zhan-https.html">开启全站https</a>
+      <b>2016-12-04</b><a href="/posts/2016/12/04/say-hello-world-to-docker.html">Say Hello-World! To Docker</a>
+      <b>2016-10-25</b><a href="/posts/2016/10/25/ubuntu-gokai-fa-huan-jing-pei-zhi.html">Ubuntu-Go开发环境配置</a>
+      <b>2016-07-19</b><a href="/posts/2016/07/19/shi-yong-python-flaskda-jian-qing-bo-ke.html">使用Python-Flask搭建轻博客</a>
+      <b>2016-07-10</b><a href="/posts/2016/07/10/appfan-bian-yi.html">app反编译</a>
+      <b>2016-07-10</b><a href="/posts/2016/07/10/gitcao-zuo.html">git操作</a>
+      <b>2016-04-16</b><a href="/posts/2016/04/16/nginx-virtual-hostxu-ni-ji.html">nginx virtual host虚拟机</a>
+      <b>2016-03-25</b><a href="/posts/2016/03/25/shi-xi-zong-jie.html">实习总结</a>
+      <b>2016-03-04</b><a href="/posts/2016/03/04/wei-xin-gong-zhong-hao-yi-ji-zhi-neng-liao-tian-ji-qi-ren-de-jie-ru.html">微信公众号以及智能聊天机器人的接入</a>
+      <b>2016-02-27</b><a href="/posts/2016/02/27/jia-su-le-cookie__jsl_clearnce-po-jie-xin-jin-zhan.html">加速乐cookie:__jsl_clearnce 破解新进展</a>
+      <b>2016-02-23</b><a href="/posts/2016/02/23/fu-li-tie-shi-yong-ubermian-fei-zuo-zhuan-che.html">福利帖 - 使用uber免费坐专车</a>
+      <b>2016-02-02</b><a href="/posts/2016/02/02/pycharmandroid-studioyuan-an-zhuang.html">Pycharm,Android-Studio源安装</a>
+      <b>2016-01-17</b><a href="/posts/2016/01/17/pythonpa-qu-tu-pian.html">python爬取图片</a>
+      <b>2016-01-10</b><a href="/posts/2016/01/10/zheng-fang-jiao-wu-xi-tong-shu-ju-huo-qu.html">正方教务系统数据获取</a>
+      <b>2015-12-24</b><a href="/posts/2015/12/24/flask-wen-jian-jie-gou-zu-zhi.html">flask 文件结构组织</a>
+      <b>2015-12-21</b><a href="/posts/2015/12/21/mongodb-xiao-dao-chu-shi.html">mongodb 小刀初试</a>
+      <b>2015-12-20</b><a href="/posts/2015/12/20/guan-yu-shua-piao.html">关于刷票</a>
+      <b>2015-12-18</b><a href="/posts/2015/12/18/python-jsonjie-xi-na-dian-shi.html">python json解析那点事</a>
+      <b>2015-12-12</b><a href="/posts/2015/12/12/flask-chu-kui.html">flask 初窥</a>
+      <b>2015-12-09</b><a href="/posts/2015/12/09/guan-yu-jia-su-le-de-__jsl_clearancefan-hui-521zhuang-tai-ma-po-jie.html">关于加速乐的__jsl_clearance返回521状态码破解</a>
+    </div>
+    <div class="content">
+  <style>
+    @media(max-width: 550px) {
+      body {
+        height: auto;
+      }
+      .menu .links, .menu .copyright {
+        display:none;
+      }
+      .menu {
+        height: 65%;
+      }
+      .catalog {
+        display:none;
+      }
+      .content {
+        display: block;
+      }
+      h3 {
+        text-align: center;
+      }
+    }
+  </style>
+  <h3> 通过人脸识别获取学校学生的性别比例 </h3>
+    <a href="/tag/face.html" class="link-tags">face++</a>
+    <a href="/tag/staticstics.html" class="link-tags">Staticstics</a>
+  <hr style="clear:both"/>
+  <h3>通过人脸识别获取学校学生的性别比例</h3>
+<p>通过学校一个漏洞拿到了11级到16级总计19418名学生的照片，通过<a href="https://console.faceplusplus.com.cn/documents/4888373">face++</a>的人脸识别接口，得到性别，年龄，是否戴眼镜等数据。
+当然人脸识别的准确率就不知道了，所以这些结论也只能作为一种参考。
+随后用这些数据做了一个统计分析</p>
+<h4>性别分布</h4>
+<p><img alt="性别分布" src="https://static.ooops.me/dc16736009c2a665aa8c9ea277bf1ce3.png">
+男女比例6:4，果然是理工科院校。狼多肉少，僧多粥少。</p>
+<h4>年级分布</h4>
+<p><img alt="年级分布" src="https://static.ooops.me/bf0625d2f1de91373e84e77665745254.png">
+这是我通过学号得到的学生的年级数据，从这儿可以看出这些数据大部分是大一，大二，大三的，至于有些没有挂科的大四的学生的数据是没有的。</p>
+<h4>年龄分布</h4>
+<p><img alt="年龄分布" src="https://static.ooops.me/ba2dbe14cde508276691a76f996a3ad8.png">
+通过照片去分析人的年龄这个是有误差的，不过也能看出来年龄大多集中在18-23岁左右，照片基本上是在高三毕业的时候拍的，那时候也在18岁左右。不过有的识别出来在27岁以上的，可能是照片太模糊，识别的不准确。</p>
+<h4>性别比例按年级</h4>
+<p><img alt="性别比例按年级" src="https://static.ooops.me/d41d8cd98f00b204e9800998ecf8427e.png">
+这个是各个年级的男女比例，跟总体的比例其实差不多，都在6:4左右，不过13级的男女比例达到了3:1，因为数据是从学校公开的考试周学生名单上面拿到的，所以需要考试的女生比男生少很多啊，这说明了什么呢。。</p>
+<h4>戴眼镜分布</h4>
+<p><img alt="戴眼镜" src="https://static.ooops.me/771e6be874ea21a9f1ff2e3955623f0a.png"></p>
+<p>看来戴眼镜的人也不算太多，才16%</p>
+<h4>性别分布按年龄</h4>
+<p><img alt="性别分布按年龄" src="https://static.ooops.me/384745f74466a5a2dba1dcde53941e74.png">
+这张图的意思是同一年龄下的性别分布，比如在21岁，总数有2057，男性有1289名，女性有768名。
+以下是这张图的数据。</p>
+<div class="highlight"><pre><span></span>{
+    &quot;3&quot;:{
+        &quot;Male&quot;:0,
+        &quot;Female&quot;:2
+    },
+    &quot;4&quot;:{
+        &quot;Male&quot;:1,
+        &quot;Female&quot;:2
+    },
+    &quot;5&quot;:{
+        &quot;Male&quot;:0,
+        &quot;Female&quot;:3
+    },
+    &quot;6&quot;:{
+        &quot;Male&quot;:4,
+        &quot;Female&quot;:8
+    },
+    &quot;7&quot;:{
+        &quot;Male&quot;:13,
+        &quot;Female&quot;:10
+    },
+    &quot;8&quot;:{
+        &quot;Male&quot;:29,
+        &quot;Female&quot;:26
+    },
+    &quot;9&quot;:{
+        &quot;Male&quot;:41,
+        &quot;Female&quot;:43
+    },
+    &quot;10&quot;:{
+        &quot;Male&quot;:56,
+        &quot;Female&quot;:59
+    },
+    &quot;11&quot;:{
+        &quot;Male&quot;:73,
+        &quot;Female&quot;:86
+    },
+    &quot;12&quot;:{
+        &quot;Male&quot;:105,
+        &quot;Female&quot;:127
+    },
+    &quot;13&quot;:{
+        &quot;Male&quot;:148,
+        &quot;Female&quot;:164
+    },
+    &quot;14&quot;:{
+        &quot;Male&quot;:193,
+        &quot;Female&quot;:187
+    },
+    &quot;15&quot;:{
+        &quot;Male&quot;:231,
+        &quot;Female&quot;:195
+    },
+    &quot;16&quot;:{
+        &quot;Male&quot;:279,
+        &quot;Female&quot;:243
+    },
+    &quot;17&quot;:{
+        &quot;Male&quot;:340,
+        &quot;Female&quot;:253
+    },
+    &quot;18&quot;:{
+        &quot;Male&quot;:432,
+        &quot;Female&quot;:300
+    },
+    &quot;19&quot;:{
+        &quot;Male&quot;:651,
+        &quot;Female&quot;:411
+    },
+    &quot;20&quot;:{
+        &quot;Male&quot;:972,
+        &quot;Female&quot;:519
+    },
+    &quot;21&quot;:{
+        &quot;Male&quot;:1289,
+        &quot;Female&quot;:768
+    },
+    &quot;22&quot;:{
+        &quot;Male&quot;:1547,
+        &quot;Female&quot;:931
+    },
+    &quot;23&quot;:{
+        &quot;Male&quot;:1442,
+        &quot;Female&quot;:1039
+    },
+    &quot;24&quot;:{
+        &quot;Male&quot;:1213,
+        &quot;Female&quot;:817
+    },
+    &quot;25&quot;:{
+        &quot;Male&quot;:801,
+        &quot;Female&quot;:629
+    },
+    &quot;26&quot;:{
+        &quot;Male&quot;:598,
+        &quot;Female&quot;:394
+    },
+    &quot;27&quot;:{
+        &quot;Male&quot;:387,
+        &quot;Female&quot;:243
+    },
+    &quot;28&quot;:{
+        &quot;Male&quot;:292,
+        &quot;Female&quot;:144
+    },
+    &quot;29&quot;:{
+        &quot;Male&quot;:164,
+        &quot;Female&quot;:92
+    },
+    &quot;30&quot;:{
+        &quot;Male&quot;:104,
+        &quot;Female&quot;:61
+    },
+    &quot;31&quot;:{
+        &quot;Male&quot;:59,
+        &quot;Female&quot;:40
+    },
+    &quot;32&quot;:{
+        &quot;Male&quot;:34,
+        &quot;Female&quot;:24
+    },
+    &quot;33&quot;:{
+        &quot;Male&quot;:20,
+        &quot;Female&quot;:19
+    },
+    &quot;34&quot;:{
+        &quot;Male&quot;:9,
+        &quot;Female&quot;:13
+    },
+    &quot;35&quot;:{
+        &quot;Male&quot;:4,
+        &quot;Female&quot;:2
+    },
+    &quot;36&quot;:{
+        &quot;Male&quot;:5,
+        &quot;Female&quot;:4
+    },
+    &quot;37&quot;:{
+        &quot;Male&quot;:2,
+        &quot;Female&quot;:2
+    },
+    &quot;38&quot;:{
+        &quot;Male&quot;:5,
+        &quot;Female&quot;:3
+    },
+    &quot;39&quot;:{
+        &quot;Male&quot;:2,
+        &quot;Female&quot;:4
+    },
+    &quot;40&quot;:{
+        &quot;Male&quot;:1,
+        &quot;Female&quot;:2
+    },
+    &quot;41&quot;:{
+        &quot;Male&quot;:1,
+        &quot;Female&quot;:1
+    },
+    &quot;44&quot;:{
+        &quot;Male&quot;:1,
+        &quot;Female&quot;:0
+    }
+}
+</pre></div>
+    </div>
+    <script>
+  var _hmt = _hmt || [];
+  (function() {
+    var hm = document.createElement("script");
+    hm.src = "https://hm.baidu.com/hm.js?67d2b3355046511d3ad9eef9c65d2a41";
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(hm, s);
+  })();
+
+    </script>
+  </body>
+</html>
