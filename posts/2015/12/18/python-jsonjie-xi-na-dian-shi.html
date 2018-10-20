@@ -27,8 +27,8 @@
         <a href="/" class="menu-link" title="HOME"><img src="/theme/images/home.png" width="40"/></a>
         <a href="/tags.html" class="menu-link" title="TAGS"><img src="/theme/images/tags.png" width="40"/></a>
         <a href="/categories.html" class="menu-link" title="CATEGORIES"><img src="/theme/images/categories.png" width="40"/></a>
-        <a href="/pages/blog.html" class="menu-link" title="BLOG"><img src="/theme/images/blog.png" width="40"/></a>
         <a href="/pages/about.html" class="menu-link" title="ABOUT"><img src="/theme/images/about.png" width="40"/></a>
+        <a href="/pages/blog.html" class="menu-link" title="BLOG"><img src="/theme/images/blog.png" width="40"/></a>
  
       </div>
       <div class="links">
@@ -199,6 +199,20 @@
 <p>虽然以前使用<code>C#</code>的时候也解析过比较复杂的<code>json</code>串，但是<code>C#</code>使用<code>Newtonsoft.net</code>可以直接反序列化成结构化的对象。<code>python</code>只能解析成<code>dict</code>类型的对象。使用<code>jobj = json.JSONDecoder().decode(str)</code>得到类型为<code>dict</code>的<code>jobj</code>。但是我想得到<code>value</code>怎么办呢？只有遍历了，照这样子，算法复杂度可不低啊。</p>
 <p>至少两个循环，那算法的复杂度至少为<code>O(n^2)</code>了，虽然代码不多，但是我也不想这样做。</p>
 <p>如果有好的解决方案，请留言告诉我。</p>
+
+    <div id="disqus_thread"></div>
+    <script type="text/javascript">
+      var disqus_shortname = 'https-blog-ooops-me';
+      var disqus_identifier = window.location.href;
+      (function () {
+        var s = document.createElement('script'); s.async = true;
+        s.src = 'http://' + disqus_shortname + '.disqus.com/count.js';
+        (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = 'https://https-blog-ooops-me.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+      }());
+  </script>
     </div>
     <script>
   var _hmt = _hmt || [];
@@ -209,6 +223,19 @@
     s.parentNode.insertBefore(hm, s);
   })();
 
+
+  var hitokoto = document.getElementById('hitokoto');
+  if (hitokoto) {
+    var xhr = new XMLHttpRequest();
+    xhr.open('get', 'https://v1.hitokoto.cn');
+    xhr.onreadystatechange = function () {
+      if (xhr.readyState === 4) {
+        var data = JSON.parse(xhr.responseText);
+        hitokoto.innerText = data.hitokoto;
+      }
+    }
+    xhr.send();
+  }
     </script>
   </body>
 </html>
