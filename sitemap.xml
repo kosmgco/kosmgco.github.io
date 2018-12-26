@@ -5,28 +5,28 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
 <url>
 <loc>https://blog.ooops.me/</loc>
-<lastmod>2018-12-18T11:41:09-00:00</lastmod>
+<lastmod>2018-12-26T14:50:38-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
 <loc>https://blog.ooops.me/archives.html</loc>
-<lastmod>2018-12-18T11:41:09-00:00</lastmod>
+<lastmod>2018-12-26T14:50:38-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
 <loc>https://blog.ooops.me/tags.html</loc>
-<lastmod>2018-12-18T11:41:09-00:00</lastmod>
+<lastmod>2018-12-26T14:50:38-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
 <loc>https://blog.ooops.me/categories.html</loc>
-<lastmod>2018-12-18T11:41:09-00:00</lastmod>
+<lastmod>2018-12-26T14:50:38-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
@@ -43,6 +43,13 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 <lastmod>2016-10-15T14:07:00+08:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.3</priority>
+</url>
+
+<url>
+<loc>https://blog.ooops.me/posts/2018/12/26/sou-suo-yin-qing-jie-guo-zi-ding-yi-gui-ze-guo-lu-chromecha-jian.html</loc>
+<lastmod>2018-12-26T00:00:00+08:00</lastmod>
+<changefreq>monthly</changefreq>
+<priority>0.7</priority>
 </url>
 
 <url>
@@ -286,6 +293,13 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 <url>
 <loc>https://blog.ooops.me/category/ops.html</loc>
 <lastmod>2018-12-18T00:00:00+08:06</lastmod>
+<changefreq>daily</changefreq>
+<priority>0.5</priority>
+</url>
+
+<url>
+<loc>https://blog.ooops.me/category/plugins.html</loc>
+<lastmod>2018-12-26T00:00:00+08:06</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
@@ -663,7 +677,7 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
 <url>
 <loc>https://blog.ooops.me/author/kosmgco.html</loc>
-<lastmod>2018-12-18T00:00:00+08:06</lastmod>
+<lastmod>2018-12-26T00:00:00+08:06</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
