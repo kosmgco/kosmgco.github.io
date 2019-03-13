@@ -1,0 +1,137 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>  Kosmgco | NOT FOUND </title>
+<meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+<link href="https://blog.ooops.me/theme/css/github-markdown.css" rel="stylesheet"/>
+<link href="https://blog.ooops.me/theme/css/custom.css" rel="stylesheet"/>
+<meta name="baidu-site-verification" content="qfSD7JIuUr"/>
+<meta name="description" content="Linux. Python. Coder. Gopher."/>
+<meta name="author" content="kosmgco" />
+
+<meta name="viewport" content="width=device-width, initaial-scale=1"/>  </head>
+  <body class="markdown-body">
+    <style>
+      @media (max-width: 550px) {
+        .catalog, .content {
+          display:none;
+        }
+      }
+    </style>
+    <div class="menu">
+      <div class="title" style="background: url(https://static.ooops.me/md-upload-1536468495519.png) no-repeat; background-position: center"></div>
+      <h3> Kosmgco </h3>
+      <h4> Linux. Python. Coder. Gopher. </h4>
+      <div class="links-menu" >
+        <a href="https://blog.ooops.me/" class="menu-link" title="HOME"><img src="/theme/images/home.png" width="40"/></a>
+        <a href="https://blog.ooops.me/tags.html" class="menu-link" title="TAGS"><img src="/theme/images/tags.png" width="40"/></a>
+        <a href="https://blog.ooops.me/categories.html" class="menu-link" title="CATEGORIES"><img src="/theme/images/categories.png" width="40"/></a>
+        <a href="https://blog.ooops.me/pages/about.html" class="menu-link" title="ABOUT"><img src="/theme/images/about.png" width="40"/></a>
+        <a href="https://blog.ooops.me/pages/wiki.html" class="menu-link" title="WIKI"><img src="/theme/images/wiki.png" width="40"/></a>
+        <a href="https://blog.ooops.me/pages/blog.html" class="menu-link" title="BLOG"><img src="/theme/images/blog.png" width="40"/></a>
+ 
+      </div>
+      <div class="links">
+        <a href="http://github.com/kosmgco" target="_blank">
+          <img src="https://blog.ooops.me/theme/images/github-128.png" style="width:32px;">
+        </a>
+        <a href="mailto:i@ooops.me" target="_blank">
+          <img src="https://blog.ooops.me/theme/images/mail-128.png" style="width:32px;">
+        </a>
+        <a href="/atom.xml" target="_blank">
+          <img src="https://blog.ooops.me/theme/images/rss-128.png" style="width:32px;">
+        </a>
+      </div>
+      <div class="links">
+        <a href="http://xlzd.me" target="_blank">xlzd杂谈</a>
+        <a href="http://midday.me" target="_blank">正午的博客</a>
+        <a href="http://mqhong.com" target="_blank">梦梦的咸鱼</a>
+        <a href="http://bilibili.ooops.me" target="_blank">B站弹幕</a>
+      </div>
+      <div class="copyright">
+        &copy <a href="/">Kosmgco</a>. <script>document.write(new Date().getFullYear());</script><br />
+        Powered by <a href="https://getpelican.com" target="_blank">Pelican</a>. Theme by <a href="https://github.com/kosmgco/pelican-theme-mdshow" target="_blank">MDShow</a> 
+        <br />
+        <a href="https://www.miitbeian.gov.cn/" target="_blank">渝ICP备16003403号</a>
+      </div>
+    </div>
+    <div class="catalog">
+      <b>2018-12-26</b><a href="https://blog.ooops.me/posts/2018/12/26/sou-suo-yin-qing-jie-guo-zi-ding-yi-gui-ze-guo-lu-chromecha-jian.html">搜索引擎结果自定义规则过滤Chrome插件</a>
+      <b>2018-12-18</b><a href="https://blog.ooops.me/posts/2018/12/18/mac-shadowsocks-duo-fu-wu-qi-shi-yong-haproxy-fu-zai-jun-heng-qi.html">Mac Shadowsocks 多服务器使用 HAProxy 负载均衡器</a>
+      <b>2018-11-08</b><a href="https://blog.ooops.me/posts/2018/11/08/shi-yong-fail2ban-bao-hu-fu-wu-qi.html">使用 fail2ban 保护服务器</a>
+      <b>2018-01-16</b><a href="https://blog.ooops.me/posts/2018/01/16/golang-json-zi-ding-yi-lei-xing-de-xu-lie-hua-yu-fan-xu-lie-hua.html">Golang JSON 自定义类型的序列化与反序列化</a>
+      <b>2017-10-22</b><a href="https://blog.ooops.me/posts/2017/10/22/pai-xu-cha-ru-pai-xu.html">排序 - 插入排序</a>
+      <b>2017-10-20</b><a href="https://blog.ooops.me/posts/2017/10/20/pai-xu-xuan-ze-pai-xu.html">排序 - 选择排序</a>
+      <b>2017-09-21</b><a href="https://blog.ooops.me/posts/2017/09/21/golang-3des-des-aesjia-mi-jie-mi.html">Golang 3DES, DES, AES加密解密</a>
+      <b>2017-09-16</b><a href="https://blog.ooops.me/posts/2017/09/16/zi-ji-shi-xian-shi-xian-yi-ge-zhan.html">自己实现实现一个栈</a>
+      <b>2017-07-30</b><a href="https://blog.ooops.me/posts/2017/07/30/mysqlji-zhu-nei-mu-innodbcun-chu-yin-qing-di-yi-zhang.html">《MySQL技术内幕: InnoDB存储引擎》 - 第一章</a>
+      <b>2017-07-08</b><a href="https://blog.ooops.me/posts/2017/07/08/nginxri-zhi-fen-xi.html">Nginx日志分析</a>
+      <b>2017-02-24</b><a href="https://blog.ooops.me/posts/2017/02/24/tong-guo-ren-lian-shi-bie-huo-qu-xue-xiao-xue-sheng-de-xing-bie-bi-li.html">通过人脸识别获取学校学生的性别比例</a>
+      <b>2016-12-10</b><a href="https://blog.ooops.me/posts/2016/12/10/kai-qi-quan-zhan-https.html">开启全站https</a>
+      <b>2016-12-04</b><a href="https://blog.ooops.me/posts/2016/12/04/say-hello-world-to-docker.html">Say Hello-World! To Docker</a>
+      <b>2016-10-25</b><a href="https://blog.ooops.me/posts/2016/10/25/ubuntu-gokai-fa-huan-jing-pei-zhi.html">Ubuntu-Go开发环境配置</a>
+      <b>2016-07-19</b><a href="https://blog.ooops.me/posts/2016/07/19/shi-yong-python-flaskda-jian-qing-bo-ke.html">使用Python-Flask搭建轻博客</a>
+      <b>2016-07-10</b><a href="https://blog.ooops.me/posts/2016/07/10/appfan-bian-yi.html">app反编译</a>
+      <b>2016-07-10</b><a href="https://blog.ooops.me/posts/2016/07/10/gitcao-zuo.html">git操作</a>
+      <b>2016-07-10</b><a href="https://blog.ooops.me/posts/2016/07/10/ubnntupei-zhi-shadowsockske-xue-shang-wang.html">Ubnntu配置shadowsocks科学上网</a>
+      <b>2016-04-16</b><a href="https://blog.ooops.me/posts/2016/04/16/nginx-virtual-hostxu-ni-ji.html">nginx virtual host虚拟机</a>
+      <b>2016-03-25</b><a href="https://blog.ooops.me/posts/2016/03/25/shi-xi-zong-jie.html">实习总结</a>
+      <b>2016-03-04</b><a href="https://blog.ooops.me/posts/2016/03/04/wei-xin-gong-zhong-hao-yi-ji-zhi-neng-liao-tian-ji-qi-ren-de-jie-ru.html">微信公众号以及智能聊天机器人的接入</a>
+      <b>2016-02-27</b><a href="https://blog.ooops.me/posts/2016/02/27/jia-su-le-cookie__jsl_clearnce-po-jie-xin-jin-zhan.html">加速乐cookie:__jsl_clearnce 破解新进展</a>
+      <b>2016-02-23</b><a href="https://blog.ooops.me/posts/2016/02/23/fu-li-tie-shi-yong-ubermian-fei-zuo-zhuan-che.html">福利帖 - 使用uber免费坐专车</a>
+      <b>2016-02-02</b><a href="https://blog.ooops.me/posts/2016/02/02/pycharmandroid-studioyuan-an-zhuang.html">Pycharm,Android-Studio源安装</a>
+      <b>2016-01-17</b><a href="https://blog.ooops.me/posts/2016/01/17/pythonpa-qu-tu-pian.html">python爬取图片</a>
+      <b>2016-01-10</b><a href="https://blog.ooops.me/posts/2016/01/10/zheng-fang-jiao-wu-xi-tong-shu-ju-huo-qu.html">正方教务系统数据获取</a>
+      <b>2015-12-24</b><a href="https://blog.ooops.me/posts/2015/12/24/flask-wen-jian-jie-gou-zu-zhi.html">flask 文件结构组织</a>
+      <b>2015-12-21</b><a href="https://blog.ooops.me/posts/2015/12/21/mongodb-xiao-dao-chu-shi.html">mongodb 小刀初试</a>
+      <b>2015-12-20</b><a href="https://blog.ooops.me/posts/2015/12/20/guan-yu-shua-piao.html">关于刷票</a>
+      <b>2015-12-18</b><a href="https://blog.ooops.me/posts/2015/12/18/python-jsonjie-xi-na-dian-shi.html">python json解析那点事</a>
+      <b>2015-12-12</b><a href="https://blog.ooops.me/posts/2015/12/12/flask-chu-kui.html">flask 初窥</a>
+      <b>2015-12-09</b><a href="https://blog.ooops.me/posts/2015/12/09/guan-yu-jia-su-le-de-__jsl_clearancefan-hui-521zhuang-tai-ma-po-jie.html">关于加速乐的__jsl_clearance返回521状态码破解</a>
+    </div>
+    <div class="content">
+<style>
+@media(max-width: 550px) {
+  body {
+    height: auto;
+  }
+  .menu .links, .menu .copyright {
+    display:none;
+  }
+  .menu {
+    height: 65%;
+  }
+  .content {
+    display: block;
+  }
+}
+</style>
+<h3> NOT FOUND </h3><hr />
+<p><svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 200 750 600"><defs><style>.cls-1{fill:none;}.cls-2{isolation:isolate;}.cls-3,.cls-6{fill:#fff;}.cls-4{fill-opacity:0.06;fill:url(#pattern-2);}.cls-5{fill:#282828;}.cls-6{fill-opacity:0.98;}.cls-7{filter:url(#filter-5);}.cls-8{fill:#8c8c8c;}.cls-9{filter:url(#filter-7);}.cls-10{filter:url(#filter-9);}.cls-11{filter:url(#filter-11);}.cls-12{filter:url(#filter-13);}.cls-13{filter:url(#filter-15);}.cls-14{filter:url(#filter-17);}.cls-15{filter:url(#filter-19);}</style><filter id="filter-5" x="-4.2" y="-2.1" width="116.7" height="108.3" name="filter-5"><feOffset result="shadowOffsetOuter1" dx="2" dy="2" in="SourceAlpha"/><feColorMatrix values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.16 0" in="shadowOffsetOuter1"/></filter><filter id="filter-7" x="-4.2" y="-2.1" width="116.7" height="108.3" name="filter-7"><feOffset result="shadowOffsetOuter1" dx="2" dy="2" in="SourceAlpha"/><feColorMatrix values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.16 0" in="shadowOffsetOuter1"/></filter><filter id="filter-9" x="-4.2" y="-2.1" width="116.7" height="108.3" name="filter-9"><feOffset result="shadowOffsetOuter1" dx="2" dy="2" in="SourceAlpha"/><feColorMatrix values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.16 0" in="shadowOffsetOuter1"/></filter><filter id="filter-11" x="-4.2" y="-2" width="116.7" height="108" name="filter-11"><feOffset result="shadowOffsetOuter1" dx="2" dy="2" in="SourceAlpha"/><feColorMatrix values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.16 0" in="shadowOffsetOuter1"/></filter><filter id="filter-13" x="-4.2" y="-2" width="116.7" height="108" name="filter-13"><feOffset result="shadowOffsetOuter1" dx="2" dy="2" in="SourceAlpha"/><feColorMatrix values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.16 0" in="shadowOffsetOuter1"/></filter><filter id="filter-15" x="-4.2" y="-2.1" width="116.7" height="108.3" name="filter-15"><feOffset result="shadowOffsetOuter1" dx="2" dy="2" in="SourceAlpha"/><feColorMatrix values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.16 0" in="shadowOffsetOuter1"/></filter><filter id="filter-17" x="-4.2" y="-2" width="116.7" height="108" name="filter-17"><feOffset result="shadowOffsetOuter1" dx="2" dy="2" in="SourceAlpha"/><feColorMatrix values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.16 0" in="shadowOffsetOuter1"/></filter><filter id="filter-19" x="-4.2" y="-2.1" width="116.7" height="108.3" name="filter-19"><feOffset result="shadowOffsetOuter1" dx="2" dy="2" in="SourceAlpha"/><feColorMatrix values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.16 0" in="shadowOffsetOuter1"/></filter></defs><title>bg-white</title><g id="Page-1"><g id="bg-white"><g id="Rectangle-16"><rect id="path-1" class="cls-3" width="750" height="1334"/><rect id="path-1-2" data-name="path-1" class="cls-4" width="750" height="1334"/></g><g id="Group-5"><g id="Group-2"><g id="Group"><path id="Combined-Shape" class="cls-5" d="M267,482h20V622h16v28H287v40H255V650H195V622h60V538l-36,84H195l60-140Z"/><path id="Combined-Shape-2" data-name="Combined-Shape" class="cls-5" d="M519,482h20V622h16v28H539v40H507V650H447V622h60V538l-36,84H447l60-140Z"/><path id="Combined-Shape-3" data-name="Combined-Shape" class="cls-5" d="M327,528h32V644H327Zm64,0h32V644H391Zm-64,0a48,48,0,0,1,96,0H391a16,16,0,0,0-32,0Zm96,116a48,48,0,0,1-96,0h32a16,16,0,0,0,32,0Z"/></g><g id="Group-3"><rect id="Rectangle" class="cls-6" x="195" y="552" width="360" height="64"/><g id="Combined-Shape-4" data-name="Combined-Shape"><g class="cls-7"><polygon points="214 608 211 608 203 580.57 203 608 195 608 195 560 200 560 203 560 211 587.43 211 560 219 560 219 608 214 608"/></g><path id="path-4" class="cls-8" d="M214,608h-3l-8-27.43V608h-8V560h8l8,27.43V560h8v48Z"/></g><g id="Combined-Shape-Copy-2"><g class="cls-9"><polygon points="502 608 499 608 491 580.57 491 608 483 608 483 560 488 560 491 560 499 587.43 499 560 507 560 507 608 502 608"/></g><path id="path-6" class="cls-8" d="M502,608h-3l-8-27.43V608h-8V560h8l8,27.43V560h8v48Z"/></g><g id="Combined-Shape-5" data-name="Combined-Shape"><g class="cls-10"><polygon points="307 568 315 568 315 560 291 560 291 568 299 568 299 608 307 608 307 568"/></g><path id="path-8" class="cls-8" d="M307,568h8v-8H291v8h8v40h8Z"/></g><g id="Combined-Shape-6" data-name="Combined-Shape"><g class="cls-11"><path d="M243,571a12,12,0,0,1,24,0h-8a4,4,0,0,0-8,0Zm8,0h-8a12,12,0,0,1,24,0h-8a4,4,0,0,0-8,0Zm-8,0h8v26h-8Zm16,0h8v26h-8Zm8,26a12,12,0,0,1-24,0h8a4,4,0,0,0,8,0Z"/></g><path id="path-10" class="cls-8" d="M243,571a12,12,0,0,1,24,0h-8a4,4,0,0,0-8,0Zm8,0h-8a12,12,0,0,1,24,0h-8a4,4,0,0,0-8,0Zm-8,0h8v26h-8Zm16,0h8v26h-8Zm8,26a12,12,0,0,1-24,0h8a4,4,0,0,0,8,0Z"/></g><g id="Combined-Shape-Copy"><g class="cls-12"><path d="M387,571a12,12,0,0,1,24,0h-8a4,4,0,0,0-8,0Zm8,0h-8a12,12,0,0,1,24,0h-8a4,4,0,0,0-8,0Zm-8,0h8v26h-8Zm16,0h8v26h-8Zm8,26a12,12,0,0,1-24,0h8a4,4,0,0,0,8,0Z"/></g><path id="path-12" class="cls-8" d="M387,571a12,12,0,0,1,24,0h-8a4,4,0,0,0-8,0Zm8,0h-8a12,12,0,0,1,24,0h-8a4,4,0,0,0-8,0Zm-8,0h8v26h-8Zm16,0h8v26h-8Zm8,26a12,12,0,0,1-24,0h8a4,4,0,0,0,8,0Z"/></g><g id="Combined-Shape-7" data-name="Combined-Shape"><g class="cls-13"><polygon points="343 560 363 560 363 568 347 568 347 580 363 580 363 588 347 588 347 608 339 608 339 560 343 560"/></g><path id="path-14" class="cls-8" d="M343,560h20v8H347v12h16v8H347v20h-8V560Z"/></g><g id="Combined-Shape-8" data-name="Combined-Shape"><g class="cls-14"><path d="M451,597h8a12,12,0,0,1-24,0h8a4,4,0,0,0,8,0Zm-16-38h8v38h-8Zm16,0h8v38h-8Z"/></g><path id="path-16" class="cls-8" d="M451,597h8a12,12,0,0,1-24,0h8a4,4,0,0,0,8,0Zm-16-38h8v38h-8Zm16,0h8v38h-8Z"/></g><g id="Combined-Shape-9" data-name="Combined-Shape"><g class="cls-15"><path d="M531,560h8v48h-8Zm16,12h8v24h-8Zm8,0h-8a4,4,0,0,0-4-4v-8A12,12,0,0,1,555,572Zm0,24a12,12,0,0,1-12,12v-8a4,4,0,0,0,4-4Zm-16-36h4v8h-4Zm0,40h4v8h-4Z"/></g><path id="path-18" class="cls-8" d="M531,560h8v48h-8Zm16,12h8v24h-8Zm8,0h-8a4,4,0,0,0-4-4v-8A12,12,0,0,1,555,572Zm0,24a12,12,0,0,1-12,12v-8a4,4,0,0,0,4-4Zm-16-36h4v8h-4Zm0,40h4v8h-4Z"/></g></g></g></g></g></g></svg></p>
+    </div>
+    <script>
+  var _hmt = _hmt || [];
+  (function() {
+    var hm = document.createElement("script");
+    hm.src = "https://hm.baidu.com/hm.js?67d2b3355046511d3ad9eef9c65d2a41";
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(hm, s);
+  })();
+
+
+  var hitokoto = document.getElementById('hitokoto');
+  if (hitokoto) {
+    var xhr = new XMLHttpRequest();
+    xhr.open('get', 'https://v1.hitokoto.cn');
+    xhr.onreadystatechange = function () {
+      if (xhr.readyState === 4) {
+        var data = JSON.parse(xhr.responseText);
+        hitokoto.innerText = data.hitokoto;
+      }
+    }
+    xhr.send();
+  }
+    </script>
+  </body>
+</html>

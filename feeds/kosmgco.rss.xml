@@ -1,0 +1,245 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rss version="2.0"><channel><title>Kosmgco - kosmgco</title><link>https://blog.ooops.me/</link><description></description><lastBuildDate>Wed, 26 Dec 2018 00:00:00 +0800</lastBuildDate><item><title>搜索引擎结果自定义规则过滤Chrome插件</title><link>https://blog.ooops.me/posts/2018/12/26/sou-suo-yin-qing-jie-guo-zi-ding-yi-gui-ze-guo-lu-chromecha-jian.html</link><description>&lt;p&gt;使用search-engine-filter过滤制定规则的搜索结果&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">kosmgco</dc:creator><pubDate>Wed, 26 Dec 2018 00:00:00 +0800</pubDate><guid isPermaLink="false">tag:blog.ooops.me,2018-12-26:/posts/2018/12/26/sou-suo-yin-qing-jie-guo-zi-ding-yi-gui-ze-guo-lu-chromecha-jian.html</guid></item><item><title>Mac Shadowsocks 多服务器使用 HAProxy 负载均衡器</title><link>https://blog.ooops.me/posts/2018/12/18/mac-shadowsocks-duo-fu-wu-qi-shi-yong-haproxy-fu-zai-jun-heng-qi.html</link><description></description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">kosmgco</dc:creator><pubDate>Tue, 18 Dec 2018 00:00:00 +0800</pubDate><guid isPermaLink="false">tag:blog.ooops.me,2018-12-18:/posts/2018/12/18/mac-shadowsocks-duo-fu-wu-qi-shi-yong-haproxy-fu-zai-jun-heng-qi.html</guid></item><item><title>使用 fail2ban 保护服务器</title><link>https://blog.ooops.me/posts/2018/11/08/shi-yong-fail2ban-bao-hu-fu-wu-qi.html</link><description>&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;sudo apt install fail2ban
+
+cd /etc/fail2ban/
+
+sudo cp jail.conf jail.local
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;ul&gt;
+&lt;li&gt;sshd&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;sudo vim jail.local
+# uncomment 
+[sshd]
+enabled = true
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;ul&gt;
+&lt;li&gt;shadowsocks&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;filter.d/shadowsocks.conf&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="k"&gt;[Definition]&lt;/span&gt;
+
+&lt;span class="na"&gt;failregex&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s"&gt;can not parse header when handling connection from &amp;lt;HOST&amp;gt;:\d{1,5}$&lt;/span&gt;
+
+&lt;span class="na"&gt;ignoreregex&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;jail.local&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="k"&gt;[shadowsocks]&lt;/span&gt;
+
+&lt;span class="na"&gt;enabled&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s"&gt;true&lt;/span&gt;
+&lt;span class="na"&gt;logpath&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s"&gt;/var/log …&lt;/span&gt;&lt;/pre&gt;&lt;/div&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">kosmgco</dc:creator><pubDate>Thu, 08 Nov 2018 00:00:00 +0800</pubDate><guid isPermaLink="false">tag:blog.ooops.me,2018-11-08:/posts/2018/11/08/shi-yong-fail2ban-bao-hu-fu-wu-qi.html</guid><category>fail2ban</category><category>ops</category><category>ubuntu</category></item><item><title>Golang JSON 自定义类型的序列化与反序列化</title><link>https://blog.ooops.me/posts/2018/01/16/golang-json-zi-ding-yi-lei-xing-de-xu-lie-hua-yu-fan-xu-lie-hua.html</link><description>&lt;p&gt;Golang JSON 自定义类型的序列化与反序列化&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">kosmgco</dc:creator><pubDate>Tue, 16 Jan 2018 00:00:00 +0800</pubDate><guid isPermaLink="false">tag:blog.ooops.me,2018-01-16:/posts/2018/01/16/golang-json-zi-ding-yi-lei-xing-de-xu-lie-hua-yu-fan-xu-lie-hua.html</guid><category>Golang</category><category>json</category></item><item><title>排序 - 插入排序</title><link>https://blog.ooops.me/posts/2017/10/22/pai-xu-cha-ru-pai-xu.html</link><description>&lt;p&gt;插入排序的Python实现与Golang实现&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">kosmgco</dc:creator><pubDate>Sun, 22 Oct 2017 00:00:00 +0800</pubDate><guid isPermaLink="false">tag:blog.ooops.me,2017-10-22:/posts/2017/10/22/pai-xu-cha-ru-pai-xu.html</guid><category>algorithms</category><category>data-structure</category></item><item><title>排序 - 选择排序</title><link>https://blog.ooops.me/posts/2017/10/20/pai-xu-xuan-ze-pai-xu.html</link><description>&lt;p&gt;选择排序的Python实现与Golang实现&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">kosmgco</dc:creator><pubDate>Fri, 20 Oct 2017 00:00:00 +0800</pubDate><guid isPermaLink="false">tag:blog.ooops.me,2017-10-20:/posts/2017/10/20/pai-xu-xuan-ze-pai-xu.html</guid><category>algorithms</category><category>data-structure</category></item><item><title>Golang 3DES, DES, AES加密解密</title><link>https://blog.ooops.me/posts/2017/09/21/golang-3des-des-aesjia-mi-jie-mi.html</link><description>&lt;p&gt;使用Golang内置crypto/aes, crypto/des, crypto/cipher 实现3DES, DES, AES 加密解密方法&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">kosmgco</dc:creator><pubDate>Thu, 21 Sep 2017 00:00:00 +0800</pubDate><guid isPermaLink="false">tag:blog.ooops.me,2017-09-21:/posts/2017/09/21/golang-3des-des-aesjia-mi-jie-mi.html</guid><category>Golang</category><category>security</category></item><item><title>自己实现实现一个栈</title><link>https://blog.ooops.me/posts/2017/09/16/zi-ji-shi-xian-shi-xian-yi-ge-zhan.html</link><description>&lt;hr&gt;
+&lt;p&gt;实现基于LIFO(Last In First Out)即后进先出的栈&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;主要方法有:&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;pop()&lt;/code&gt;: 从栈中删除最后一个元素并返回最后一个元素的值&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;push()&lt;/code&gt;: 往栈中添加一个元素&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;size()&lt;/code&gt;: 获取栈大小&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;is_empty()&lt;/code&gt;: 获取是否为空栈&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;p&gt;1.&lt;strong&gt;Python&lt;/strong&gt;&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="ch"&gt;#!/usr/bin/env python&lt;/span&gt;
+&lt;span class="c1"&gt;# coding: utf-8&lt;/span&gt;
+
+&lt;span class="k"&gt;class&lt;/span&gt; &lt;span class="nc"&gt;MyStack&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nb"&gt;object&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
+    &lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="fm"&gt;__init__&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
+        &lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;items&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;[]&lt;/span&gt;
+
+    &lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;pop&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
+        &lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;items&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;pop&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+
+    &lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;push&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;x&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
+        &lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;items&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;append&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;x&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+
+    &lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;size&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
+        &lt;span class="k"&gt;return …&lt;/span&gt;&lt;/pre&gt;&lt;/div&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">kosmgco</dc:creator><pubDate>Sat, 16 Sep 2017 00:00:00 +0800</pubDate><guid isPermaLink="false">tag:blog.ooops.me,2017-09-16:/posts/2017/09/16/zi-ji-shi-xian-shi-xian-yi-ge-zhan.html</guid><category>data-structure</category><category>algorithms</category></item><item><title>《MySQL技术内幕: InnoDB存储引擎》 - 第一章</title><link>https://blog.ooops.me/posts/2017/07/30/mysqlji-zhu-nei-mu-innodbcun-chu-yin-qing-di-yi-zhang.html</link><description>&lt;p&gt;《MySQL技术内幕: InnoDB存储引擎》 第一章总结&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">kosmgco</dc:creator><pubDate>Sun, 30 Jul 2017 15:54:00 +0800</pubDate><guid isPermaLink="false">tag:blog.ooops.me,2017-07-30:/posts/2017/07/30/mysqlji-zhu-nei-mu-innodbcun-chu-yin-qing-di-yi-zhang.html</guid><category>MySQL</category><category>Storage Engine</category></item><item><title>Nginx日志分析</title><link>https://blog.ooops.me/posts/2017/07/08/nginxri-zhi-fen-xi.html</link><description>&lt;p&gt;对Nginx日志进行文本分析, 统计访问量等数据&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">kosmgco</dc:creator><pubDate>Sat, 08 Jul 2017 09:54:00 +0800</pubDate><guid isPermaLink="false">tag:blog.ooops.me,2017-07-08:/posts/2017/07/08/nginxri-zhi-fen-xi.html</guid><category>Nginx</category><category>log</category></item><item><title>通过人脸识别获取学校学生的性别比例</title><link>https://blog.ooops.me/posts/2017/02/24/tong-guo-ren-lian-shi-bie-huo-qu-xue-xiao-xue-sheng-de-xing-bie-bi-li.html</link><description>&lt;p&gt;通过人脸识别获取学校学生的性别比例&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">kosmgco</dc:creator><pubDate>Fri, 24 Feb 2017 00:00:00 +0800</pubDate><guid isPermaLink="false">tag:blog.ooops.me,2017-02-24:/posts/2017/02/24/tong-guo-ren-lian-shi-bie-huo-qu-xue-xiao-xue-sheng-de-xing-bie-bi-li.html</guid><category>face++</category><category>Staticstics</category></item><item><title>开启全站https</title><link>https://blog.ooops.me/posts/2016/12/10/kai-qi-quan-zhan-https.html</link><description>&lt;p&gt;开启全站https&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">kosmgco</dc:creator><pubDate>Sat, 10 Dec 2016 00:00:00 +0800</pubDate><guid isPermaLink="false">tag:blog.ooops.me,2016-12-10:/posts/2016/12/10/kai-qi-quan-zhan-https.html</guid><category>https</category><category>security</category></item><item><title>Say Hello-World! To Docker</title><link>https://blog.ooops.me/posts/2016/12/04/say-hello-world-to-docker.html</link><description>&lt;p&gt;初次接触docker&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">kosmgco</dc:creator><pubDate>Sun, 04 Dec 2016 00:00:00 +0800</pubDate><guid isPermaLink="false">tag:blog.ooops.me,2016-12-04:/posts/2016/12/04/say-hello-world-to-docker.html</guid><category>docker</category></item><item><title>Ubuntu-Go开发环境配置</title><link>https://blog.ooops.me/posts/2016/10/25/ubuntu-gokai-fa-huan-jing-pei-zhi.html</link><description>&lt;p&gt;Ubuntu14.04下的Go开发环境配置过程&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">kosmgco</dc:creator><pubDate>Tue, 25 Oct 2016 14:01:09 +0800</pubDate><guid isPermaLink="false">tag:blog.ooops.me,2016-10-25:/posts/2016/10/25/ubuntu-gokai-fa-huan-jing-pei-zhi.html</guid><category>Ubuntu</category><category>Go</category></item><item><title>使用Python-Flask搭建轻博客</title><link>https://blog.ooops.me/posts/2016/07/19/shi-yong-python-flaskda-jian-qing-bo-ke.html</link><description>&lt;p&gt;使用Python的Flask框架构建一个轻博客，尽量使用restful风格的路由，结合七牛云，上传图片&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">kosmgco</dc:creator><pubDate>Tue, 19 Jul 2016 00:00:00 +0800</pubDate><guid isPermaLink="false">tag:blog.ooops.me,2016-07-19:/posts/2016/07/19/shi-yong-python-flaskda-jian-qing-bo-ke.html</guid><category>flask</category><category>博客</category></item><item><title>app反编译</title><link>https://blog.ooops.me/posts/2016/07/10/appfan-bian-yi.html</link><description>&lt;p&gt;网络安全的部分&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">kosmgco</dc:creator><pubDate>Sun, 10 Jul 2016 00:00:00 +0800</pubDate><guid isPermaLink="false">tag:blog.ooops.me,2016-07-10:/posts/2016/07/10/appfan-bian-yi.html</guid><category>端口扫描</category><category>sql注入</category><category>app反编译</category><category>dns</category></item><item><title>git操作</title><link>https://blog.ooops.me/posts/2016/07/10/gitcao-zuo.html</link><description>&lt;p&gt;Linux上面的一些操作笔记&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">kosmgco</dc:creator><pubDate>Sun, 10 Jul 2016 00:00:00 +0800</pubDate><guid isPermaLink="false">tag:blog.ooops.me,2016-07-10:/posts/2016/07/10/gitcao-zuo.html</guid><category>Git</category></item><item><title>Ubnntu配置shadowsocks科学上网</title><link>https://blog.ooops.me/posts/2016/07/10/ubnntupei-zhi-shadowsockske-xue-shang-wang.html</link><description>&lt;p&gt;Linux上面的一些操作笔记&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">kosmgco</dc:creator><pubDate>Sun, 10 Jul 2016 00:00:00 +0800</pubDate><guid isPermaLink="false">tag:blog.ooops.me,2016-07-10:/posts/2016/07/10/ubnntupei-zhi-shadowsockske-xue-shang-wang.html</guid><category>Ubuntu</category><category>Shadowsocks</category></item><item><title>nginx virtual host虚拟机</title><link>https://blog.ooops.me/posts/2016/04/16/nginx-virtual-hostxu-ni-ji.html</link><description>&lt;p&gt;一台服务器不止能放一个网站，但是在初期需要解决的是如何将所有网站的端口都映射到服务器的80端口，可以通过这样的方法访问同一个服务器上的不同网站&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">kosmgco</dc:creator><pubDate>Sat, 16 Apr 2016 00:00:00 +0800</pubDate><guid isPermaLink="false">tag:blog.ooops.me,2016-04-16:/posts/2016/04/16/nginx-virtual-hostxu-ni-ji.html</guid><category>nginx</category><category>服务器</category></item><item><title>实习总结</title><link>https://blog.ooops.me/posts/2016/03/25/shi-xi-zong-jie.html</link><description>&lt;hr&gt;
+&lt;p&gt;从2015年6月开始，当时还在考驾照科目二，刚刚到复盛考场，还没来得及下接送的大巴车，有个公司给我打电话，让我去面试。当时我还感觉很奇怪，我并没有投这个公司，后来我才知道公司的人也能搜到简历即使不投。。&lt;/p&gt;
+&lt;p&gt;考完科目二第二天去观音桥面试，当时不知道去观音桥需要多久，就提前两个小时去了观音桥，在步行街的凳子上坐了半个小时。什么都没带，除了一支笔随身携带和一个背包。到了公司我才知道公司叫什么名，是做什么的，然后坐电梯上了31楼，给那个通知我面试的电话打过去，才有人来接我。进去先让我做了一套笔试题，考的东西有&lt;code&gt;数据库&lt;/code&gt;，&lt;code&gt;设计模式&lt;/code&gt;，&lt;code&gt;团队协作&lt;/code&gt;，&lt;code&gt;.net方面&lt;/code&gt;，&lt;code&gt;网络爬虫&lt;/code&gt;，&lt;code&gt;对公司的看法&lt;/code&gt;等，花了差不多一个小时做完笔试题，然后公司的&lt;code&gt;IT Manager&lt;/code&gt;进行面试，问了做的一些项目，介绍了公司的业务情况和IT方面的需求问题。&lt;/p&gt;
+&lt;p&gt;但是那时候大三的课程还没有完全结束，我给他们说可能需要等2-3个月。&lt;code&gt;IT Manager&lt;/code&gt;说没问题，到时候可以了就给他打电话，然后留了电话。8月大三的课程结束，放假回家没事做。8月10号，给之前留电话的&lt;code&gt;IT Manager&lt;/code&gt;打电话过去问还需要人吗 …&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">kosmgco</dc:creator><pubDate>Fri, 25 Mar 2016 21:59:24 +0800</pubDate><guid isPermaLink="false">tag:blog.ooops.me,2016-03-25:/posts/2016/03/25/shi-xi-zong-jie.html</guid><category>实习</category><category>总结</category></item><item><title>微信公众号以及智能聊天机器人的接入</title><link>https://blog.ooops.me/posts/2016/03/04/wei-xin-gong-zhong-hao-yi-ji-zhi-neng-liao-tian-ji-qi-ren-de-jie-ru.html</link><description>&lt;p&gt;很早就开通了微信个人公众号，本意是想让微信公众号代替邮箱短信等方式来发一些推送，毕竟微信比邮箱推送来的快多了，我看到的比较及时，响应的也会比较快。但是微信个人公众号每天只能发一条群发消息，满足不了我的需求，放弃之。&lt;/p&gt;
+&lt;p&gt;今天突然看到有关微信公众号开发的一些东西，进去看了一下，发现我还没进行开发者认证。&lt;/p&gt;
+&lt;p&gt;认证过程如下：
+- 登陆微信公众平台
+- 点击侧边栏的基本配置
+- 点击右侧的修改配置按钮
+- 填写地址等信息
+- 验证&lt;/p&gt;
+&lt;p&gt;&lt;img alt="server config" src="https://static.ooops.me/serverconfig.jpg"&gt;&lt;/p&gt;
+&lt;p&gt;token验证服务端代码:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="c1"&gt;# flask&lt;/span&gt;
+
+&lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;flask&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="n"&gt;Flask&lt;/span&gt;
+&lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;flask&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="n"&gt;request&lt;/span&gt;
+&lt;span class="n"&gt;app&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;Flask&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="vm"&gt;__name__&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+
+&lt;span class="nd"&gt;@app.route&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;/wechat&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="n"&gt;methods&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;POST&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;GET&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;])&lt;/span&gt;
+&lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;wechat&lt;/span&gt;&lt;span class="p"&gt;():&lt;/span&gt;
+    &lt;span class="sd"&gt;&amp;#39;&amp;#39;&amp;#39;&lt;/span&gt;
+&lt;span class="sd"&gt;    验证token&lt;/span&gt;
+&lt;span class="sd"&gt;    1.微信会给服务端发送一个随机字符串echostr&lt;/span&gt;
+&lt;span class="sd"&gt;    2.微信要求服务端将随机字符串原样返回以完成开发者认证&lt;/span&gt;
+&lt;span class="sd"&gt;    &amp;#39;&amp;#39;&amp;#39;&lt;/span&gt;
+    &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="n"&gt;request&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;args&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;get&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;echostr&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+
+&lt;span class="k"&gt;if …&lt;/span&gt;&lt;/pre&gt;&lt;/div&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">kosmgco</dc:creator><pubDate>Fri, 04 Mar 2016 20:35:34 +0800</pubDate><guid isPermaLink="false">tag:blog.ooops.me,2016-03-04:/posts/2016/03/04/wei-xin-gong-zhong-hao-yi-ji-zhi-neng-liao-tian-ji-qi-ren-de-jie-ru.html</guid><category>微信</category><category>网络api</category></item><item><title>加速乐cookie:__jsl_clearnce 破解新进展</title><link>https://blog.ooops.me/posts/2016/02/27/jia-su-le-cookie__jsl_clearnce-po-jie-xin-jin-zhan.html</link><description>&lt;hr&gt;
+&lt;p&gt;之前在博客里面写了一篇关于加速乐__jsl_clearance的cookie的破解教程: &lt;a href="https://blog.ooops.me/%E5%85%B3%E4%BA%8E%E5%8A%A0%E9%80%9F%E4%B9%90%E7%9A%84-jsl-clearance%E8%BF%94%E5%9B%9E521%E7%8A%B6%E6%80%81%E7%A0%81%E7%A0%B4%E8%A7%A3/"&gt;关于加速乐的_jsl_clearance返回521状态码破解&lt;/a&gt;，但是呢，之前是使用的ghost来先打开一次网页，获取到cookie后将cookie取出再添加的requests的http头里面，这样比较麻烦，也比较的消耗资源，相当于打开了一个浏览器。速度也比较慢，想想对于Python这样本身性能就不太好的语言来说，再开一个浏览器，对于不断追求高效率的我和如此大规模的数据爬取来说相当不合适。&lt;/p&gt;
+&lt;p&gt;这次的思路是将js引擎放到服务器上，或者说将一个浏览器内核放到服务器上，由服务器计算cookie并返回。&lt;/p&gt;
+&lt;p&gt;能在服务器上运行js代码的我不知道多不多，但是在网上搜了搜，发现nodejs还是比较适合的，做成服务也比较方便。在w3c上搜到教程，做了个计算cookie的服务。代码接受一个参数cookie的字符串，然后传给decode方法计算返回。
+代码如下:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="kd"&gt;var&lt;/span&gt; &lt;span class="nx"&gt;http&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nx"&gt;require&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;http&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+&lt;span class="kd"&gt;var&lt;/span&gt; &lt;span class="nx"&gt;url&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nx"&gt;require&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;url&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+&lt;span class="kd"&gt;var&lt;/span&gt; &lt;span class="nx"&gt;util&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nx"&gt;require&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;util&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+
+&lt;span class="kd"&gt;var&lt;/span&gt; &lt;span class="nx"&gt;querystring&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nx"&gt;require&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;querystring&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+
+&lt;span class="nx"&gt;http&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;createServer&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="kd"&gt;function&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;req&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="nx"&gt;res&lt;/span&gt;&lt;span class="p"&gt;){&lt;/span&gt;
+    &lt;span class="kd"&gt;var&lt;/span&gt; &lt;span class="nx"&gt;post&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+
+    &lt;span class="nx"&gt;req&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;on&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;data …&lt;/span&gt;&lt;/pre&gt;&lt;/div&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">kosmgco</dc:creator><pubDate>Sat, 27 Feb 2016 20:38:04 +0800</pubDate><guid isPermaLink="false">tag:blog.ooops.me,2016-02-27:/posts/2016/02/27/jia-su-le-cookie__jsl_clearnce-po-jie-xin-jin-zhan.html</guid><category>nodejs</category><category>反爬虫</category></item><item><title>福利帖 - 使用uber免费坐专车</title><link>https://blog.ooops.me/posts/2016/02/23/fu-li-tie-shi-yong-ubermian-fei-zuo-zhuan-che.html</link><description>&lt;hr&gt;
+&lt;h1&gt;这并不是福利。。。因为用虚拟小号注册Uber需要绑定支付宝或者信用卡，但是虚拟小号的时效性不长，可能过几天就忘记了，但是虚拟小号还没有解绑支付宝账号，而且uber在支付宝扣费不需要短信验证码，什么安全措施都不需要。所以如果有人继续使用了这个虚拟小号，那才是可以免费坐车，而且是使用的你的钱。现在我非常后悔。支付宝也解绑不了不知道手机号的uber账户！！！&lt;/h1&gt;
+&lt;hr&gt;
+&lt;p&gt;最近过年，去火车站，回家都离不开挤这个字。为了能够轻轻松松的回家享受春节的乐趣，打车那就是除了开车的不二选择了。&lt;/p&gt;
+&lt;p&gt;Uber最近也比较火，听说只用实习生。实习期满了之后就解雇，然后继续招。虽然如此，用户也并不会因为这些问题而不使用uber。就像企鹅，数字，百度等。&lt;/p&gt;
+&lt;p&gt;从我用uber开始就有这个活动了，&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;向朋友发送优惠乘车邀请，您也将获得优惠乘车机会，价值￥30 。优惠码：&lt;code&gt;kx86wue&lt;/code&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;根据这句话，我们就能直接想到的免费坐专车的方法：让uber新用户使用这个优惠码。&lt;/p&gt;
+&lt;p&gt;但是自己周围认识的朋友有限，又有多少人是使用了这个优惠码之后还是新用户呢。&lt;/p&gt;
+&lt;p&gt;那不如我们自己用自己的优惠码吧&lt;/p&gt;
+&lt;p&gt;1.使用uber需要绑定信用卡或者支付宝。
+2.一个支付宝账号可以绑定多个uber账户。
+3.uber认为电话号码没有注册过uber的就是新用户。
+4.阿里小号，手机密号等app都有付费提供电话号码的服务。&lt;/p&gt;
+&lt;p&gt;对于我，思路如下 …&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">kosmgco</dc:creator><pubDate>Tue, 23 Feb 2016 19:59:23 +0800</pubDate><guid isPermaLink="false">tag:blog.ooops.me,2016-02-23:/posts/2016/02/23/fu-li-tie-shi-yong-ubermian-fei-zuo-zhuan-che.html</guid><category>uber</category><category>免费</category><category>福利</category></item><item><title>Pycharm,Android-Studio源安装</title><link>https://blog.ooops.me/posts/2016/02/02/pycharmandroid-studioyuan-an-zhuang.html</link><description>&lt;hr&gt;
+&lt;h2&gt;Ubuntu&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;Android-Studio&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;sudo apt-add-repository ppa:paolorotolo/android-studio
+sudo apt-get update
+sudo apt-get install android-studio
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;hr&gt;
+&lt;ul&gt;
+&lt;li&gt;Pycharm&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;sudo apt-add-repository ppa:mystic-mirage/pycharm
+sudo apt-get update
+sudo apt-get install pycharm
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;hr&gt;
+&lt;ul&gt;
+&lt;li&gt;JDK&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;sudo add-apt-repository ppa:webupd8team/java
+sudo apt-get update
+sudo apt-get install oracle-java8-installer
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;hr&gt;
+&lt;ul&gt;
+&lt;li&gt;Shadowsocks&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;sudo apt-get install python-pip
+sudo pip install shadowsocks
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;&lt;code&gt;/etc …&lt;/code&gt;&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">kosmgco</dc:creator><pubDate>Tue, 02 Feb 2016 18:46:40 +0800</pubDate><guid isPermaLink="false">tag:blog.ooops.me,2016-02-02:/posts/2016/02/02/pycharmandroid-studioyuan-an-zhuang.html</guid><category>Ubuntu</category><category>Pycharm</category><category>Android-Studio</category></item><item><title>python爬取图片</title><link>https://blog.ooops.me/posts/2016/01/17/pythonpa-qu-tu-pian.html</link><description>&lt;hr&gt;
+&lt;p&gt;&lt;img alt="妹子图" src="https://static.ooops.me/01%20%281%29.jpg"&gt;&lt;/p&gt;
+&lt;p&gt;在每个学习网络爬虫或者说在想学习网络爬虫的人身上，都能找到邪恶的一面。比如某图，某社区上面的图片、种子等。&lt;/p&gt;
+&lt;p&gt;参考知乎&lt;a href="https://www.zhihu.com/question/27621722"&gt;能利用爬虫技术做到哪些很酷很有趣很有用的事情？&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;那今天就明说了吧，今天的目标网址是&lt;a href="http://www.meizitu.com/"&gt;妹子图&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;首先观察一下网址列表：
+&lt;a href="http://www.meizitu.com/a/5275.html"&gt;http://www.meizitu.com/a/5275.html&lt;/a&gt;
+&lt;a href="http://www.meizitu.com/a/5274.html"&gt;http://www.meizitu.com/a/5274.html&lt;/a&gt;
+&lt;a href="http://www.meizitu.com/a/5273.html"&gt;http://www.meizitu.com/a/5273.html&lt;/a&gt;
+...&lt;/p&gt;
+&lt;p&gt;妹子图对于每个妹子的帖子是按照数字来进行编号，那我们就可以通过遍历这个网址列表来对图片进行爬取&lt;/p&gt;
+&lt;p&gt;一个循环:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="n"&gt;i&lt;/span&gt; &lt;span class="ow"&gt;in&lt;/span&gt; &lt;span class="nb"&gt;range&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;start&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="n"&gt;end&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
+    &lt;span class="k"&gt;try&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+        &lt;span class="n"&gt;url&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;http://www.meizitu.com/a/&lt;/span&gt;&lt;span class="si"&gt;%s&lt;/span&gt;&lt;span class="s1"&gt;.html …&lt;/span&gt;&lt;/pre&gt;&lt;/div&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">kosmgco</dc:creator><pubDate>Sun, 17 Jan 2016 19:00:48 +0800</pubDate><guid isPermaLink="false">tag:blog.ooops.me,2016-01-17:/posts/2016/01/17/pythonpa-qu-tu-pian.html</guid><category>python</category><category>妹子图</category><category>multiprocessing</category></item><item><title>正方教务系统数据获取</title><link>https://blog.ooops.me/posts/2016/01/10/zheng-fang-jiao-wu-xi-tong-shu-ju-huo-qu.html</link><description>&lt;hr&gt;
+&lt;p&gt;首先声明: &lt;strong&gt;我不能更改教务系统里面的成绩！！！也请别做一些有违道德的事情 &lt;/strong&gt;&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;想了好久的事情，终于做出来了的感觉，真是无法言语。之前尝试过用&lt;code&gt;C#&lt;/code&gt;做，但是做到一半被那个随机字符串拦住了，于是只能放弃。&lt;/p&gt;
+&lt;p&gt;讲一下思路：
+通过数字化校园登陆后进入教务系统不需要再次登陆，而数字化校园登陆是不需要验证码的，所以本文不涉及验证码破解的问题。进入到教务系统之后，直接进入到&lt;em&gt;历年成绩&lt;/em&gt;界面，遍历表格，获取数据。&lt;/p&gt;
+&lt;p&gt;那么其中唯一的难点就是地址后面的那串随机字符串:&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;http://jwxt.edu.cn/(54pqhi45mhzulp45cwbugu55)/xs_main.aspx?xh=1234567890&amp;amp;type=1&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;就是&lt;strong&gt;(54pqhi45mhzulp45cwbugu55)&lt;/strong&gt;了。那么怎么获取到这个字符串呢？cookie里面是没有的。而且我估计正方教务系统通过这个来判断登陆状态，可能是session之类的东西。&lt;/p&gt;
+&lt;p&gt;在python中经常使用的网页抓取的第三方库&lt;code&gt;requests&lt;/code&gt;支持自动302跳转，所以我们不管中间跳转了几次，我们只需要知道最后一次返回&lt;code&gt;response&lt;/code&gt;的http头信息就行了。&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;requests&lt;/span&gt;
+&lt;span class="n"&gt;req …&lt;/span&gt;&lt;/pre&gt;&lt;/div&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">kosmgco</dc:creator><pubDate>Sun, 10 Jan 2016 21:49:47 +0800</pubDate><guid isPermaLink="false">tag:blog.ooops.me,2016-01-10:/posts/2016/01/10/zheng-fang-jiao-wu-xi-tong-shu-ju-huo-qu.html</guid><category>python</category><category>正方教务系统</category></item><item><title>flask 文件结构组织</title><link>https://blog.ooops.me/posts/2015/12/24/flask-wen-jian-jie-gou-zu-zhi.html</link><description>&lt;hr&gt;
+&lt;p&gt;在前几篇文章中，我聊了一下&lt;code&gt;flask&lt;/code&gt;的环境配置，但是在我了解这些之后，想到了一个问题，如果在做的不是一个测试项目，是一个中等规模的项目，那么我们不可能把所有的函数都写在&lt;code&gt;test.py&lt;/code&gt;里面吧。于是在&lt;code&gt;github&lt;/code&gt;，&lt;code&gt;oschina&lt;/code&gt;上面翻了挺多的&lt;code&gt;flask&lt;/code&gt;项目，但是这些项目要么比较大，要么又比较小。比较大的项目呢，代码太多，太繁杂，于是就不想看了。比较小的项目呢，是把所有的函数都写在启动脚本里面的。&lt;/p&gt;
+&lt;p&gt;我无奈了，最后找了好多，现在我也忘了是在哪里找到一个同为初学者，跟我有同样疑问的同学问了这个问题，下面的回答中，有人回答到了&lt;code&gt;BluePrints&lt;/code&gt;。&lt;/p&gt;
+&lt;p&gt;从&lt;code&gt;flask&lt;/code&gt;的&lt;a href="http://dormousehole.readthedocs.org/en/latest/"&gt;官方文档&lt;/a&gt;中找到了这个&lt;a href="http://dormousehole.readthedocs.org/en/latest/blueprints.html"&gt;使用蓝图的模块化应用&lt;/a&gt;。&lt;/p&gt;
+&lt;p&gt;在官方文档中有如下介绍:&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;为了在一个或多个应用中，使应用模块化并且支持常用方案， Flask 引入了 蓝图 概念。蓝图可以极大地简化大型应用并为扩展提供集中的注册入口。 Blueprint 对象与 Flask …&lt;/p&gt;&lt;/blockquote&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">kosmgco</dc:creator><pubDate>Thu, 24 Dec 2015 20:20:36 +0800</pubDate><guid isPermaLink="false">tag:blog.ooops.me,2015-12-24:/posts/2015/12/24/flask-wen-jian-jie-gou-zu-zhi.html</guid><category>python</category><category>flask</category><category>web框架</category><category>Blueprints</category></item><item><title>mongodb 小刀初试</title><link>https://blog.ooops.me/posts/2015/12/21/mongodb-xiao-dao-chu-shi.html</link><description>&lt;hr&gt;
+&lt;p&gt;现在使用爬虫很多都不使用关系性数据库了，使用NoSql要方便得多，因为你不必须为表结构操心了，也不用关心短连接对系统&lt;code&gt;io&lt;/code&gt;资源的消耗了。&lt;/p&gt;
+&lt;h4&gt;1.安装mongodb&lt;/h4&gt;
+&lt;p&gt;Ubuntu下：&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv 7F0CEB10
+
+&lt;span class="nb"&gt;echo&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;deb http://downloads-distro.mongodb.org/repo/ubuntu-upstart dist 10gen&amp;#39;&lt;/span&gt; &lt;span class="p"&gt;|&lt;/span&gt; sudo tee /etc/apt/sources.list.d/mongodb.list
+
+sudo apt-get update
+
+sudo apt-get install mongodb
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;这样差不多就完成了。&lt;/p&gt;
+&lt;h5&gt;显示所有数据库&lt;/h5&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;show dbs …&lt;/pre&gt;&lt;/div&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">kosmgco</dc:creator><pubDate>Mon, 21 Dec 2015 20:55:01 +0800</pubDate><guid isPermaLink="false">tag:blog.ooops.me,2015-12-21:/posts/2015/12/21/mongodb-xiao-dao-chu-shi.html</guid><category>mongodb</category><category>NoSql</category></item><item><title>关于刷票</title><link>https://blog.ooops.me/posts/2015/12/20/guan-yu-shua-piao.html</link><description>&lt;hr&gt;
+&lt;h4&gt;1.写在开头&lt;/h4&gt;
+&lt;p&gt;其实很早就想做一个刷票的东西了，因为之前还不会写网络爬虫而且微信投票还没兴起的时候，有很多人找我投票（学校的活动比较多→_→）。没办法，只能通过浏览器清除cookie之后再投票，这是一件非常重复的事情，lowb只能做这么low的事情了。。。&lt;/p&gt;
+&lt;h4&gt;2.浏览器抓包&lt;/h4&gt;
+&lt;p&gt;那么今天的网站呢是一个营销活动的网站：&lt;strong&gt;中国西部十大金融创新人物十佳金融创新企业&lt;/strong&gt;http://www.zjxwcm.com/&lt;/p&gt;
+&lt;p&gt;在主页面就能看到很多的投票的选择，随便选择一个吧，到写这篇文章时的最后一个：田爽&lt;/p&gt;
+&lt;p&gt;投票是根据留言的多少来判断的，也就是说有多少留言就有多少票数，进入留言页面：&lt;strong&gt;候选人田爽&lt;/strong&gt;http://www.zjxwcm.com/index.php?m=person&amp;amp;o=main&amp;amp;cid=1&amp;amp;did=42。。。现在才3票，真可怜。。。
+&lt;img alt="Alt text" src="http://liyuan-t.xyz/images/Screenshot.png"&gt;&lt;/p&gt;
+&lt;p&gt;在浏览器中，按下F12进入开发者模式，切换到&lt;code&gt;Network&lt;/code&gt;的&lt;code&gt;tab&lt;/code&gt;页 …&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">kosmgco</dc:creator><pubDate>Sun, 20 Dec 2015 23:03:38 +0800</pubDate><guid isPermaLink="false">tag:blog.ooops.me,2015-12-20:/posts/2015/12/20/guan-yu-shua-piao.html</guid><category>python</category><category>投票</category></item><item><title>python json解析那点事</title><link>https://blog.ooops.me/posts/2015/12/18/python-jsonjie-xi-na-dian-shi.html</link><description>&lt;hr&gt;
+&lt;p&gt;今天做了个&lt;code&gt;json&lt;/code&gt;解析的模块，原因是为了得到一个网站的数据，通过post方式。返回数据的格式如下:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;[{&lt;/span&gt;&lt;span class="se"&gt;\&amp;quot;&lt;/span&gt;&lt;span class="s2"&gt;Count&lt;/span&gt;&lt;span class="se"&gt;\&amp;quot;&lt;/span&gt;&lt;span class="s2"&gt;:&lt;/span&gt;&lt;span class="se"&gt;\&amp;quot;&lt;/span&gt;&lt;span class="s2"&gt;2535773&lt;/span&gt;&lt;span class="se"&gt;\&amp;quot;&lt;/span&gt;&lt;span class="s2"&gt;},{&lt;/span&gt;&lt;span class="se"&gt;\&amp;quot;&lt;/span&gt;&lt;span class="s2"&gt;裁判要旨段原文&lt;/span&gt;&lt;span class="se"&gt;\&amp;quot;&lt;/span&gt;&lt;span class="s2"&gt;:&lt;/span&gt;&lt;span class="se"&gt;\&amp;quot;&lt;/span&gt;&lt;span class="s2"&gt;本院认为，被....&lt;/span&gt;&lt;span class="se"&gt;\&amp;quot;&lt;/span&gt;&lt;span class="s2"&gt;,&lt;/span&gt;&lt;span class="se"&gt;\&amp;quot;&lt;/span&gt;&lt;span class="s2"&gt;DocContent&lt;/span&gt;&lt;span class="se"&gt;\&amp;quot;&lt;/span&gt;&lt;span class="s2"&gt;:&lt;/span&gt;&lt;span class="se"&gt;\&amp;quot;&lt;/span&gt;&lt;span class="s2"&gt;人民陪审员&lt;/span&gt;&lt;span class="se"&gt;\&amp;quot;&lt;/span&gt;&lt;span class="s2"&gt;,&lt;/span&gt;&lt;span class="se"&gt;\&amp;quot;&lt;/span&gt;&lt;span class="s2"&gt;案件类型&lt;/span&gt;&lt;span class="se"&gt;\&amp;quot;&lt;/span&gt;&lt;span class="s2"&gt;:&lt;/span&gt;&lt;span class="se"&gt;\&amp;quot;&lt;/span&gt;&lt;span class="s2"&gt;1&lt;/span&gt;&lt;span class="se"&gt;\&amp;quot;&lt;/span&gt;&lt;span class="s2"&gt;,&lt;/span&gt;&lt;span class="se"&gt;\&amp;quot;&lt;/span&gt;&lt;span class="s2"&gt;裁判日期&lt;/span&gt;&lt;span class="se"&gt;\&amp;quot;&lt;/span&gt;&lt;span class="s2"&gt;:&lt;/span&gt;&lt;span class="se"&gt;\&amp;quot;&lt;/span&gt;&lt;span class="s2"&gt;2015-06-18&lt;/span&gt;&lt;span class="se"&gt;\&amp;quot;&lt;/span&gt;&lt;span class="s2"&gt;,&lt;/span&gt;&lt;span class="se"&gt;\&amp;quot;&lt;/span&gt;&lt;span class="s2"&gt;案件名称&lt;/span&gt;&lt;span class="se"&gt;\&amp;quot;&lt;/span&gt;&lt;span class="s2"&gt;:&lt;/span&gt;&lt;span class="se"&gt;\&amp;quot;&lt;/span&gt;&lt;span class="s2"&gt;被告人&lt;/span&gt;&lt;span class="se"&gt;\&amp;quot;&lt;/span&gt;&lt;span class="s2"&gt;,&lt;/span&gt;&lt;span class="se"&gt;\&amp;quot;&lt;/span&gt;&lt;span class="s2"&gt;文书ID&lt;/span&gt;&lt;span class="se"&gt;\&amp;quot;&lt;/span&gt;&lt;span class="s2"&gt;:&lt;/span&gt;&lt;span class="se"&gt;\&amp;quot;&lt;/span&gt;&lt;span class="s2"&gt;ffaf4515-b185-46d4-a306-6f6386d20002&lt;/span&gt;&lt;span class="se"&gt;\&amp;quot;&lt;/span&gt;&lt;span class="s2"&gt;,&lt;/span&gt;&lt;span class="se"&gt;\&amp;quot;&lt;/span&gt;&lt;span class="s2"&gt;审判程序&lt;/span&gt;&lt;span class="se"&gt;\&amp;quot;&lt;/span&gt;&lt;span class="s2"&gt;:&lt;/span&gt;&lt;span class="se"&gt;\&amp;quot;&lt;/span&gt;&lt;span class="s2"&gt;一审&lt;/span&gt;&lt;span class="se"&gt;\&amp;quot;&lt;/span&gt;&lt;span class="s2"&gt;,&lt;/span&gt;&lt;span class="se"&gt;\&amp;quot;&lt;/span&gt;&lt;span class="s2"&gt;案号&lt;/span&gt;&lt;span class="se"&gt;\&amp;quot;&lt;/span&gt;&lt;span class="s2"&gt;:&lt;/span&gt;&lt;span class="se"&gt;\&amp;quot;&lt;/span&gt;&lt;span class="s2"&gt;（2015）扶刑初字第&lt;/span&gt;&lt;span class="se"&gt;\&amp;quot;&lt;/span&gt;&lt;span class="s2"&gt;,&lt;/span&gt;&lt;span class="se"&gt;\&amp;quot;&lt;/span&gt;&lt;span class="s2"&gt;法院名称&lt;/span&gt;&lt;span class="se"&gt;\&amp;quot;&lt;/span&gt;&lt;span class="s2"&gt;:&lt;/span&gt;&lt;span class="se"&gt;\&amp;quot;&lt;/span&gt;&lt;span class="s2"&gt;吉林省扶&lt;/span&gt;&lt;span class="se"&gt;\&amp;quot;&lt;/span&gt;&lt;span class="s2"&gt;},{&lt;/span&gt;&lt;span class="se"&gt;\&amp;quot;&lt;/span&gt;&lt;span class="s2"&gt;裁判要旨段原文&lt;/span&gt;&lt;span class="se"&gt;\&amp;quot;&lt;/span&gt;&lt;span class="s2"&gt;:&lt;/span&gt;&lt;span class="se"&gt;\&amp;quot;&lt;/span&gt;&lt;span class="s2"&gt;如下&lt;/span&gt;&lt;span class="se"&gt;\&amp;quot;&lt;/span&gt;&lt;span class="s2"&gt;,&lt;/span&gt;&lt;span class="se"&gt;\&amp;quot;&lt;/span&gt;&lt;span class="s2"&gt;DocContent&lt;/span&gt;&lt;span class="se"&gt;\&amp;quot;&lt;/span&gt;&lt;span class="s2"&gt;:&lt;/span&gt;&lt;span class="se"&gt;\&amp;quot;&lt;/span&gt;&lt;span class="s2"&gt;起计算。&lt;/span&gt;&lt;span class="se"&gt;\&amp;quot;&lt;/span&gt;&lt;span class="s2"&gt;,&lt;/span&gt;&lt;span class="se"&gt;\&amp;quot;&lt;/span&gt;&lt;span class="s2"&gt;案件类型&lt;/span&gt;&lt;span class="se"&gt;\&amp;quot;&lt;/span&gt;&lt;span class="s2"&gt;:&lt;/span&gt;&lt;span class="se"&gt;\&amp;quot;&lt;/span&gt;&lt;span class="s2"&gt;1&lt;/span&gt;&lt;span class="se"&gt;\&amp;quot;&lt;/span&gt;&lt;span class="s2"&gt;,&lt;/span&gt;&lt;span class="se"&gt;\&amp;quot;&lt;/span&gt;&lt;span class="s2"&gt;裁判日期&lt;/span&gt;&lt;span class="se"&gt;\&amp;quot;&lt;/span&gt;&lt;span class="s2"&gt;:&lt;/span&gt;&lt;span class="se"&gt;\&amp;quot;&lt;/span&gt;&lt;span class="s2"&gt;2015-10-29&lt;/span&gt;&lt;span class="se"&gt;\&amp;quot;&lt;/span&gt;&lt;span class="s2"&gt;,&lt;/span&gt;&lt;span class="se"&gt;\&amp;quot;&lt;/span&gt;&lt;span class="s2"&gt;案件名称&lt;/span&gt;&lt;span class="se"&gt;\&amp;quot;&lt;/span&gt;&lt;span class="s2"&gt;:&lt;/span&gt;&lt;span class="se"&gt;\&amp;quot;&lt;/span&gt;&lt;span class="s2"&gt;姜某犯&lt;/span&gt;&lt;span class="se"&gt;\&amp;quot;&lt;/span&gt;&lt;span class="s2"&gt;,&lt;/span&gt;&lt;span class="se"&gt;\&amp;quot;&lt;/span&gt;&lt;span class="s2"&gt;文书ID&lt;/span&gt;&lt;span class="se"&gt;\&amp;quot;&lt;/span&gt;&lt;span class="s2"&gt;:&lt;/span&gt;&lt;span class="se"&gt;\&amp;quot;&lt;/span&gt;&lt;span class="s2"&gt;bf80393d-359a-4e80-bf8a-1c2a8ed7df33&lt;/span&gt;&lt;span class="se"&gt;\&amp;quot;&lt;/span&gt;&lt;span class="s2"&gt;,&lt;/span&gt;&lt;span class="se"&gt;\&amp;quot;&lt;/span&gt;&lt;span class="s2"&gt;审判程序&lt;/span&gt;&lt;span class="se"&gt;\&amp;quot;&lt;/span&gt;&lt;span class="s2"&gt;:&lt;/span&gt;&lt;span class="se"&gt;\&amp;quot;&lt;/span&gt;&lt;span class="s2"&gt;一审&lt;/span&gt;&lt;span class="se"&gt;\&amp;quot;&lt;/span&gt;&lt;span class="s2"&gt;,&lt;/span&gt;&lt;span class="se"&gt;\&amp;quot;&lt;/span&gt;&lt;span class="s2"&gt;案号&lt;/span&gt;&lt;span class="se"&gt;\&amp;quot;&lt;/span&gt;&lt;span class="s2"&gt;:&lt;/span&gt;&lt;span class="se"&gt;\&amp;quot;&lt;/span&gt;&lt;span class="s2"&gt;（2015）淮刑初字第00512号&lt;/span&gt;&lt;span class="se"&gt;\&amp;quot;&lt;/span&gt;&lt;span class="s2"&gt;,&lt;/span&gt;&lt;span class="se"&gt;\&amp;quot;&lt;/span&gt;&lt;span class="s2"&gt;法院名称&lt;/span&gt;&lt;span class="se"&gt;\&amp;quot;&lt;/span&gt;&lt;span class="s2"&gt;:&lt;/span&gt;&lt;span class="se"&gt;\&amp;quot;&lt;/span&gt;&lt;span class="s2"&gt;江江苏省淮安市淮阴区人民法院&lt;/span&gt;&lt;span class="se"&gt;\&amp;quot;&lt;/span&gt;&lt;span class="s2"&gt;}]&amp;quot;&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;很明显，这并不是&lt;code&gt;json …&lt;/code&gt;&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">kosmgco</dc:creator><pubDate>Fri, 18 Dec 2015 20:22:39 +0800</pubDate><guid isPermaLink="false">tag:blog.ooops.me,2015-12-18:/posts/2015/12/18/python-jsonjie-xi-na-dian-shi.html</guid><category>python</category><category>json</category></item><item><title>flask 初窥</title><link>https://blog.ooops.me/posts/2015/12/12/flask-chu-kui.html</link><description>&lt;hr&gt;
+&lt;h5&gt;&lt;strong&gt;起因:&lt;/strong&gt;&lt;/h5&gt;
+&lt;p&gt;之前做的一个项目，因为某些原因中断了，现在指导老师又想重拾这个项目，但是之前做的时候，需求没有完全确定、服务器地址改变等导致代码写的非常乱。现在让学弟学妹在此代码的基础上进行学习、修改，无疑是&amp;gt;&amp;gt;糊涂。&lt;/p&gt;
+&lt;p&gt;这让我有了重新写接口后台代码的想法，于是百度了一下&lt;code&gt;python web api&lt;/code&gt;，发现了flask框架。而且当时就根据入门指南写了一个&lt;code&gt;hello world&lt;/code&gt;，所以跟一个自诩为'架构师'的同学商量了一下，让我在&lt;code&gt;github&lt;/code&gt;写一个demo。&lt;/p&gt;
+&lt;p&gt;demo地址:&lt;a href="https://github.com/liyuan-t/api-burro"&gt;api-burro&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;说说过程吧：&lt;/p&gt;
+&lt;h5&gt;&lt;strong&gt;1.环境配置&lt;/strong&gt;&lt;/h5&gt;
+&lt;p&gt;python环境配置就不用说了吧，什么&lt;code&gt;pip&lt;/code&gt;,&lt;code&gt;easy_install&lt;/code&gt;等等&lt;/p&gt;
+&lt;p&gt;1.安装virtualenv&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;sudo pip install python-virtualenv
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;2.创建应用目录&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;mkdir flask-demo
+cd flask-demo
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;3.在virtualenv中使用flask&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;virtualenv flask …&lt;/pre&gt;&lt;/div&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">kosmgco</dc:creator><pubDate>Sat, 12 Dec 2015 22:18:45 +0800</pubDate><guid isPermaLink="false">tag:blog.ooops.me,2015-12-12:/posts/2015/12/12/flask-chu-kui.html</guid><category>python</category><category>flask</category><category>web框架</category></item><item><title>关于加速乐的__jsl_clearance返回521状态码破解</title><link>https://blog.ooops.me/posts/2015/12/09/guan-yu-jia-su-le-de-__jsl_clearancefan-hui-521zhuang-tai-ma-po-jie.html</link><description>&lt;hr&gt;
+&lt;p&gt;最近公司由于业务需要，需要对一个网站的数据进行爬取&lt;a href="http://www.court.gov.cn/zgcpwsw/"&gt;中国裁判文书网&lt;/a&gt;，但是由于使用了加速乐的服务，在访问之前先判断cookie正不正确。如果不正确，先获取一次cookie，否则直接打开。而且cookie的Expires时间非常短，所以那种想要获取一次cookie然后就没什么事的想法破灭了。&lt;/p&gt;
+&lt;p&gt;但是经过不懈努力(→_→)，发现返回521的时候也返回了一段js代码：&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;    &lt;span class="kd"&gt;var&lt;/span&gt; &lt;span class="nx"&gt;dc&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;&lt;span class="kd"&gt;var&lt;/span&gt; &lt;span class="nx"&gt;t_d&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="p"&gt;{&lt;/span&gt;&lt;span class="nx"&gt;hello&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;world&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="nx"&gt;t_c&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="kd"&gt;function&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;x&lt;/span&gt;&lt;span class="p"&gt;){&lt;/span&gt;&lt;span class="k"&gt;if&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;x&lt;/span&gt;&lt;span class="o"&gt;===&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="k"&gt;return&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;&lt;span class="k"&gt;if&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;x&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;slice&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="o"&gt;===&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;;&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;){&lt;/span&gt;&lt;span class="nx"&gt;x&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="nx"&gt;x&lt;/span&gt;&lt;span class="o"&gt;+&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot; &amp;quot;&lt;/span&gt;&lt;span class="p"&gt;;};&lt;/span&gt;&lt;span class="k"&gt;if&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;x&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;slice&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="mi"&gt;2&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="o"&gt;!==&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;; &amp;quot;&lt;/span&gt;&lt;span class="p"&gt;){&lt;/span&gt;&lt;span class="nx"&gt;x&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="nx"&gt;x&lt;/span&gt;&lt;span class="o"&gt;+&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;; &amp;quot;&lt;/span&gt;&lt;span class="p"&gt;;};&lt;/span&gt;&lt;span class="nx"&gt;dc&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="nx"&gt;dc&lt;/span&gt;&lt;span class="o"&gt;+&lt;/span&gt;&lt;span class="nx"&gt;x&lt;/span&gt;&lt;span class="p"&gt;;}};(&lt;/span&gt;&lt;span class="kd"&gt;function&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;a&lt;/span&gt;&lt;span class="p"&gt;){&lt;/span&gt;&lt;span class="nb"&gt;eval&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="kd"&gt;function&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;p&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="nx"&gt;a&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="nx"&gt;c&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="nx"&gt;k&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="nx"&gt;e&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="nx"&gt;d …&lt;/span&gt;&lt;/pre&gt;&lt;/div&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">kosmgco</dc:creator><pubDate>Wed, 09 Dec 2015 21:27:14 +0800</pubDate><guid isPermaLink="false">tag:blog.ooops.me,2015-12-09:/posts/2015/12/09/guan-yu-jia-su-le-de-__jsl_clearancefan-hui-521zhuang-tai-ma-po-jie.html</guid><category>python</category><category>js</category><category>Ghost</category></item></channel></rss>

@@ -1,0 +1,570 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>  Kosmgco | [翻译]Golang 中的微服务 - 系列一 </title>
+<meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+<link href="https://blog.ooops.me/theme/css/github-markdown.css" rel="stylesheet"/>
+<link href="https://blog.ooops.me/theme/css/custom.css" rel="stylesheet"/>
+<meta name="baidu-site-verification" content="qfSD7JIuUr"/>
+<meta name="description" content="Linux. Python. Coder. Gopher."/>
+<meta name="author" content="kosmgco" />
+
+<meta name="viewport" content="width=device-width, initaial-scale=1"/>  </head>
+  <body class="markdown-body">
+    <style>
+      @media (max-width: 550px) {
+        .catalog, .content {
+          display:none;
+        }
+      }
+    </style>
+    <div class="menu">
+      <div class="title" style="background: url(https://static.ooops.me/md-upload-1536468495519.png) no-repeat; background-position: center"></div>
+      <h3> Kosmgco </h3>
+      <h4> Linux. Python. Coder. Gopher. </h4>
+      <div class="links-menu" >
+        <a href="https://blog.ooops.me/" class="menu-link" title="HOME"><img src="/theme/images/home.png" width="40"/></a>
+        <a href="https://blog.ooops.me/tags.html" class="menu-link" title="TAGS"><img src="/theme/images/tags.png" width="40"/></a>
+        <a href="https://blog.ooops.me/categories.html" class="menu-link" title="CATEGORIES"><img src="/theme/images/categories.png" width="40"/></a>
+        <a href="https://blog.ooops.me/pages/about.html" class="menu-link" title="ABOUT"><img src="/theme/images/about.png" width="40"/></a>
+        <a href="https://blog.ooops.me/pages/wiki.html" class="menu-link" title="WIKI"><img src="/theme/images/wiki.png" width="40"/></a>
+        <a href="https://blog.ooops.me/pages/blog.html" class="menu-link" title="BLOG"><img src="/theme/images/blog.png" width="40"/></a>
+ 
+      </div>
+      <div class="links">
+        <a href="http://github.com/kosmgco" target="_blank">
+          <img src="https://blog.ooops.me/theme/images/github-128.png" style="width:32px;">
+        </a>
+        <a href="mailto:i@ooops.me" target="_blank">
+          <img src="https://blog.ooops.me/theme/images/mail-128.png" style="width:32px;">
+        </a>
+        <a href="/atom.xml" target="_blank">
+          <img src="https://blog.ooops.me/theme/images/rss-128.png" style="width:32px;">
+        </a>
+      </div>
+      <div class="links">
+        <a href="http://xlzd.me" target="_blank">xlzd杂谈</a>
+        <a href="http://midday.me" target="_blank">正午的博客</a>
+        <a href="http://mqhong.com" target="_blank">梦梦的咸鱼</a>
+        <a href="http://bilibili.ooops.me" target="_blank">B站弹幕</a>
+      </div>
+      <div class="copyright">
+        &copy <a href="/">Kosmgco</a>. <script>document.write(new Date().getFullYear());</script><br />
+        Powered by <a href="https://getpelican.com" target="_blank">Pelican</a>. Theme by <a href="https://github.com/kosmgco/pelican-theme-mdshow" target="_blank">MDShow</a> 
+        <br />
+        <a href="https://www.miitbeian.gov.cn/" target="_blank">渝ICP备16003403号</a>
+      </div>
+    </div>
+    <div class="catalog">
+      <b>2018-12-26</b><a href="https://blog.ooops.me/posts/2018/12/26/sou-suo-yin-qing-jie-guo-zi-ding-yi-gui-ze-guo-lu-chromecha-jian.html">搜索引擎结果自定义规则过滤Chrome插件</a>
+      <b>2018-12-18</b><a href="https://blog.ooops.me/posts/2018/12/18/mac-shadowsocks-duo-fu-wu-qi-shi-yong-haproxy-fu-zai-jun-heng-qi.html">Mac Shadowsocks 多服务器使用 HAProxy 负载均衡器</a>
+      <b>2018-11-08</b><a href="https://blog.ooops.me/posts/2018/11/08/shi-yong-fail2ban-bao-hu-fu-wu-qi.html">使用 fail2ban 保护服务器</a>
+      <b>2018-01-16</b><a href="https://blog.ooops.me/posts/2018/01/16/golang-json-zi-ding-yi-lei-xing-de-xu-lie-hua-yu-fan-xu-lie-hua.html">Golang JSON 自定义类型的序列化与反序列化</a>
+      <b>2017-10-22</b><a href="https://blog.ooops.me/posts/2017/10/22/pai-xu-cha-ru-pai-xu.html">排序 - 插入排序</a>
+      <b>2017-10-20</b><a href="https://blog.ooops.me/posts/2017/10/20/pai-xu-xuan-ze-pai-xu.html">排序 - 选择排序</a>
+      <b>2017-09-21</b><a href="https://blog.ooops.me/posts/2017/09/21/golang-3des-des-aesjia-mi-jie-mi.html">Golang 3DES, DES, AES加密解密</a>
+      <b>2017-09-16</b><a href="https://blog.ooops.me/posts/2017/09/16/zi-ji-shi-xian-shi-xian-yi-ge-zhan.html">自己实现实现一个栈</a>
+      <b>2017-07-30</b><a href="https://blog.ooops.me/posts/2017/07/30/mysqlji-zhu-nei-mu-innodbcun-chu-yin-qing-di-yi-zhang.html">《MySQL技术内幕: InnoDB存储引擎》 - 第一章</a>
+      <b>2017-07-08</b><a href="https://blog.ooops.me/posts/2017/07/08/nginxri-zhi-fen-xi.html">Nginx日志分析</a>
+      <b>2017-02-24</b><a href="https://blog.ooops.me/posts/2017/02/24/tong-guo-ren-lian-shi-bie-huo-qu-xue-xiao-xue-sheng-de-xing-bie-bi-li.html">通过人脸识别获取学校学生的性别比例</a>
+      <b>2016-12-10</b><a href="https://blog.ooops.me/posts/2016/12/10/kai-qi-quan-zhan-https.html">开启全站https</a>
+      <b>2016-12-04</b><a href="https://blog.ooops.me/posts/2016/12/04/say-hello-world-to-docker.html">Say Hello-World! To Docker</a>
+      <b>2016-10-25</b><a href="https://blog.ooops.me/posts/2016/10/25/ubuntu-gokai-fa-huan-jing-pei-zhi.html">Ubuntu-Go开发环境配置</a>
+      <b>2016-07-19</b><a href="https://blog.ooops.me/posts/2016/07/19/shi-yong-python-flaskda-jian-qing-bo-ke.html">使用Python-Flask搭建轻博客</a>
+      <b>2016-07-10</b><a href="https://blog.ooops.me/posts/2016/07/10/appfan-bian-yi.html">app反编译</a>
+      <b>2016-07-10</b><a href="https://blog.ooops.me/posts/2016/07/10/gitcao-zuo.html">git操作</a>
+      <b>2016-07-10</b><a href="https://blog.ooops.me/posts/2016/07/10/ubnntupei-zhi-shadowsockske-xue-shang-wang.html">Ubnntu配置shadowsocks科学上网</a>
+      <b>2016-04-16</b><a href="https://blog.ooops.me/posts/2016/04/16/nginx-virtual-hostxu-ni-ji.html">nginx virtual host虚拟机</a>
+      <b>2016-03-25</b><a href="https://blog.ooops.me/posts/2016/03/25/shi-xi-zong-jie.html">实习总结</a>
+      <b>2016-03-04</b><a href="https://blog.ooops.me/posts/2016/03/04/wei-xin-gong-zhong-hao-yi-ji-zhi-neng-liao-tian-ji-qi-ren-de-jie-ru.html">微信公众号以及智能聊天机器人的接入</a>
+      <b>2016-02-27</b><a href="https://blog.ooops.me/posts/2016/02/27/jia-su-le-cookie__jsl_clearnce-po-jie-xin-jin-zhan.html">加速乐cookie:__jsl_clearnce 破解新进展</a>
+      <b>2016-02-23</b><a href="https://blog.ooops.me/posts/2016/02/23/fu-li-tie-shi-yong-ubermian-fei-zuo-zhuan-che.html">福利帖 - 使用uber免费坐专车</a>
+      <b>2016-02-02</b><a href="https://blog.ooops.me/posts/2016/02/02/pycharmandroid-studioyuan-an-zhuang.html">Pycharm,Android-Studio源安装</a>
+      <b>2016-01-17</b><a href="https://blog.ooops.me/posts/2016/01/17/pythonpa-qu-tu-pian.html">python爬取图片</a>
+      <b>2016-01-10</b><a href="https://blog.ooops.me/posts/2016/01/10/zheng-fang-jiao-wu-xi-tong-shu-ju-huo-qu.html">正方教务系统数据获取</a>
+      <b>2015-12-24</b><a href="https://blog.ooops.me/posts/2015/12/24/flask-wen-jian-jie-gou-zu-zhi.html">flask 文件结构组织</a>
+      <b>2015-12-21</b><a href="https://blog.ooops.me/posts/2015/12/21/mongodb-xiao-dao-chu-shi.html">mongodb 小刀初试</a>
+      <b>2015-12-20</b><a href="https://blog.ooops.me/posts/2015/12/20/guan-yu-shua-piao.html">关于刷票</a>
+      <b>2015-12-18</b><a href="https://blog.ooops.me/posts/2015/12/18/python-jsonjie-xi-na-dian-shi.html">python json解析那点事</a>
+      <b>2015-12-12</b><a href="https://blog.ooops.me/posts/2015/12/12/flask-chu-kui.html">flask 初窥</a>
+      <b>2015-12-09</b><a href="https://blog.ooops.me/posts/2015/12/09/guan-yu-jia-su-le-de-__jsl_clearancefan-hui-521zhuang-tai-ma-po-jie.html">关于加速乐的__jsl_clearance返回521状态码破解</a>
+    </div>
+    <div class="content">
+  <style>
+    @media(max-width: 550px) {
+      body {
+        height: auto;
+      }
+      .menu .links, .menu .copyright {
+        display:none;
+      }
+      .menu {
+        height: 65%;
+      }
+      .catalog {
+        display:none;
+      }
+      .content {
+        display: block;
+      }
+      h3 {
+        text-align: center;
+      }
+    }
+  </style>
+  <h3> [翻译]Golang 中的微服务 - 系列一 </h3>
+    <a href="https://blog.ooops.me/tag/microservice.html" class="link-tags">microservice</a>
+    <a href="https://blog.ooops.me/tag/golang.html" class="link-tags">golang</a>
+  <hr style="clear:both"/>
+  <p>翻译自: <a href="https://ewanvalentine.io/microservices-in-golang-part-1/">Create versatile Microservices in Golang - part 1 of 10 part series</a></p>
+<h4>简介</h4>
+<p>这个系列有十篇文章，会每周释出基于 <code>Golang</code> 的微服务。使用 <code>protobuf</code> 和 <code>gRPC</code> 做为底层传输协议。为什么？因为它花费了我大量时间来弄清楚并确定解决这个问题是清晰简洁的，我还想跟新手分享我学到的关于创建，测试和端到端的部署微服务。</p>
+<p>在这个教程中，我们将会覆盖一些基本的概念，术语并用最原始的方式创建我们的第一个微服务。</p>
+<p>我们通过这一个系列的教程将会创建以下服务：
+- consignments(货物)
+- inventory(库存)
+- users(用户)
+- authentication(认证)
+- roles(角色)
+- vessels(船只)</p>
+<p>我们最终选择的技术栈为: <code>Golang</code>, <code>mongodb</code>, <code>grpc</code>, <code>docker</code>, <code>Google Cloud</code>, <code>Kubernetes</code>, <code>NATS</code>, <code>CircleCI</code>, <code>Terraform</code>, <code>go-micro</code>。</p>
+<p>你可以跟着我的步骤，但是一定要确保修改成你自己的 <code>GOPATH</code>，使用<a href="https://github.com/EwanVAlentine/shippy">git repo</a>(每一篇文章有它自己的分支)作为参考。</p>
+<p>还要注意的是，我工作在 Mac，因此你可能需要将 Makefiles 中的<code>$GOPATH</code> 修改为 <code>$(GOPATH)</code>，也可能因为系统的差异而有一些不一致。</p>
+<h5>先决条件</h5>
+<ul>
+<li>对 <code>Golang</code> 以及其生态系统的理解</li>
+<li>安装 <code>gRPC</code> / <code>protobuf</code> <a href="https://grpc.io/docs/quickstart/go.html">看这里</a></li>
+<li>安装 <code>Golang</code> <a href="https://golang.org/doc/install">看这里</a></li>
+<li>安装好以下的 go 库</li>
+</ul>
+<div class="highlight"><pre><span></span>go get -u google.golang.org/grpc
+go get -u github.com/golang/protobuf/protoc-gen-go
+</pre></div>
+
+
+<h5>我们在构建什么？</h5>
+<p>你可以认为我们在构建也许是最通用的微服务例子，一个集装箱管理平台！一篇博客写微服务的例子感觉太简单了，我想要一些能真正展示复杂性分离的东西，这感觉是一个很好的挑战！</p>
+<p>让我们来开始吧：</p>
+<h5>什么是微服务？</h5>
+<p>在传统应用程序中，一个组织的所有功能都被写进单个应用里。有时候它们会按照类型进行分类，例如<code>controllers</code>，<code>entities</code>，<code>factories</code> 等等。其他时间，也许在一个大型应用里面，功能由关注点或功能分开。因此你可能有一个<code>auth</code>包，一个<code>friend</code>包和一个<code>article</code>包。哪一个可能包含它们自己的一系列的<code>factories</code>，<code>services</code>，<code>repositories</code>，<code>models</code> 等等。但是最终它们被组织在一个代码库里。</p>
+<p>微服务是将第二种方法略微进一步的概念，并将这些关注点分离为各自独立的可运行的代码库。</p>
+<h5>为什么选择微服务？</h5>
+<p>复杂性 - 将功能拆分为微服务允许你将代码拆分为更小的代码块，它来源于一句老的 unix 谚语: <code>doing one thing well</code>，大型应用有一个趋势是领域间变得紧密耦合，关注点变得模糊。这样导致风险更大，更复杂的更新，潜在的 bug 更多和更难以集成。</p>
+<p>可扩展性 - 在一个大型应用里，某些功能的代码可能比其他代码使用的更频繁。在大型应用里，你只能扩展整个代码库。因此如果你的认证服务被不断的调用，你需要扩展整个代码库来应对负载而仅仅为了你的认证服务。</p>
+<p>在微服务中，那样的分离允许你独立的扩展独立的服务。意味着更高效的水平扩展。与多核和多地区的云计算十分吻合。</p>
+<h5>为什么选择 Golang</h5>
+<p>微服务支持所有语言，毕竟，微服务是一个概念，而不是一个具体的框架或者工具。那就是说，一些语言更适合，比其他语言能得到更好的支持。其中一种得到比较好的支持的是 Golang。</p>
+<p>Golang 是非常轻量级，非常快，并且对并发有很好的支持，当运行在多台机器和多核上面时有强大的能力。</p>
+<p>Go 也为编写 web 服务提供了强大的标准库。</p>
+<p>最后，有一个奇妙的微服务框架可用，叫<code>go-micro</code>，我们将会在这个系列中用到。</p>
+<h5>简介protobuf/gRPC</h5>
+<p>因为微服务拆分为单独的代码库，所以一个重要的问题就是通讯。在大型应用中，通讯不是一个问题，就像你在代码库里其他地方直接调用一样。然而，微服务没有这个能力，因为它们在不同的地方。因此你需要一种方式来解决它们互相独立的服务能够延迟尽可能小的通讯。</p>
+<p>你可以使用传统的<code>REST</code>方式，比如<code>JSON</code>，<code>XML</code>通过<code>http</code>。然而，使用这种方法有一个问题就是服务 A必须序列化（编码）它的数据为<code>JSON/XML</code>，通过网线发送一个大的字符串给服务 B，然后服务 B需要从<code>JSON</code>反序列化（解码）信息到代码。当扩展的时候，这样会有潜在的开销问题。同时，你不得不采用这种形式的 web 浏览器进行通信，但是他们希望服务可以通过任意形式进行通信。</p>
+<p><code>gRPC</code>来了。<code>gRPC</code>是Google 推出的一个轻量级的基于二进制的 RPC通讯协议。这是一个长句，让我们来仔细的解剖那句话。<code>gRPC</code>使用二进制做为它的核心数据格式。用<code>RESTful</code>举例，使用<code>JSON</code>，你可以通过<code>http</code>发送一个字符串。字符串中包含大量的关于自身编码，长度，内容格式的元数据，还有各种各样的零碎的东西。这是为了服务器能够告知基于传统浏览器的客户端它需要的东西。当两个服务进行通信的时候，我们并不是需要所有的信息。因此我们可以使用冰冷的更轻量级的二进制， gRPC 使用新的 HTTP2.0规范，允许使用二进制。它甚至允许使用非常酷的双向流！HTTP2 对于 gRPC 的工作原理非常重要。获取更多关于 HTTP2的信息，<a href="https://developers.google.com/web/fundamentals/performance/http2/">可以去看看这边 Google 出的文章</a></p>
+<p>但是我们怎么使用二进制做任何事情？gRPC 有一个名为<code>protobuf</code>的交换 DSL。Protobuf 允许你给你的服务定义一个开发者友好的接口格式。</p>
+<p>让我们开始创建我们的第一个服务定义吧。在项目的根目录创建以下文件：<code>consignment-service/proto/consignment/consignment.proto</code>。暂时，我会将所有的服务都放在一个项目下面。被称为 mono-repo。这主要是为了让本教程简单些。有很多争论和反对使用mono-repo，我不会在这里深入。你也可以将所有的服务都单独拆分成项目，也有许多好的理由。</p>
+<p><a href="https://blog.gopheracademy.com/advent-2017/go-grpc-beyond-basics/">这里有一篇神奇的关于gRPC的文章</a>，我强烈推荐你可以读一读。</p>
+<p>在你刚刚创建的<code>consignment.proto</code>文件里面，添加如下代码:</p>
+<div class="highlight"><pre><span></span><span class="c1">// consignment-service/proto/consignment/consignment.proto</span>
+<span class="na">syntax</span><span class="o">=</span><span class="s">&quot;proto3&quot;</span>
+
+<span class="kd">service</span> <span class="n">Consignment</span> <span class="p">{</span>
+    <span class="k">rpc</span> <span class="n">CreateConsignment</span><span class="p">(</span><span class="n">Consignment</span><span class="p">)</span> <span class="k">returns</span> <span class="p">(</span><span class="n">Response</span><span class="p">){}</span>
+<span class="p">}</span>
+
+<span class="kd">message</span> <span class="nc">Consignment</span> <span class="p">{</span>
+    <span class="kt">string</span> <span class="na">id</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+    <span class="kt">string</span> <span class="na">description</span> <span class="o">=</span> <span class="mi">2</span><span class="p">;</span>
+    <span class="kt">int32</span> <span class="na">weight</span> <span class="o">=</span> <span class="mi">3</span><span class="p">;</span>
+    <span class="k">repeated</span> <span class="n">Container</span> <span class="na">containers</span> <span class="o">=</span> <span class="mi">4</span><span class="p">;</span>
+    <span class="kt">string</span> <span class="na">vessel_id</span> <span class="o">=</span> <span class="mi">5</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="kd">message</span> <span class="nc">Container</span> <span class="p">{</span>
+    <span class="kt">string</span> <span class="na">id</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+    <span class="kt">string</span> <span class="na">customer_id</span> <span class="o">=</span> <span class="mi">2</span><span class="p">;</span>
+    <span class="kt">string</span> <span class="na">origin</span> <span class="o">=</span> <span class="mi">3</span><span class="p">;</span>
+    <span class="kt">string</span> <span class="na">user_id</span> <span class="o">=</span> <span class="mi">4</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="kd">message</span> <span class="nc">Response</span> <span class="p">{</span>
+    <span class="kt">bool</span> <span class="na">created</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+    <span class="n">Consignment</span> <span class="na">consignment</span> <span class="o">=</span> <span class="mi">2</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+
+
+<p>这是一个最基础的例子，但是有几件事要做。首先，你定义你的服务，需要包含你希望暴露给其他服务的方法。其次，需要定义消息格式，这些都是你的数据结构。Protobuf 是静态地编写，你也可以使用自定义类型，就像上面的<code>Container</code>。消息本身就是定制类型。</p>
+<p>这里有两个库工作在这里，消息被protobuf处理，我们定义的服务被gRPC protobuf 插件处理，它编译代码以与这些类型交互，即proto 文件中的<code>service</code>部分。</p>
+<p>然后通过 cli 运行将此 protobuf 生成二进制数据和你的功能代码。</p>
+<p>说到这，让我们使用<code>$ touch consignment-service/Makefile</code>给我们的第一个服务创建一个 Makefile。</p>
+<p><strong> 注意:  复制 Makefile 代码的时候要小心格式，他们都必须以 tab 进行分割，不然会不能使用。确保你的编辑器正确运行或正确的安装 Makefiles</strong></p>
+<div class="highlight"><pre><span></span>build:
+proto -I. --go_out<span class="o">=</span><span class="nv">plugins</span><span class="o">=</span>grpc:<span class="k">$(</span>GOPATH<span class="k">)</span>/src/github.com/ewanvalentine/shipper/consignment-service/ <span class="se">\</span>
+proto/consignment/consignment.proto
+</pre></div>
+
+
+<p>这会调用 protoc 库，它负责将你的 protobuf 定义编译成你的代码。我们也指名使用 grpc 插件，以及构建上下文和输出路径。</p>
+<p>现在，我们运行<code>$ make build</code> 从这个服务的目录，并查看<code>proto/consignment/</code>，你可以看到一个新的 Go 文件，名叫<code>consignment.pb.go</code>。这是由<code>gRPC/protobuf</code>库自动生成的代码文件，用于将你的<code>protobuf</code>定义与你自己的代码进行接口。</p>
+<p>现在让我们来设置它。从项目的根目录创建你的 main.go 文件，<code>$ touch consignment-service/main.go</code></p>
+<div class="highlight"><pre><span></span><span class="c1">// consignment-service/main.go</span>
+<span class="kn">package</span> <span class="nx">main</span>
+
+<span class="kn">import</span> <span class="p">(</span>
+    <span class="s">&quot;log&quot;</span>
+    <span class="s">&quot;net&quot;</span>
+
+    <span class="c1">// import the generated protobuf code.</span>
+    <span class="nx">pb</span> <span class="s">&quot;github.com/ewanvalentine/shipper/consignment-service/proto/consignment&quot;</span>
+    <span class="s">&quot;golang.org/x/net/context&quot;</span>
+    <span class="s">&quot;google.golang.org/grpc&quot;</span>
+    <span class="s">&quot;google.golang.org/grpc/reflection&quot;</span>
+<span class="p">)</span>
+
+<span class="kd">const</span> <span class="p">(</span>
+    <span class="nx">port</span> <span class="p">=</span> <span class="s">&quot;:50051&quot;</span>
+<span class="p">)</span>
+
+<span class="kd">type</span> <span class="nx">IRepository</span> <span class="kd">interface</span> <span class="p">{</span>
+    <span class="nx">Create</span><span class="p">(</span><span class="o">*</span><span class="nx">pb</span><span class="p">.</span><span class="nx">Consignment</span><span class="p">)</span> <span class="p">(</span><span class="o">*</span><span class="nx">pb</span><span class="p">.</span><span class="nx">Consignment</span><span class="p">,</span> <span class="kt">error</span><span class="p">)</span>
+<span class="p">}</span>
+
+<span class="c1">// 仓库 - 虚拟仓库，模拟对某一类数据的使用，稍后将会真正实现。</span>
+<span class="kd">type</span> <span class="nx">Repository</span> <span class="kd">struct</span> <span class="p">{</span>
+    <span class="nx">consignment</span> <span class="p">[]</span><span class="o">*</span><span class="nx">pb</span><span class="p">.</span><span class="nx">Consignment</span>
+<span class="p">}</span>
+
+<span class="kd">func</span> <span class="p">(</span><span class="nx">repo</span> <span class="o">*</span><span class="nx">Repository</span><span class="p">)</span> <span class="nx">Create</span><span class="p">(</span><span class="nx">consignment</span> <span class="o">*</span><span class="nx">pb</span><span class="p">.</span><span class="nx">Consignment</span><span class="p">)</span> <span class="p">(</span><span class="o">*</span><span class="nx">pb</span><span class="p">.</span><span class="nx">Consignment</span><span class="p">,</span> <span class="kt">error</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">updated</span> <span class="o">:=</span> <span class="nb">append</span><span class="p">(</span><span class="nx">repo</span><span class="p">.</span><span class="nx">consignment</span><span class="p">,</span> <span class="nx">consignment</span><span class="p">)</span>
+    <span class="nx">repo</span><span class="p">.</span><span class="nx">consignments</span> <span class="p">=</span> <span class="nx">updated</span>
+    <span class="k">return</span> <span class="nx">consignment</span><span class="p">,</span> <span class="kc">nil</span>
+<span class="p">}</span>
+
+<span class="c1">// Service 应当满足我们在protobuf 中定义的所有方法。</span>
+<span class="c1">// 你可以在它生成的代码中的看到所有抽象接口来帮助你更好的编码。</span>
+<span class="kd">type</span> <span class="nx">service</span> <span class="kd">struct</span> <span class="p">{</span>
+    <span class="nx">repo</span> <span class="nx">IRepository</span>
+<span class="p">}</span>
+
+<span class="c1">// createconsignment - 我们只在我们的服务中创建了一个方法。</span>
+<span class="c1">// 这是一个创建方法，需要由 grpc server 处理的 context 和 request 参数，</span>
+<span class="kd">func</span> <span class="p">(</span><span class="nx">s</span> <span class="o">*</span><span class="nx">service</span><span class="p">)</span> <span class="nx">CreateConsignment</span><span class="p">(</span><span class="nx">ctx</span> <span class="nx">context</span><span class="p">.</span><span class="nx">Context</span><span class="p">,</span> <span class="nx">req</span> <span class="o">*</span><span class="nx">pb</span><span class="p">.</span><span class="nx">Consignment</span><span class="p">)</span> <span class="p">(</span><span class="o">*</span><span class="nx">pb</span><span class="p">.</span><span class="nx">Response</span><span class="p">,</span> <span class="kt">error</span><span class="p">)</span> <span class="p">{</span>
+    <span class="c1">// 保存 consignment</span>
+    <span class="nx">consignment</span><span class="p">,</span> <span class="nx">err</span> <span class="o">:=</span> <span class="nx">s</span><span class="p">.</span><span class="nx">repo</span><span class="p">.</span><span class="nx">Create</span><span class="p">(</span><span class="nx">req</span><span class="p">)</span>
+    <span class="k">if</span> <span class="nx">err</span> <span class="o">!=</span> <span class="kc">nil</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="kc">nil</span><span class="p">,</span> <span class="nx">err</span>
+    <span class="p">}</span>
+
+    <span class="c1">// 返回符合我们在 protobuf 中定义的 Response 消息</span>
+    <span class="k">return</span> <span class="o">&amp;</span><span class="nx">pb</span><span class="p">.</span><span class="nx">Response</span><span class="p">{</span><span class="nx">Created</span><span class="p">:</span><span class="kc">true</span><span class="p">,</span> <span class="nx">Consignment</span><span class="p">:</span> <span class="nx">consignment</span><span class="p">},</span> <span class="kc">nil</span>
+<span class="p">}</span>
+
+<span class="kd">func</span> <span class="nx">main</span><span class="p">(){</span>
+    <span class="nx">repo</span> <span class="o">:=</span> <span class="o">&amp;</span><span class="nx">Repository</span><span class="p">{}</span>
+    <span class="c1">// 建立 gRPC server</span>
+    <span class="nx">lis</span><span class="p">,</span> <span class="nx">err</span> <span class="o">:=</span> <span class="nx">net</span><span class="p">.</span><span class="nx">Listen</span><span class="p">(</span><span class="s">&quot;tcp&quot;</span><span class="p">,</span> <span class="nx">port</span><span class="p">)</span>
+    <span class="k">if</span> <span class="nx">err</span> <span class="o">!=</span> <span class="kc">nil</span> <span class="p">{</span>
+        <span class="nx">log</span><span class="p">.</span><span class="nx">Fatalf</span><span class="p">(</span><span class="s">&quot;failed to listen: %v&quot;</span><span class="p">,</span> <span class="nx">err</span><span class="p">)</span>
+    <span class="p">}</span>
+    <span class="nx">s</span> <span class="o">:=</span> <span class="nx">grpc</span><span class="p">.</span><span class="nx">NewServer</span><span class="p">()</span>
+
+    <span class="c1">// 注册我们的服务到 gRPC server， 这样会将我们的实现绑定到由 protobuf 定义自动生成的接口代码中</span>
+    <span class="nx">pb</span><span class="p">.</span><span class="nx">RegisterShippingServiceServer</span><span class="p">(</span><span class="nx">s</span><span class="p">,</span> <span class="o">&amp;</span><span class="nx">service</span><span class="p">{</span><span class="nx">repo</span><span class="p">})</span>
+
+    <span class="c1">// 反向注册服务到 gRPC server</span>
+    <span class="nx">reflection</span><span class="p">.</span><span class="nx">Register</span><span class="p">(</span><span class="nx">s</span><span class="p">)</span>
+    <span class="k">if</span> <span class="nx">err</span> <span class="o">:=</span> <span class="nx">s</span><span class="p">.</span><span class="nx">Serve</span><span class="p">(</span><span class="nx">lis</span><span class="p">);</span> <span class="nx">err</span> <span class="o">!=</span> <span class="kc">nil</span> <span class="p">{</span>
+        <span class="nx">log</span><span class="p">.</span><span class="nx">Fatalf</span><span class="p">(</span><span class="s">&quot;failed to serve: %v&quot;</span><span class="p">,</span> <span class="nx">err</span><span class="p">)</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+
+
+<p>请仔细阅读代码中的注释。但是总的来说，我们创建了 gRPC 中的接口的实现逻辑，使用生成的格式，在端口50051上创建了一个新的 gRPC 服务。你有了一个功能齐全的 gRPC 服务。你可以用<code>$ go run main.go</code>来运行它，但是你不会看到任何信息，你也没有能力使用它...， 因此为了能在实际中看到它，再来创建一个客户端。</p>
+<p>创建一个命令行接口，将会携带一个 consignment 信息的 <code>JSON</code> 文件与 gRPC 服务进行交互。</p>
+<p>在你的根目录，创建一个新的子目录，<code>$ mkdir consignment-cli</code>。然后在其中创建一个叫<code>cli.go</code>的文件，内容如下:</p>
+<div class="highlight"><pre><span></span><span class="c1">// consignment-cli/cli.go</span>
+<span class="kn">package</span> <span class="nx">main</span>
+
+<span class="kn">import</span> <span class="err">（</span>
+    <span class="s">&quot;encoding/json&quot;</span>
+    <span class="s">&quot;io/ioutil&quot;</span>
+    <span class="s">&quot;log&quot;</span>
+    <span class="s">&quot;os&quot;</span>
+
+    <span class="nx">pb</span> <span class="s">&quot;github.com/ewanvalentine/shipper/consignment-service/proto/consignment&quot;</span>
+    <span class="s">&quot;golang.org/x/net/context&quot;</span>
+    <span class="s">&quot;google.golang.org/grpc&quot;</span>
+<span class="err">）</span>
+
+<span class="kd">const</span> <span class="p">(</span>
+    <span class="nx">address</span> <span class="p">=</span> <span class="s">&quot;localhost:50051&quot;</span>
+    <span class="nx">defaultFilename</span> <span class="p">=</span> <span class="s">&quot;consignment.json&quot;</span>
+<span class="p">)</span>
+
+<span class="kd">func</span> <span class="nx">parseFile</span><span class="p">(</span><span class="nx">file</span> <span class="kt">string</span><span class="p">)</span> <span class="p">(</span><span class="o">*</span><span class="nx">pb</span><span class="p">.</span><span class="nx">Consignment</span><span class="p">,</span> <span class="kt">error</span><span class="p">)</span> <span class="p">{</span>
+    <span class="kd">var</span> <span class="nx">consignment</span> <span class="o">*</span><span class="nx">pb</span><span class="p">.</span><span class="nx">Consignment</span>
+    <span class="nx">data</span><span class="p">,</span> <span class="nx">err</span> <span class="o">:=</span> <span class="nx">ioutil</span><span class="p">.</span><span class="nx">ReadFile</span><span class="p">(</span><span class="nx">file</span><span class="p">)</span>
+    <span class="k">if</span> <span class="nx">err</span> <span class="o">!=</span> <span class="kc">nil</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="kc">nil</span><span class="p">,</span> <span class="nx">err</span>
+    <span class="p">}</span>
+    <span class="nx">json</span><span class="p">.</span><span class="nx">Unmarshal</span><span class="p">(</span><span class="nx">data</span><span class="p">,</span> <span class="o">&amp;</span><span class="nx">consignment</span><span class="p">)</span>
+    <span class="k">return</span> <span class="nx">consignment</span><span class="p">,</span> <span class="kc">nil</span>
+<span class="p">}</span>
+
+<span class="kd">func</span> <span class="nx">main</span><span class="p">()</span> <span class="p">{</span>
+    <span class="c1">// 与服务器建立连接</span>
+    <span class="nx">conn</span><span class="p">,</span> <span class="nx">err</span> <span class="o">:=</span> <span class="nx">grpc</span><span class="p">.</span><span class="nx">Dial</span><span class="p">(</span><span class="nx">address</span><span class="p">,</span> <span class="nx">grpc</span><span class="p">.</span><span class="nx">WithInsecure</span><span class="p">())</span>
+    <span class="k">if</span> <span class="nx">err</span> <span class="o">!=</span> <span class="kc">nil</span> <span class="p">{</span>
+        <span class="nx">log</span><span class="p">.</span><span class="nx">Fatalf</span><span class="p">(</span><span class="s">&quot;Did not connect: %v&quot;</span><span class="p">,</span> <span class="nx">err</span><span class="p">)</span>
+    <span class="p">}</span>
+    <span class="k">defer</span> <span class="nx">conn</span><span class="p">.</span><span class="nb">close</span><span class="p">()</span>
+    <span class="nx">client</span> <span class="o">:=</span> <span class="nx">pb</span><span class="p">.</span><span class="nx">NewShippingServiceClient</span><span class="p">(</span><span class="nx">conn</span><span class="p">)</span>
+
+    <span class="c1">// 请求服务并且打印返回值</span>
+    <span class="nx">file</span> <span class="o">:=</span> <span class="nx">defaultFilename</span>
+    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="nx">os</span><span class="p">.</span><span class="nx">Args</span><span class="p">)</span> <span class="p">&gt;</span> <span class="mi">1</span> <span class="p">{</span>
+        <span class="nx">file</span> <span class="p">=</span> <span class="nx">os</span><span class="p">.</span><span class="nx">Args</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+    <span class="p">}</span>
+
+    <span class="nx">consignment</span><span class="p">,</span> <span class="nx">err</span> <span class="o">:=</span> <span class="nx">parseFile</span><span class="p">(</span><span class="nx">file</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="nx">err</span> <span class="o">!=</span> <span class="kc">nil</span> <span class="p">{</span>
+        <span class="nx">log</span><span class="p">.</span><span class="nx">Fatalf</span><span class="p">(</span><span class="s">&quot;Could not parse file: %v&quot;</span><span class="p">,</span> <span class="nx">err</span><span class="p">)</span>
+    <span class="p">}</span>
+
+    <span class="nx">r</span><span class="p">,</span> <span class="nx">err</span> <span class="o">:=</span> <span class="nx">client</span><span class="p">.</span><span class="nx">CreateConsignment</span><span class="p">(</span><span class="nx">context</span><span class="p">.</span><span class="nx">Background</span><span class="p">(),</span> <span class="nx">consignment</span><span class="p">)</span>
+    <span class="k">if</span> <span class="nx">err</span> <span class="o">!=</span> <span class="kc">nil</span> <span class="p">{</span>
+        <span class="nx">log</span><span class="p">.</span><span class="nx">Fatalf</span><span class="p">(</span><span class="s">&quot;Could not greet: %v&quot;</span><span class="p">,</span> <span class="nx">err</span><span class="p">)</span>
+    <span class="p">}</span>
+    <span class="nx">log</span><span class="p">.</span><span class="nx">Printf</span><span class="p">(</span><span class="s">&quot;Created: %t&quot;</span><span class="p">,</span> <span class="nx">r</span><span class="p">.</span><span class="nx">Created</span><span class="p">)</span>
+<span class="p">}</span>
+</pre></div>
+
+
+<p>然后创建一个consignment（consignment-cli/consignment-cli.json）</p>
+<div class="highlight"><pre><span></span><span class="p">{</span>
+    <span class="s">&quot;description&quot;</span><span class="p">:</span> <span class="s">&quot;This is a test consignment&quot;</span><span class="p">,</span>
+    <span class="s">&quot;weight&quot;</span><span class="p">:</span> <span class="mi">550</span><span class="p">,</span>
+    <span class="s">&quot;containers&quot;</span><span class="p">:</span> <span class="p">[</span>
+        <span class="p">{</span>
+            <span class="s">&quot;customer_id&quot;</span><span class="p">:</span> <span class="s">&quot;cust001&quot;</span><span class="p">,</span>
+            <span class="s">&quot;user_id&quot;</span><span class="p">:</span> <span class="s">&quot;user001&quot;</span><span class="p">,</span>
+            <span class="s">&quot;origin&quot;</span><span class="p">:</span> <span class="s">&quot;Manchester, United Kingdom&quot;</span>
+        <span class="p">}</span>
+    <span class="p">],</span>
+    <span class="s">&quot;vessel_id&quot;</span><span class="p">:</span> <span class="s">&quot;vessel001&quot;</span>
+<span class="p">}</span>
+</pre></div>
+
+
+<p>现在，如果你在<code>consignment-service</code>下运行<code>$ go run main.go</code> ，然后在另一个终端面板内运行<code>$ go run cli.go</code>。你就会看到一个消息：<code>Created: true</code>。但是我们如何检查他创建了什么呢？再次更新一下服务的<code>GetConsignment</code>方法，那样我们就能看到所有我们创建的consignments 了。</p>
+<p>首先，更新一下 proto 的定义（我会删除注释以表示我修改了代码）</p>
+<div class="highlight"><pre><span></span>// consignment-service/proto/consignment/consignment.proto
+syntax=&quot;proto3&quot;;
+
+package go.micro.srv.consignment;
+
+service ShippingService {
+    rpc CreateConsignment(Consignment) returns (Response) {}
+    // 创建一个新的方法
+    rpc GetConsignment(GetRequest) returns (Response) {}
+}
+
+message Consignment {
+    string id = 1;
+    string description = 2;
+    int32 weight = 3;
+    repeated Container containers = 4;
+    string vessel_id = 5;
+}
+
+message Container {
+    string id = 1;
+    string customer_id = 2;
+    string origin = 3;
+    string user_id = 4;
+}
+
+// 创建一个空的 get 请求
+message GetRequest {}
+
+message Response {
+    bool created = 1;
+    Consignment consignment = 2;
+    // 添加一个复数 consignment 到通用响应消息
+    repeated Consignment consignments = 3;
+}
+</pre></div>
+
+
+<p>我们在服务上创建了一个名叫<code>GetConsignments</code>的新的方法，还创建了一个新的但是暂时没有包含任何字段的消息<code>GetRequest</code>。你会注意到在实际的类型之前有一个关键词<code>repeated</code>。正如你说猜测的，这意味着这个字段为这个类型的数组。</p>
+<p>现在再次运行<code>$ make build</code> ，尝试再次运行你的服务，你会发现有一个相似的错误: <code>*service does not implement go_micro_srv_consignment.ShippingServiceServer (missing GetConsignments method)</code>。</p>
+<p>因为gRPC 方法的实现是基于 protobuf 库生成的接口进行匹配的，我们需要确保我们的实现跟 proto 定义一致。</p>
+<p>更新一下<code>consignement-service/main.go</code>文件:</p>
+<div class="highlight"><pre><span></span><span class="kn">package</span> <span class="nx">main</span>
+
+<span class="kn">import</span> <span class="p">(</span>
+    <span class="s">&quot;log&quot;</span>
+    <span class="s">&quot;net&quot;</span>
+
+    <span class="c1">// Import the generated protobuf code</span>
+    <span class="nx">pb</span> <span class="s">&quot;github.com/ewanvalentine/shipper/consignment-service/proto/consignment&quot;</span>
+    <span class="s">&quot;golang.org/x/net/context&quot;</span>
+    <span class="s">&quot;google.golang.org/grpc&quot;</span>
+    <span class="s">&quot;google.golang.org/grpc/reflection&quot;</span>
+<span class="p">)</span>
+
+<span class="kd">const</span> <span class="p">(</span>
+    <span class="nx">port</span> <span class="p">=</span> <span class="s">&quot;:50051&quot;</span>
+<span class="p">)</span>
+
+<span class="kd">type</span> <span class="nx">IRepository</span> <span class="kd">interface</span> <span class="p">{</span>
+    <span class="nx">Create</span><span class="p">(</span><span class="o">*</span><span class="nx">pb</span><span class="p">.</span><span class="nx">Consignment</span><span class="p">)</span> <span class="p">(</span><span class="o">*</span><span class="nx">pb</span><span class="p">.</span><span class="nx">Consignment</span><span class="p">,</span> <span class="kt">error</span><span class="p">)</span>
+    <span class="nx">GetAll</span><span class="p">()</span> <span class="p">[]</span><span class="o">*</span><span class="nx">pb</span><span class="p">.</span><span class="nx">Consignment</span>
+<span class="p">}</span>
+
+<span class="c1">// 仓库 - 虚拟仓库，模拟对某一类数据的使用，稍后将会真正实现。</span>
+<span class="kd">type</span> <span class="nx">Repository</span> <span class="kd">struct</span> <span class="p">{</span>
+    <span class="nx">consignments</span> <span class="p">[]</span><span class="o">*</span><span class="nx">pb</span><span class="p">.</span><span class="nx">Consignment</span>
+<span class="p">}</span>
+
+<span class="kd">func</span> <span class="p">(</span><span class="nx">repo</span> <span class="o">*</span><span class="nx">Repository</span><span class="p">)</span> <span class="nx">Create</span><span class="p">(</span><span class="nx">consignment</span> <span class="o">*</span><span class="nx">pb</span><span class="p">.</span><span class="nx">Consignment</span><span class="p">)</span> <span class="p">(</span><span class="o">*</span><span class="nx">pb</span><span class="p">.</span><span class="nx">Consignment</span><span class="p">,</span> <span class="kt">error</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">updated</span> <span class="o">:=</span> <span class="nb">append</span><span class="p">(</span><span class="nx">repo</span><span class="p">.</span><span class="nx">consignments</span><span class="p">,</span> <span class="nx">consignment</span><span class="p">)</span>
+    <span class="nx">repo</span><span class="p">.</span><span class="nx">consignments</span> <span class="p">=</span> <span class="nx">updated</span>
+    <span class="k">return</span> <span class="nx">consignment</span><span class="p">,</span> <span class="kc">nil</span>
+<span class="p">}</span>
+
+<span class="kd">func</span> <span class="p">(</span><span class="nx">repo</span> <span class="o">*</span><span class="nx">Repository</span><span class="p">)</span> <span class="nx">GetAll</span><span class="p">()</span> <span class="p">[]</span><span class="o">*</span><span class="nx">pb</span><span class="p">.</span><span class="nx">Consignment</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="nx">repo</span><span class="p">.</span><span class="nx">consignments</span>
+<span class="p">}</span>
+
+<span class="c1">// Service 应当满足我们在protobuf 中定义的所有方法。</span>
+<span class="c1">// 你可以在它生成的代码中的看到所有抽象接口来帮助你更好的编码。</span>
+<span class="kd">type</span> <span class="nx">service</span> <span class="kd">struct</span> <span class="p">{</span>
+    <span class="nx">repo</span> <span class="nx">IRepository</span>
+<span class="p">}</span>
+
+<span class="c1">// createconsignment - 我们只在我们的服务中创建了一个方法。</span>
+<span class="c1">// 这是一个创建方法，需要由 grpc server 处理的 context 和 request 参数，</span>
+<span class="kd">func</span> <span class="p">(</span><span class="nx">s</span> <span class="o">*</span><span class="nx">service</span><span class="p">)</span> <span class="nx">CreateConsignment</span><span class="p">(</span><span class="nx">ctx</span> <span class="nx">context</span><span class="p">.</span><span class="nx">Context</span><span class="p">,</span> <span class="nx">req</span> <span class="o">*</span><span class="nx">pb</span><span class="p">.</span><span class="nx">Consignment</span><span class="p">)</span> <span class="p">(</span><span class="o">*</span><span class="nx">pb</span><span class="p">.</span><span class="nx">Response</span><span class="p">,</span> <span class="kt">error</span><span class="p">)</span> <span class="p">{</span>
+
+    <span class="c1">// Save our consignment</span>
+    <span class="nx">consignment</span><span class="p">,</span> <span class="nx">err</span> <span class="o">:=</span> <span class="nx">s</span><span class="p">.</span><span class="nx">repo</span><span class="p">.</span><span class="nx">Create</span><span class="p">(</span><span class="nx">req</span><span class="p">)</span>
+    <span class="k">if</span> <span class="nx">err</span> <span class="o">!=</span> <span class="kc">nil</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="kc">nil</span><span class="p">,</span> <span class="nx">err</span>
+    <span class="p">}</span>
+
+    <span class="c1">// Return matching the `Response` message we created in our</span>
+    <span class="c1">// protobuf definition.</span>
+    <span class="k">return</span> <span class="o">&amp;</span><span class="nx">pb</span><span class="p">.</span><span class="nx">Response</span><span class="p">{</span><span class="nx">Created</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span> <span class="nx">Consignment</span><span class="p">:</span> <span class="nx">consignment</span><span class="p">},</span> <span class="kc">nil</span>
+<span class="p">}</span>
+
+<span class="kd">func</span> <span class="p">(</span><span class="nx">s</span> <span class="o">*</span><span class="nx">service</span><span class="p">)</span> <span class="nx">GetConsignments</span><span class="p">(</span><span class="nx">ctx</span> <span class="nx">context</span><span class="p">.</span><span class="nx">Context</span><span class="p">,</span> <span class="nx">req</span> <span class="o">*</span><span class="nx">pb</span><span class="p">.</span><span class="nx">GetRequest</span><span class="p">)</span> <span class="p">(</span><span class="o">*</span><span class="nx">pb</span><span class="p">.</span><span class="nx">Response</span><span class="p">,</span> <span class="kt">error</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">consignments</span> <span class="o">:=</span> <span class="nx">s</span><span class="p">.</span><span class="nx">repo</span><span class="p">.</span><span class="nx">GetAll</span><span class="p">()</span>
+    <span class="k">return</span> <span class="o">&amp;</span><span class="nx">pb</span><span class="p">.</span><span class="nx">Response</span><span class="p">{</span><span class="nx">Consignments</span><span class="p">:</span> <span class="nx">consignments</span><span class="p">},</span> <span class="kc">nil</span>
+<span class="p">}</span>
+
+<span class="kd">func</span> <span class="nx">main</span><span class="p">()</span> <span class="p">{</span>
+
+    <span class="nx">repo</span> <span class="o">:=</span> <span class="o">&amp;</span><span class="nx">Repository</span><span class="p">{}</span>
+
+    <span class="c1">// Set-up our gRPC server.</span>
+    <span class="nx">lis</span><span class="p">,</span> <span class="nx">err</span> <span class="o">:=</span> <span class="nx">net</span><span class="p">.</span><span class="nx">Listen</span><span class="p">(</span><span class="s">&quot;tcp&quot;</span><span class="p">,</span> <span class="nx">port</span><span class="p">)</span>
+    <span class="k">if</span> <span class="nx">err</span> <span class="o">!=</span> <span class="kc">nil</span> <span class="p">{</span>
+        <span class="nx">log</span><span class="p">.</span><span class="nx">Fatalf</span><span class="p">(</span><span class="s">&quot;failed to listen: %v&quot;</span><span class="p">,</span> <span class="nx">err</span><span class="p">)</span>
+    <span class="p">}</span>
+    <span class="nx">s</span> <span class="o">:=</span> <span class="nx">grpc</span><span class="p">.</span><span class="nx">NewServer</span><span class="p">()</span>
+
+    <span class="c1">// 注册我们的服务到 gRPC server， 这样会将我们的实现绑定到由 protobuf 定义自动生成的接口代码中</span>
+    <span class="nx">pb</span><span class="p">.</span><span class="nx">RegisterShippingServiceServer</span><span class="p">(</span><span class="nx">s</span><span class="p">,</span> <span class="o">&amp;</span><span class="nx">service</span><span class="p">{</span><span class="nx">repo</span><span class="p">})</span>
+
+    <span class="c1">// 反向注册服务到 gRPC server</span>
+    <span class="nx">reflection</span><span class="p">.</span><span class="nx">Register</span><span class="p">(</span><span class="nx">s</span><span class="p">)</span>
+    <span class="k">if</span> <span class="nx">err</span> <span class="o">:=</span> <span class="nx">s</span><span class="p">.</span><span class="nx">Serve</span><span class="p">(</span><span class="nx">lis</span><span class="p">);</span> <span class="nx">err</span> <span class="o">!=</span> <span class="kc">nil</span> <span class="p">{</span>
+        <span class="nx">log</span><span class="p">.</span><span class="nx">Fatalf</span><span class="p">(</span><span class="s">&quot;failed to serve: %v&quot;</span><span class="p">,</span> <span class="nx">err</span><span class="p">)</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+
+
+<p>现在我们已经包含了<code>GetConsignments</code>方法，更新了仓库和接口，满足了根据 proto 定义生成的代码接口。如果你再次运行<code>$ go run main.go</code>，就可以正常工作了。</p>
+<p>再更新下 cli 工具来新增调用这个方法的能力，列出所有 consignments：</p>
+<div class="highlight"><pre><span></span><span class="kd">func</span> <span class="nx">main</span><span class="p">()</span> <span class="p">{</span>
+    <span class="o">...</span>
+
+    <span class="nx">getAll</span><span class="p">,</span> <span class="nx">err</span> <span class="o">:=</span> <span class="nx">client</span><span class="p">.</span><span class="nx">GetConsignments</span><span class="p">(</span><span class="nx">context</span><span class="p">.</span><span class="nx">Background</span><span class="p">(),</span> <span class="o">&amp;</span><span class="nx">pb</span><span class="p">.</span><span class="nx">GetRequest</span><span class="p">{})</span>
+    <span class="k">if</span> <span class="nx">err</span> <span class="o">!=</span> <span class="kc">nil</span> <span class="p">{</span>
+        <span class="nx">log</span><span class="p">.</span><span class="nx">Fatalf</span><span class="p">(</span><span class="s">&quot;Could not list consignments: %v&quot;</span><span class="p">,</span> <span class="nx">err</span><span class="p">)</span>
+    <span class="p">}</span>
+    <span class="k">for</span> <span class="nx">_</span><span class="p">,</span> <span class="nx">v</span> <span class="o">:=</span> <span class="k">range</span> <span class="nx">getAll</span><span class="p">.</span><span class="nx">Consignments</span> <span class="p">{</span>
+        <span class="nx">log</span><span class="p">.</span><span class="nx">Println</span><span class="p">(</span><span class="nx">v</span><span class="p">)</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+
+
+<p>在 main 方法的最下面，在我们打印<code>Created: success</code>的下面，添加上面的代码。再次运行<code>$ go run cli.go</code>。将会创建新的consignment，然后调用<code>GetConsignments</code>。你就会看到这个列表随着你运行次数的增加而增加。</p>
+<p><strong> 注意：为了简洁，我可能修改以前的代码使用<code>...</code>代替，来表示没有修改以前的代码，但是添加或附加了额外的代码 </strong></p>
+<p>现在你明白了吧，我们成功的使用 protobuf 和 gRPC 创建了一个微服务和一个客户端与之交互。</p>
+<p>这个系列的下一部分将会围绕集成<code>go-micro</code>，这是一个为了创建基于 gRPC 的微服务的强大的框架。我们也会创建我们的第二个微服务，我们的容器服务。说到容器，只是一个混淆，在这个系列的下一部分，我们还将在 Docker 中运行我们的服务。</p>
+<p>有任何 bug，错误或者反馈或者你发现了什么有帮助的，请给我发<a href="ewan.valentine89@gmail.com">邮件</a></p>
+<p><a href="https://github.com/ewanvalentine/shippy">本教程的代码</a>，请检出<code>branch-1</code>，第二部分将会很快到来。</p>
+<p>如果你觉得这个系列是有用的，同时你使用 ad-blocker (可能会冒犯你)。请考虑为我的时间和努力贡献几块钱。干杯！https://monzo.me/ewanvalentine</p>
+<h5>阅读更多</h5>
+<h6>文章和报刊</h6>
+<p><a href="https://www.nginx.com/blog/introduction-to-microservices/">https://www.nginx.com/blog/introduction-to-microservices/</a></p>
+<p><a href="https://martinfowler.com/articles/microservices.html">https://martinfowler.com/articles/microservices.html</a></p>
+<p><a href="https://www.microservices.com/talks/">https://www.microservices.com/talks/</a></p>
+<p><a href="https://medium.facilelogin.com/ten-talks-on-microservices-you-cannot-miss-at-any-cost-7bbe5ab7f43f#.ui0748oat">https://medium.facilelogin.com/ten-talks-on-microservices-you-cannot-miss-at-any-cost-7bbe5ab7f43f#.ui0748oat</a></p>
+<p><a href="https://microserviceweekly.com/">https://microserviceweekly.com/</a></p>
+<h6>书籍</h6>
+<p><a href="https://www.amazon.co.uk/Building-Microservices-Sam-Newman/dp/1491950358">https://www.amazon.co.uk/Building-Microservices-Sam-Newman/dp/1491950358</a></p>
+<p><a href="https://www.amazon.co.uk/Devops-Handbook-World-Class-Reliability-Organizations/dp/1942788002">https://www.amazon.co.uk/Devops-Handbook-World-Class-Reliability-Organizations/dp/1942788002</a></p>
+<p><a href="https://www.amazon.co.uk/Phoenix-Project-DevOps-Helping-Business/dp/0988262509">https://www.amazon.co.uk/Phoenix-Project-DevOps-Helping-Business/dp/0988262509</a></p>
+<h6>播客</h6>
+<p><a href="https://softwareengineeringdaily.com/tag/microservices/">https://softwareengineeringdaily.com/tag/microservices/</a></p>
+<p><a href="https://martinfowler.com/tags/podcast.html">https://martinfowler.com/tags/podcast.html</a></p>
+<p><a href="https://www.infoq.com/microservices/podcasts/">https://www.infoq.com/microservices/podcasts/</a></p>
+
+    <div id="disqus_thread"></div>
+    <script type="text/javascript">
+      var disqus_shortname = 'https-blog-ooops-me';
+      var disqus_identifier = window.location.href;
+      (function () {
+        var s = document.createElement('script'); s.async = true;
+        s.src = '//' + disqus_shortname + '.disqus.com/count.js';
+        (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//https-blog-ooops-me.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+      }());
+  </script>
+    </div>
+    <script>
+  var _hmt = _hmt || [];
+  (function() {
+    var hm = document.createElement("script");
+    hm.src = "https://hm.baidu.com/hm.js?67d2b3355046511d3ad9eef9c65d2a41";
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(hm, s);
+  })();
+
+
+  var hitokoto = document.getElementById('hitokoto');
+  if (hitokoto) {
+    var xhr = new XMLHttpRequest();
+    xhr.open('get', 'https://v1.hitokoto.cn');
+    xhr.onreadystatechange = function () {
+      if (xhr.readyState === 4) {
+        var data = JSON.parse(xhr.responseText);
+        hitokoto.innerText = data.hitokoto;
+      }
+    }
+    xhr.send();
+  }
+    </script>
+  </body>
+</html>
