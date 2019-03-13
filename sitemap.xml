@@ -5,28 +5,28 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
 <url>
 <loc>https://blog.ooops.me/</loc>
-<lastmod>2019-01-31T16:17:25-00:00</lastmod>
+<lastmod>2019-03-13T15:44:34-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
 <loc>https://blog.ooops.me/archives.html</loc>
-<lastmod>2019-01-31T16:17:25-00:00</lastmod>
+<lastmod>2019-03-13T15:44:34-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
 <loc>https://blog.ooops.me/tags.html</loc>
-<lastmod>2019-01-31T16:17:25-00:00</lastmod>
+<lastmod>2019-03-13T15:44:34-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
 <loc>https://blog.ooops.me/categories.html</loc>
-<lastmod>2019-01-31T16:17:25-00:00</lastmod>
+<lastmod>2019-03-13T15:44:34-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
@@ -41,6 +41,13 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 <url>
 <loc>https://blog.ooops.me/pages/blog.html</loc>
 <lastmod>2016-10-15T14:07:00+08:00</lastmod>
+<changefreq>monthly</changefreq>
+<priority>0.3</priority>
+</url>
+
+<url>
+<loc>https://blog.ooops.me/pages/wiki.html</loc>
+<lastmod>2019-03-13T15:43:30+08:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.3</priority>
 </url>
