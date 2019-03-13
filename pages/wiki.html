@@ -117,31 +117,37 @@
 </li>
 </ul>
 </div>
-<h4 id="mac"><a class="toclink" href="#mac">Mac</a><a class="headerlink" href="#mac" title="Permanent link">&para;</a></h4>
-<h5 id="mac-os-x"><a class="toclink" href="#mac-os-x">Mac OS X 定时任务</a><a class="headerlink" href="#mac-os-x" title="Permanent link">&para;</a></h5>
-<p><code>[19-03-13 15:41] ➜  ~ cat $HOME/Library/LaunchAgents/com.ooops.survival.plist
+<h2 id="mac"><a class="toclink" href="#mac">Mac</a></h2>
+<h3 id="mac-os-x"><a class="toclink" href="#mac-os-x">Mac OS X 定时任务</a></h3>
+<p>```
+[19-03-13 15:41] ➜  ~ cat $HOME/Library/LaunchAgents/com.ooops.survival.plist
 &lt;?xml version="1.0" encoding="UTF-8"?&gt;
 &lt;!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd"&gt;
-&lt;plist version="1.0"&gt;
-    &lt;dict&gt;
-        &lt;key&gt;Label&lt;/key&gt;
-        &lt;string&gt;com.ooops.card.plist&lt;/string&gt;
-        &lt;key&gt;ProgramArguments&lt;/key&gt;
-        &lt;array&gt;
-          &lt;string&gt;/Users/ooops/test.sh&lt;/string&gt;
-        &lt;/array&gt;
-        &lt;key&gt;StartInterval&lt;/key&gt;
-        &lt;integer&gt;60&lt;/integer&gt;
-        &lt;key&gt;StandardOutPath&lt;/key&gt;
-        &lt;string&gt;/tmp/run.log&lt;/string&gt;
-        &lt;key&gt;StandardErrorPath&lt;/key&gt;
-        &lt;string&gt;/tmp/run.err&lt;/string&gt;
-    &lt;/dict&gt;
-&lt;/plist&gt;</code></p>
-<h5 id="mac-os-x_1"><a class="toclink" href="#mac-os-x_1">Mac OS X 发出通知</a><a class="headerlink" href="#mac-os-x_1" title="Permanent link">&para;</a></h5>
-<p><code>osascript -e 'display notification "通知内容" with title "标题" subtitle "子标题"'</code></p>
-<h5 id="linux"><a class="toclink" href="#linux">Linux 显示实时网速</a><a class="headerlink" href="#linux" title="Permanent link">&para;</a></h5>
-<p><code>ifstat -i en0 -S</code></p>
+<plist version="1.0">
+    <dict>
+        <key>Label</key>
+        <string>com.ooops.card.plist</string>
+        <key>ProgramArguments</key>
+        <array>
+          <string>/Users/ooops/test.sh</string>
+        </array>
+        <key>StartInterval</key>
+        <integer>60</integer>
+        <key>StandardOutPath</key>
+        <string>/tmp/run.log</string>
+        <key>StandardErrorPath</key>
+        <string>/tmp/run.err</string>
+    </dict>
+</plist></p>
+<p>```</p>
+<h3 id="mac-os-x_1"><a class="toclink" href="#mac-os-x_1">Mac OS X 发出通知</a></h3>
+<p>```</p>
+<p>osascript -e 'display notification "通知内容" with title "标题" subtitle "子标题"'</p>
+<p>```</p>
+<h3 id="linux"><a class="toclink" href="#linux">Linux 显示实时网速</a></h3>
+<p>```</p>
+<p>ifstat -i en0 -S</p>
+<p>```</p>
     </div>
     <script>
   var _hmt = _hmt || [];
