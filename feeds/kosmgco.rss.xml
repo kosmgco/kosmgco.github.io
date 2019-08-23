@@ -1,16 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
 <rss version="2.0"><channel><title>Kosmgco - kosmgco</title><link>https://blog.ooops.me/</link><description></description><lastBuildDate>Fri, 23 Aug 2019 00:00:00 +0800</lastBuildDate><item><title>做了几个小程序练手</title><link>https://blog.ooops.me/posts/2019/08/23/zuo-liao-ji-ge-xiao-cheng-xu-lian-shou.html</link><description>&lt;h3 id="_1"&gt;&lt;a class="toclink" href="#_1"&gt;归属地小喇叭&lt;/a&gt;&lt;/h3&gt;
 &lt;p&gt;查询 ip 地址，电话号码，右边，身份证号归属地
-&lt;img alt="" src="https://static.ooops.me/md-upload-1566548408749.png" /&gt;&lt;/p&gt;
+&lt;img alt="" src="https://static.ooops.me/md-upload-1566548408749.png" /&gt;
+小程序码
+&lt;img alt="" src="https://static.ooops.me/md-upload-1566548758522.png" /&gt;&lt;/p&gt;
 &lt;h3 id="etym"&gt;&lt;a class="toclink" href="#etym"&gt;Etym 词源助手&lt;/a&gt;&lt;/h3&gt;
 &lt;p&gt;英语学习好帮手
 &lt;img alt="" src="https://static.ooops.me/md-upload-1566548436254.png" /&gt;
 &lt;img alt="" src="https://static.ooops.me/md-upload-1566548471314.png" /&gt;
 &lt;img alt="" src="https://static.ooops.me/md-upload-1566548491022.png" /&gt;
-&lt;img alt="" src="https://static.ooops.me/md-upload-1566548504858.png" /&gt;&lt;/p&gt;
+&lt;img alt="" src="https://static.ooops.me/md-upload-1566548504858.png" /&gt;
+小程序码
+&lt;img alt="" src="https://static.ooops.me/md-upload-1566548852620.png" /&gt;&lt;/p&gt;
 &lt;h3 id="_2"&gt;&lt;a class="toclink" href="#_2"&gt;等日落&lt;/a&gt;&lt;/h3&gt;
 &lt;p&gt;等日落西山 等树木常青 等尘埃落定
-&lt;img alt="" src="https://static.ooops.me/md-upload-1566548522651.png" /&gt;&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">kosmgco</dc:creator><pubDate>Fri, 23 Aug 2019 00:00:00 +0800</pubDate><guid isPermaLink="false">tag:blog.ooops.me,2019-08-23:/posts/2019/08/23/zuo-liao-ji-ge-xiao-cheng-xu-lian-shou.html</guid><category>[小程序]</category></item><item><title>搜索引擎结果自定义规则过滤Chrome插件</title><link>https://blog.ooops.me/posts/2018/12/26/sou-suo-yin-qing-jie-guo-zi-ding-yi-gui-ze-guo-lu-chromecha-jian.html</link><description>&lt;p&gt;使用search-engine-filter过滤制定规则的搜索结果&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">kosmgco</dc:creator><pubDate>Wed, 26 Dec 2018 00:00:00 +0800</pubDate><guid isPermaLink="false">tag:blog.ooops.me,2018-12-26:/posts/2018/12/26/sou-suo-yin-qing-jie-guo-zi-ding-yi-gui-ze-guo-lu-chromecha-jian.html</guid></item><item><title>Mac Shadowsocks 多服务器使用 HAProxy 负载均衡器</title><link>https://blog.ooops.me/posts/2018/12/18/mac-shadowsocks-duo-fu-wu-qi-shi-yong-haproxy-fu-zai-jun-heng-qi.html</link><description></description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">kosmgco</dc:creator><pubDate>Tue, 18 Dec 2018 00:00:00 +0800</pubDate><guid isPermaLink="false">tag:blog.ooops.me,2018-12-18:/posts/2018/12/18/mac-shadowsocks-duo-fu-wu-qi-shi-yong-haproxy-fu-zai-jun-heng-qi.html</guid></item><item><title>使用 fail2ban 保护服务器</title><link>https://blog.ooops.me/posts/2018/11/08/shi-yong-fail2ban-bao-hu-fu-wu-qi.html</link><description>&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;sudo apt install fail2ban
+&lt;img alt="" src="https://static.ooops.me/md-upload-1566548522651.png" /&gt;
+小程序码
+&lt;img alt="" src="https://static.ooops.me/md-upload-1566549056764.png" /&gt;&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">kosmgco</dc:creator><pubDate>Fri, 23 Aug 2019 00:00:00 +0800</pubDate><guid isPermaLink="false">tag:blog.ooops.me,2019-08-23:/posts/2019/08/23/zuo-liao-ji-ge-xiao-cheng-xu-lian-shou.html</guid><category>[小程序]</category></item><item><title>搜索引擎结果自定义规则过滤Chrome插件</title><link>https://blog.ooops.me/posts/2018/12/26/sou-suo-yin-qing-jie-guo-zi-ding-yi-gui-ze-guo-lu-chromecha-jian.html</link><description>&lt;p&gt;使用search-engine-filter过滤制定规则的搜索结果&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">kosmgco</dc:creator><pubDate>Wed, 26 Dec 2018 00:00:00 +0800</pubDate><guid isPermaLink="false">tag:blog.ooops.me,2018-12-26:/posts/2018/12/26/sou-suo-yin-qing-jie-guo-zi-ding-yi-gui-ze-guo-lu-chromecha-jian.html</guid></item><item><title>Mac Shadowsocks 多服务器使用 HAProxy 负载均衡器</title><link>https://blog.ooops.me/posts/2018/12/18/mac-shadowsocks-duo-fu-wu-qi-shi-yong-haproxy-fu-zai-jun-heng-qi.html</link><description></description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">kosmgco</dc:creator><pubDate>Tue, 18 Dec 2018 00:00:00 +0800</pubDate><guid isPermaLink="false">tag:blog.ooops.me,2018-12-18:/posts/2018/12/18/mac-shadowsocks-duo-fu-wu-qi-shi-yong-haproxy-fu-zai-jun-heng-qi.html</guid></item><item><title>使用 fail2ban 保护服务器</title><link>https://blog.ooops.me/posts/2018/11/08/shi-yong-fail2ban-bao-hu-fu-wu-qi.html</link><description>&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;sudo apt install fail2ban
 
 cd /etc/fail2ban/
 
