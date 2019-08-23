@@ -5,28 +5,28 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
 <url>
 <loc>https://blog.ooops.me/</loc>
-<lastmod>2019-03-13T17:13:52-00:00</lastmod>
+<lastmod>2019-08-23T16:22:19-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
 <loc>https://blog.ooops.me/archives.html</loc>
-<lastmod>2019-03-13T17:13:52-00:00</lastmod>
+<lastmod>2019-08-23T16:22:19-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
 <loc>https://blog.ooops.me/tags.html</loc>
-<lastmod>2019-03-13T17:13:52-00:00</lastmod>
+<lastmod>2019-08-23T16:22:19-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
 <loc>https://blog.ooops.me/categories.html</loc>
-<lastmod>2019-03-13T17:13:52-00:00</lastmod>
+<lastmod>2019-08-23T16:22:19-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
@@ -50,6 +50,13 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 <lastmod>2019-03-13T15:43:30+08:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.3</priority>
+</url>
+
+<url>
+<loc>https://blog.ooops.me/posts/2019/08/23/zuo-liao-ji-ge-xiao-cheng-xu-lian-shou.html</loc>
+<lastmod>2019-08-23T00:00:00+08:00</lastmod>
+<changefreq>monthly</changefreq>
+<priority>0.7</priority>
 </url>
 
 <url>
@@ -284,6 +291,13 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 </url>
 
 <url>
+<loc>https://blog.ooops.me/category/fe.html</loc>
+<lastmod>2019-08-23T00:00:00+08:06</lastmod>
+<changefreq>daily</changefreq>
+<priority>0.5</priority>
+</url>
+
+<url>
 <loc>https://blog.ooops.me/category/golang.html</loc>
 <lastmod>2018-01-16T00:00:00+08:06</lastmod>
 <changefreq>daily</changefreq>
@@ -480,6 +494,13 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 </url>
 
 <url>
+<loc>https://blog.ooops.me/tag/pycharm.html</loc>
+<lastmod>2016-02-02T18:46:40+08:06</lastmod>
+<changefreq>daily</changefreq>
+<priority>0.5</priority>
+</url>
+
+<url>
 <loc>https://blog.ooops.me/tag/https.html</loc>
 <lastmod>2016-12-10T00:00:00+08:06</lastmod>
 <changefreq>daily</changefreq>
@@ -536,8 +557,8 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 </url>
 
 <url>
-<loc>https://blog.ooops.me/tag/pycharm.html</loc>
-<lastmod>2016-02-02T18:46:40+08:06</lastmod>
+<loc>https://blog.ooops.me/tag/xiao-cheng-xu.html</loc>
+<lastmod>2019-08-23T00:00:00+08:06</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
@@ -684,7 +705,7 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
 <url>
 <loc>https://blog.ooops.me/author/kosmgco.html</loc>
-<lastmod>2018-12-26T00:00:00+08:06</lastmod>
+<lastmod>2019-08-23T00:00:00+08:06</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
