@@ -1,13 +1,8 @@
 # Projects
 
-## [tldr](https://tldr.ooops.me)
+<div class="github-card" data-github="kosmgco/tldr-web" data-width="400" data-height="" data-theme="default"></div>
 
-Simplified and community-driven man pages
+<div class="github-card" data-github="kosmgco/ss-subscribe-gen" data-width="400" data-height="" data-theme="default"></div>
 
-## [ss-subscribe-gen](https://ooops.me/ss-subscribe-gen/)
-
-generate ss/ssr subscribe file content
-
-## [blog](https://blog.ooops.me)
-
-blog
+<div class="github-card" data-github="kosmgco/kosmgco.github.io" data-width="400" data-height="" data-theme="default"></div>
+<script src="//cdn.jsdelivr.net/github-cards/latest/widget.js"></script>
